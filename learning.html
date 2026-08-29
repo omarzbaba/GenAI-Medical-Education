@@ -7,12 +7,13 @@
   <meta name="description" content="AI for self-directed learning: concept explanation, board preparation, summarization, and study planning — with a guided walkthrough of a real, verified prompt run.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    .pillar-hero { border-left: 4px solid var(--p1); padding-left: clamp(1rem, 3vw, 2rem); }
     .wt-p1 { --wt-color: var(--p1); --wt-wash: var(--p1-wash); }
+    .keyline mark { --kl-wash: var(--p1-wash); }
+    .objectives li::before { --ob: var(--p1); }
   </style>
 </head>
 <body>
@@ -39,15 +40,38 @@
 <main id="main">
 
   <section class="hero container">
-    <div class="pillar-hero">
-      <p class="eyebrow" style="color:var(--p1)">Pillar 1 of 4</p>
-      <h1>Learning</h1>
-      <p class="lede">
-        The trainee is at the keyboard. This pillar covers the self-directed
-        study that carries a clinician from board preparation through a career
-        of tracking new markers and successive classifications — with AI as a
-        high-availability tutor, <em>not</em> a source of truth.
-      </p>
+    <div class="hero-grid">
+      <div>
+        <h1><span class="h-kicker" style="--hk:var(--p1)">Pillar 1 of 4</span>Learning</h1>
+        <p class="lede">
+          The trainee is at the keyboard. This pillar covers the self-directed
+          study that carries a clinician from board preparation through a career
+          of tracking new markers and successive classifications — with AI as a
+          high-availability tutor, <em>not</em> a source of truth.
+        </p>
+        <p class="keyline" style="margin-top:2rem">Foundational competence is
+          the precondition for using AI safely —
+          <mark>not one more thing AI can supply.</mark></p>
+      </div>
+      <aside class="aside-panel" aria-label="In this pillar">
+        <h2>After this pillar, you can</h2>
+        <ul class="objectives">
+          <li>Calibrate a prompt to your training level instead of accepting the
+              model's default reader</li>
+          <li>Run an <strong>attempt-first</strong> self-check: your answer
+              first, the model as critic</li>
+          <li>Name exactly what to verify before trusting an explanation, quiz
+              item, or summary</li>
+          <li>Choose the right tool tier for text versus image-anchored
+              questions</li>
+        </ul>
+        <h2 style="margin-top:1.5rem">On this page</h2>
+        <ul class="aside-links">
+          <li><a href="#wt1-heading">Walkthrough: a real, verified prompt run</a></li>
+          <li><a href="library.html#/library/pillar-1-learning/index">All 33 Learning prompts</a></li>
+          <li><a href="anatomy.html">The five-part prompt anatomy</a></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -64,7 +88,9 @@
         stance: a first-pass tutor within bounds set by tier, modality, and
         difficulty.
       </p>
-      <h3>The four learning tasks</h3>
+    </div>
+    <div style="max-width:64rem">
+      <h3 style="margin-top:2rem">The four learning tasks</h3>
       <div class="table-scroll"><table>
         <tr><th>Task</th><th>What AI does well</th><th>What you verify</th></tr>
         <tr>
@@ -93,8 +119,7 @@
 
   <section class="section container" aria-labelledby="wt1-heading">
     <div class="section-head">
-      <p class="eyebrow" style="color:var(--p1)">Interactive walkthrough</p>
-      <h2 id="wt1-heading">A first-year resident meets a transfusion reaction</h2>
+      <h2 id="wt1-heading">Walkthrough: a first-year resident meets a transfusion reaction</h2>
       <p class="measure">
         This walkthrough reproduces the manuscript's worked example
         (Supplementary Table S3) — a single, real prompt run with the

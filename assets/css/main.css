@@ -37,19 +37,20 @@
   --warn-wash: oklch(96% 0.02 30);
 
   --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
-  --sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --sans: "Source Sans 3", -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
 
-  --text-base: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  --text-base: clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem);
   --text-sm: 0.9375rem;
   --text-xs: 0.875rem;
-  --text-h1: clamp(2.4rem, 1.5rem + 3.4vw, 4rem);
-  --text-h2: clamp(1.7rem, 1.35rem + 1.3vw, 2.4rem);
-  --text-h3: 1.4rem;
+  --text-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-h1: clamp(2.3rem, 1.6rem + 2.6vw, 3.4rem);
+  --text-h2: clamp(1.65rem, 1.4rem + 1vw, 2.15rem);
+  --text-h3: 1.35rem;
 
-  --measure: 68ch;
+  --measure: 66ch;
   --wide: 84rem;
-  --space-section: clamp(3.5rem, 2.5rem + 4vw, 7rem);
+  --space-section: clamp(3rem, 2.25rem + 2.5vw, 5.25rem);
   --dur: 220ms;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -97,6 +98,9 @@ a:hover { color: var(--accent-ink); }
   border-radius: 2px;
 }
 ::selection { background: var(--accent-wash); }
+:root { caret-color: var(--accent); accent-color: var(--accent); }
+* { scrollbar-width: thin; scrollbar-color: var(--rule-strong) transparent; }
+table { font-variant-numeric: tabular-nums; }
 
 h1, h2, h3, h4 {
   font-family: var(--serif);
@@ -176,21 +180,120 @@ h3 { font-size: var(--text-h3); }
 .pillar-nav .spacer { margin-left: auto; }
 
 /* ----------------------------------------------------------------- hero */
-.hero { padding-block: var(--space-section); }
-.eyebrow {
-  font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--accent); margin: 0 0 1rem;
+.hero { padding-block: clamp(2.5rem, 2rem + 2vw, 4.5rem); }
+.hero-grid {
+  display: grid; gap: clamp(2rem, 4vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+@media (min-width: 64rem) {
+  .hero-grid { grid-template-columns: minmax(0, 7fr) minmax(20rem, 5fr); }
+}
+/* Context line integrated INSIDE a heading element (not a floating label). */
+.h-kicker {
+  display: block; font-family: var(--sans);
+  font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--hk, var(--accent));
+  margin-bottom: 0.55rem;
 }
 .hero h1 { max-width: 24ch; }
-.hero .lede {
-  font-size: clamp(1.15rem, 1.05rem + 0.6vw, 1.45rem);
-  line-height: 1.6;
-  color: var(--ink-soft); max-width: 56ch; margin-top: 1.4rem;
+.hero .lede, .lede {
+  font-size: var(--text-lg);
+  line-height: 1.55;
+  color: var(--ink-soft); max-width: 58ch; margin-top: 1.4rem;
 }
 .hero .cite-line {
   margin-top: 2rem; font-size: var(--text-sm); color: var(--ink-faint);
-  border-left: 2px solid var(--rule-strong); padding-left: 1rem; max-width: 62ch;
+  border-top: 1px solid var(--rule); padding-top: 1rem; max-width: 62ch;
 }
+
+/* At-a-glance panel — fills the hero's right rail with real content */
+.glance {
+  border: 1px solid var(--rule-strong); border-radius: 14px;
+  background: var(--paper-raised); overflow: hidden;
+  box-shadow: 0 1px 2px oklch(20% 0.01 270 / 0.05), 0 8px 24px oklch(20% 0.01 270 / 0.06);
+}
+.glance .glance-head {
+  padding: 1rem 1.4rem; font-weight: 600; font-size: var(--text-sm);
+  border-bottom: 1px solid var(--rule); color: var(--ink-soft);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.glance a.row {
+  display: flex; align-items: baseline; gap: 0.9rem;
+  padding: 1rem 1.4rem; text-decoration: none; color: inherit;
+  border-bottom: 1px solid var(--rule);
+  transition: background var(--dur);
+}
+.glance a.row:hover { background: var(--gr-wash, var(--paper-sunken)); }
+.glance a.row .n {
+  font-family: var(--serif); font-style: italic; color: var(--gr, var(--accent));
+  min-width: 1.2rem;
+}
+.glance a.row b { font-weight: 600; }
+.glance a.row .ct { margin-left: auto; font-size: var(--text-xs); color: var(--ink-faint); white-space: nowrap; }
+.glance .row.-p1 { --gr: var(--p1); --gr-wash: var(--p1-wash); }
+.glance .row.-p2 { --gr: var(--p2); --gr-wash: var(--p2-wash); }
+.glance .row.-p3 { --gr: var(--p3); --gr-wash: var(--p3-wash); }
+.glance .row.-p4 { --gr: var(--p4); --gr-wash: var(--p4-wash); }
+.glance .glance-foot {
+  padding: 1rem 1.4rem; font-size: var(--text-sm); color: var(--ink-soft);
+}
+
+/* Key line — the page's central idea, set to be remembered */
+.keyline {
+  font-family: var(--serif); font-weight: 500; font-style: italic;
+  font-size: clamp(1.45rem, 1.2rem + 1.1vw, 2.1rem);
+  line-height: 1.35; letter-spacing: -0.01em;
+  max-width: 30ch; margin: 0;
+  text-wrap: balance;
+}
+.keyline mark {
+  background: linear-gradient(transparent 62%, var(--kl-wash, var(--accent-wash)) 62%);
+  color: inherit; padding-inline: 0.08em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* Split layout — prose + sticky educational rail */
+.split {
+  display: grid; gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+@media (min-width: 64rem) {
+  .split { grid-template-columns: minmax(0, 1fr) minmax(19rem, 24rem); }
+  .split > aside { position: sticky; top: 5.5rem; }
+}
+.aside-panel {
+  border: 1px solid var(--rule-strong); border-radius: 14px;
+  background: var(--paper-raised); padding: 1.5rem 1.6rem;
+  box-shadow: 0 1px 2px oklch(20% 0.01 270 / 0.05), 0 8px 24px oklch(20% 0.01 270 / 0.06);
+}
+.aside-panel + .aside-panel { margin-top: 1.25rem; }
+.aside-panel h2, .aside-panel h3 {
+  font-family: var(--sans); font-size: var(--text-sm); font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--ink-soft); margin: 0 0 1rem;
+}
+.objectives { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
+.objectives li {
+  position: relative; padding-left: 2rem;
+  font-size: var(--text-sm); line-height: 1.55;
+}
+.objectives li::before {
+  content: ""; position: absolute; left: 0; top: 0.12rem;
+  width: 1.25rem; height: 1.25rem; border-radius: 50%;
+  background-color: var(--ob, var(--accent));
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>') center / contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>') center / contain no-repeat;
+}
+.aside-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+.aside-links a {
+  display: block; padding: 0.5rem 0.6rem; margin-inline: -0.6rem;
+  border-radius: 8px; text-decoration: none; color: var(--ink-soft);
+  font-size: var(--text-sm);
+  transition: background var(--dur), color var(--dur);
+}
+.aside-links a:hover { background: var(--paper-sunken); color: var(--ink); }
 
 /* -------------------------------------------------------------- pillars */
 .pillar-grid {
@@ -199,44 +302,52 @@ h3 { font-size: var(--text-h3); }
   grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
 }
 .pillar-card {
-  background: var(--paper); padding: 1.75rem 1.5rem 1.5rem;
-  display: flex; flex-direction: column; gap: 0.6rem;
+  background: var(--paper); padding: 2rem 1.75rem 1.75rem;
+  display: flex; flex-direction: column; gap: 0.7rem;
   text-decoration: none; color: inherit; position: relative;
   transition: background var(--dur) var(--ease);
 }
-.pillar-card:hover { background: var(--paper-raised); }
-.pillar-card::before {
-  content: ""; position: absolute; inset: 0 auto 0 0; width: 3px;
-  background: var(--pc, var(--accent));
-  transform: scaleY(0.35); transform-origin: top;
-  transition: transform var(--dur) var(--ease);
+.pillar-card .topics {
+  margin: 0.25rem 0 0; padding: 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: 0.35rem;
 }
-.pillar-card:hover::before { transform: scaleY(1); }
+.pillar-card .topics li {
+  font-size: var(--text-xs); color: var(--ink-soft);
+  border: 1px solid var(--rule); border-radius: 999px;
+  padding: 0.18rem 0.6rem;
+}
+.pillar-card:hover { background: var(--pcw, var(--paper-raised)); }
 .pillar-card .num {
   font-family: var(--serif); font-size: 0.95rem; font-style: italic;
   color: var(--pc, var(--accent));
 }
 .pillar-card h3 { margin: 0; }
-.pillar-card p { margin: 0; font-size: var(--text-sm); color: var(--ink-soft); flex-grow: 1; }
+.pillar-card p { margin: 0; font-size: var(--text-sm); line-height: 1.55; color: var(--ink-soft); flex-grow: 1; }
 .pillar-card .count { font-size: var(--text-xs); color: var(--ink-faint); }
-.pillar-card.-p1 { --pc: var(--p1); } .pillar-card.-p2 { --pc: var(--p2); }
-.pillar-card.-p3 { --pc: var(--p3); } .pillar-card.-p4 { --pc: var(--p4); }
+.pillar-card.-p1 { --pc: var(--p1); --pcw: var(--p1-wash); }
+.pillar-card.-p2 { --pc: var(--p2); --pcw: var(--p2-wash); }
+.pillar-card.-p3 { --pc: var(--p3); --pcw: var(--p3-wash); }
+.pillar-card.-p4 { --pc: var(--p4); --pcw: var(--p4-wash); }
 
 /* ------------------------------------------------------------- sections */
 .section { padding-block: var(--space-section); }
 .section + .section { border-top: 1px solid var(--rule); }
-.section-head { margin-bottom: 2.25rem; }
-.section-head p { color: var(--ink-soft); max-width: var(--measure); }
+.section-head { margin-bottom: 2rem; }
+.section-head h2 { margin-bottom: 0.75rem; }
+.section-head p { color: var(--ink-soft); max-width: var(--measure); font-size: var(--text-lg); line-height: 1.55; }
 
 /* ---------------------------------------------------------------- prose */
 .prose { max-width: var(--measure); }
 .prose p, .prose li { color: var(--ink); }
+.prose > p:first-of-type { font-size: var(--text-lg); line-height: 1.55; color: var(--ink); }
+.prose strong { font-weight: 650; }
 .prose h2 { margin-top: 2.25em; }
 .prose h3 { margin-top: 1.75em; }
 .prose blockquote {
-  margin: 1.5rem 0; padding: 0.25rem 0 0.25rem 1.25rem;
-  border-left: 3px solid var(--accent); color: var(--ink-soft);
-  font-family: var(--serif); font-size: 1.08em; font-style: italic;
+  margin: 1.75rem 0; padding: 0 0 0 1.4rem;
+  border-left: 1px solid var(--rule-strong); color: var(--ink-soft);
+  font-family: var(--serif); font-size: 1.15em; font-style: italic;
+  line-height: 1.6;
 }
 .prose code {
   font-family: var(--mono); font-size: 0.86em;
@@ -281,8 +392,9 @@ h3 { font-size: var(--text-h3); }
 
 /* --------------------------------------------------------- walkthroughs */
 .walkthrough {
-  border: 1px solid var(--rule-strong); border-radius: 12px;
+  border: 1px solid var(--rule-strong); border-radius: 14px;
   background: var(--paper-raised); overflow: hidden; margin-block: 2rem;
+  box-shadow: 0 1px 2px oklch(20% 0.01 270 / 0.05), 0 10px 30px oklch(20% 0.01 270 / 0.07);
 }
 .walkthrough header {
   padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--rule);
@@ -307,10 +419,10 @@ h3 { font-size: var(--text-h3); }
   margin-bottom: 0.5rem;
 }
 .wt-step h4 { font-family: var(--serif); font-size: 1.4rem; margin: 0 0 0.75rem; }
-.wt-step .narrative { color: var(--ink-soft); max-width: var(--measure); }
+.wt-step .narrative { color: var(--ink-soft); max-width: 75ch; }
 .wt-output {
-  border: 1px solid var(--rule); border-left: 3px solid var(--rule-strong);
-  border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  border: 1px solid var(--rule);
+  border-radius: 10px; padding: 1.1rem 1.35rem; margin: 1.25rem 0;
   background: var(--paper); font-size: var(--text-sm);
 }
 .wt-output .who {
@@ -479,9 +591,9 @@ h3 { font-size: var(--text-h3); }
 
 .principle-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
 .principle {
-  border-top: 3px solid var(--accent); background: var(--paper-raised);
-  border-inline: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-  border-radius: 0 0 10px 10px; padding: 1.2rem 1.25rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule); border-radius: 12px;
+  padding: 1.4rem 1.5rem;
 }
 .principle h3, .principle h4 { margin: 0 0 0.4rem; font-size: 1.02rem; font-family: var(--serif); }
 .principle p { margin: 0.35rem 0 0; font-size: var(--text-sm); color: var(--ink-soft); }

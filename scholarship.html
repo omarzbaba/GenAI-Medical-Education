@@ -7,12 +7,13 @@
   <meta name="description" content="AI for scholarship: ideation, literature scoping, language editing, pre-submission critique, and the six-step grant-development sequence — bounded by authorship and disclosure rules.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    .pillar-hero { border-left: 4px solid var(--p3); padding-left: clamp(1rem, 3vw, 2rem); }
     .wt-p3 { --wt-color: var(--p3); --wt-wash: var(--p3-wash); }
+    .keyline mark { --kl-wash: var(--p3-wash); }
+    .objectives li::before { --ob: var(--p3); }
   </style>
 </head>
 <body>
@@ -39,30 +40,53 @@
 <main id="main">
 
   <section class="hero container">
-    <div class="pillar-hero">
-      <p class="eyebrow" style="color:var(--p3)">Pillar 3 of 4</p>
-      <h1>Scholarship</h1>
-      <p class="lede">
-        Clinician-educators are also scholars — designing studies, scoping
-        literature, drafting manuscripts, writing grants, often in fragments of
-        protected time. This is where AI use collides most directly with formal
-        rules: authorship criteria, disclosure requirements, and confidentiality
-        norms written specifically for LLMs. The organizing principle is
-        narrower than in the other pillars: <strong>AI can accelerate the
-        scaffolding of scholarly work, but the intellectual claims, the data,
-        and the accountability remain human.</strong>
-      </p>
-      <p class="cite-line">
-        ICMJE and COPE are explicit: AI cannot be an author, because it cannot
-        take responsibility for the work. Human authors remain accountable for
-        AI-assisted content, and disclosure is increasingly mandatory.
-      </p>
+    <div class="hero-grid">
+      <div>
+        <h1><span class="h-kicker" style="--hk:var(--p3)">Pillar 3 of 4</span>Scholarship</h1>
+        <p class="lede">
+          Clinician-educators are also scholars — designing studies, scoping
+          literature, drafting manuscripts, writing grants, often in fragments
+          of protected time. This is where AI use collides most directly with
+          formal rules: authorship criteria, disclosure requirements, and
+          confidentiality norms written specifically for LLMs.
+        </p>
+        <p class="keyline" style="margin-top:2rem">AI can accelerate the
+          scaffolding of scholarly work, but <mark>the claims, the data, and
+          the accountability remain human.</mark></p>
+        <p class="cite-line">
+          ICMJE and COPE are explicit: AI cannot be an author, because it
+          cannot take responsibility for the work. Human authors remain
+          accountable for AI-assisted content, and disclosure is increasingly
+          mandatory.
+        </p>
+      </div>
+      <aside class="aside-panel" aria-label="In this pillar">
+        <h2>After this pillar, you can</h2>
+        <ul class="objectives">
+          <li>Use AI for ideation and scoping without ever taking a citation
+              from it</li>
+          <li>Edit language under guardrails that keep every number and hedge
+              intact</li>
+          <li>Run a reviewer simulation on your own unsubmitted draft — inside
+              the three binding conditions</li>
+          <li>Work the six-step grant sequence and write an honest disclosure
+              statement</li>
+        </ul>
+        <h2 style="margin-top:1.5rem">On this page</h2>
+        <ul class="aside-links">
+          <li><a href="#wt3-heading">The six-step grant sequence</a></li>
+          <li><a href="#critique-heading">Pre-submission critique: the three conditions</a></li>
+          <li><a href="library.html#/library/pillar-3-scholarship/index">All 14 Scholarship prompts</a></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
   <section class="section container">
     <div class="prose">
       <h2>The scholarly tasks, in one view</h2>
+    </div>
+    <div style="max-width:70rem; margin-top:1.5rem">
       <div class="table-scroll"><table>
         <tr><th>Task</th><th>Safe role for AI</th><th>The hard line</th></tr>
         <tr>
@@ -101,8 +125,7 @@
 
   <section class="section container" aria-labelledby="wt3-heading">
     <div class="section-head">
-      <p class="eyebrow" style="color:var(--p3)">Interactive walkthrough</p>
-      <h2 id="wt3-heading">The six-step grant-development sequence</h2>
+      <h2 id="wt3-heading">Walkthrough: the six-step grant-development sequence</h2>
       <p class="measure">
         The hard part of a grant is often not producing text but articulating
         the significance of work you know intimately — deep immersion makes it
@@ -226,7 +249,6 @@ references or scientific findings.</pre></div>
 
   <section class="section container" aria-labelledby="critique-heading">
     <div class="section-head">
-      <p class="eyebrow" style="color:var(--p3)">The editorial line</p>
       <h2 id="critique-heading">Pre-submission critique — three binding conditions</h2>
     </div>
     <div class="prose">

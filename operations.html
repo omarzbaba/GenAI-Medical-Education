@@ -7,12 +7,13 @@
   <meta name="description" content="The adjacent pillar: SOPs, templates, documentation, and correspondence — drafted by AI, verified and signed by a person.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    .pillar-hero { border-left: 4px solid var(--p4); padding-left: clamp(1rem, 3vw, 2rem); }
     .wt-p4 { --wt-color: var(--p4); --wt-wash: var(--p4-wash); }
+    .keyline mark { --kl-wash: var(--p4-wash); }
+    .objectives li::before { --ob: var(--p4); }
   </style>
 </head>
 <body>
@@ -39,31 +40,51 @@
 <main id="main">
 
   <section class="hero container">
-    <div class="pillar-hero">
-      <p class="eyebrow" style="color:var(--p4)">Pillar 4 of 4 — adjacent by design</p>
-      <h1>Workflow &amp; Operations</h1>
-      <p class="lede">
-        Much of the day is spent on neither instruction nor scholarship but on
-        the operational text that surrounds them — SOPs, report templates,
-        documentation, correspondence, meeting notes. This pillar is
-        deliberately short, and <strong>the brevity is a claim, not an
-        omission</strong>: operational tooling is adjacent to education, not
-        part of it.
-      </p>
-      <p class="cite-line">
-        It matters here for two reasons: trainees learn the profession partly
-        by producing this documentation under supervision, and the drafting
-        habits and guardrails from the first three pillars transfer to it
-        directly. Where operational use shades into LIS deployment and data
-        governance, it leaves the scope of an education framework.
-      </p>
+    <div class="hero-grid">
+      <div>
+        <h1><span class="h-kicker" style="--hk:var(--p4)">Pillar 4 of 4 — adjacent by design</span>Workflow &amp; Operations</h1>
+        <p class="lede">
+          Much of the day is spent on neither instruction nor scholarship but
+          on the operational text that surrounds them — SOPs, report templates,
+          documentation, correspondence, meeting notes. This pillar is
+          deliberately short, and <strong>the brevity is a claim, not an
+          omission</strong>: operational tooling is adjacent to education, not
+          part of it.
+        </p>
+        <p class="keyline" style="margin-top:2rem">The load-bearing
+          instruction: <mark>flag what's incomplete — don't invent
+          detail.</mark></p>
+        <p class="cite-line">
+          Trainees learn the profession partly by producing this documentation
+          under supervision, and the habits from the first three pillars
+          transfer directly. Where operational use shades into LIS deployment
+          and data governance, it leaves the scope of an education framework.
+        </p>
+      </div>
+      <aside class="aside-panel" aria-label="In this pillar">
+        <h2>After this pillar, you can</h2>
+        <ul class="objectives">
+          <li>Turn procedural notes into a first-draft SOP that flags its own
+              gaps</li>
+          <li>Use flagged gaps as the teaching moment — each one sends the
+              trainee back to the bench or the local manual</li>
+          <li>Route every draft through director review before adoption</li>
+          <li>Recycle corrected drafts into teaching and onboarding
+              material</li>
+        </ul>
+        <h2 style="margin-top:1.5rem">On this page</h2>
+        <ul class="aside-links">
+          <li><a href="#wt4-heading">Walkthrough: notes → SOP</a></li>
+          <li><a href="library.html#/library/pillar-4-workflow-operations/index">All 34 Workflow &amp; Ops prompts</a></li>
+          <li><a href="guardrails.html">The shared guardrails</a></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
   <section class="section container" aria-labelledby="wt4-heading">
     <div class="section-head">
-      <p class="eyebrow" style="color:var(--p4)">Interactive walkthrough</p>
-      <h2 id="wt4-heading">Notes → SOP: drafting under supervision</h2>
+      <h2 id="wt4-heading">Walkthrough: notes → SOP, drafting under supervision</h2>
       <p class="measure">
         One prompt pattern covers most operational drafting. The educational
         value is indirect but real: a resident who drafts an SOP with AI and

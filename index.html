@@ -7,7 +7,7 @@
   <meta name="description" content="Interactive digital companion to “Generative AI in Medical Education and Scholarship: A Practical Framework and Prompt Toolkit from Pathology” — four pillars, guided walkthroughs, and a 102-prompt library with verification steps.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -35,30 +35,52 @@
 <main id="main">
 
   <section class="hero container">
-    <p class="eyebrow">Digital companion to the manuscript</p>
-    <h1>A practical framework for generative AI in medical education and scholarship</h1>
-    <p class="lede">
-      Trainees and educators already use ChatGPT, Claude, Copilot, and Gemini for
-      studying, teaching, literature scoping, and manuscript writing — mostly
-      improvised, with little formal training. This companion turns the
-      manuscript's framework into something you can walk through: four pillars,
-      guided scenario demos, and a library of <strong>102 prompts</strong>, each
-      paired with its intent, expected output, failure modes, and an explicit
-      human-verification step.
-    </p>
-    <p class="cite-line">
-      Companion to: Baba OZ, Lele T, Chamala S.
-      <em>Generative AI in Medical Education and Scholarship: A Practical
-      Framework and Prompt Toolkit from Pathology.</em>
-      The framework was worked through in pathology — a demanding case, with
-      image-anchored reasoning and fast-moving classifications — but the
-      task-to-tool-to-verification logic is written for medical education broadly.
-    </p>
+    <div class="hero-grid">
+      <div>
+        <h1><span class="h-kicker">Digital companion to the manuscript</span>
+        A practical framework for generative AI in medical education and scholarship</h1>
+        <p class="lede">
+          Trainees and educators already use ChatGPT, Claude, Copilot, and Gemini
+          for studying, teaching, literature scoping, and manuscript writing —
+          mostly improvised, with little formal training. This companion turns
+          the manuscript's framework into something you can walk through:
+          <strong>four pillars, guided scenario demos, and a library of 102
+          prompts</strong>, each paired with its intent, expected output, failure
+          modes, and an explicit human-verification step.
+        </p>
+        <p class="keyline" style="margin-top:2rem">Across all four pillars,
+          <mark>AI shifts effort without shifting accountability.</mark></p>
+        <p class="cite-line">
+          Companion to: Baba OZ, Lele T, Chamala S.
+          <em>Generative AI in Medical Education and Scholarship: A Practical
+          Framework and Prompt Toolkit from Pathology.</em>
+          Worked through in pathology — a demanding case, image-anchored and
+          fast-moving — but written for medical education broadly.
+        </p>
+      </div>
+      <aside class="glance" aria-label="The framework at a glance">
+        <div class="glance-head">The framework at a glance</div>
+        <a class="row -p1" href="learning.html"><span class="n">1</span>
+          <b>Learning</b><span class="ct">33 prompts</span></a>
+        <a class="row -p2" href="teaching.html"><span class="n">2</span>
+          <b>Teaching &amp; Assessment</b><span class="ct">21 prompts</span></a>
+        <a class="row -p3" href="scholarship.html"><span class="n">3</span>
+          <b>Scholarship</b><span class="ct">14 prompts</span></a>
+        <a class="row -p4" href="operations.html"><span class="n">4</span>
+          <b>Workflow &amp; Operations</b><span class="ct">34 prompts</span></a>
+        <div class="glance-foot">
+          Plus an <a href="anatomy.html">interactive prompt anatomy</a>,
+          <a href="guardrails.html">shared guardrails</a> with a
+          data-sensitivity check, and
+          <a href="library.html#/guides/index">18 how-to guides</a> —
+          all CC&nbsp;BY&nbsp;4.0.
+        </div>
+      </aside>
+    </div>
   </section>
 
   <section class="section container" aria-labelledby="pillars-heading">
     <div class="section-head">
-      <p class="eyebrow">The framework</p>
       <h2 id="pillars-heading">Four pillars, one shared obligation</h2>
       <p>
         Each pillar pairs a set of tasks with the audience it serves and the
@@ -71,31 +93,39 @@
       <a class="pillar-card -p1" href="learning.html">
         <span class="num">Pillar 1</span>
         <h3>Learning</h3>
-        <p>Self-directed study — concept explanation, board preparation,
-           lecture summarization, study plans — with trust calibrated to the
-           task and the tool.</p>
+        <p>Self-directed study, with trust calibrated to the task and the
+           tool — AI as a high-availability tutor, not a source of truth.</p>
+        <ul class="topics"><li>Concept work</li><li>Self-quizzing</li>
+          <li>Case drilling</li><li>Reading the literature</li>
+          <li>Source-grounded AI</li></ul>
         <span class="count">33 prompts · guided walkthrough</span>
       </a>
       <a class="pillar-card -p2" href="teaching.html">
         <span class="num">Pillar 2 — the anchor</span>
         <h3>Teaching, Curriculum &amp; Assessment</h3>
-        <p>The faculty-facing work: objectives, cases, question banks.
-           The model proposes; a content expert disposes.</p>
+        <p>The faculty-facing work: the model proposes; a content expert
+           disposes.</p>
+        <ul class="topics"><li>Objectives</li><li>Case vignettes</li>
+          <li>Question banks</li><li>Lectures</li><li>Feedback</li></ul>
         <span class="count">21 prompts · draft→review→extend demo</span>
       </a>
       <a class="pillar-card -p3" href="scholarship.html">
         <span class="num">Pillar 3</span>
         <h3>Scholarship</h3>
-        <p>Ideation, literature scoping, language editing, pre-submission
-           critique, grants — where AI use meets authorship and disclosure
-           rules.</p>
+        <p>Where AI use meets authorship, disclosure, and confidentiality
+           rules written specifically for LLMs.</p>
+        <ul class="topics"><li>Ideation</li><li>Literature scoping</li>
+          <li>Language editing</li><li>Reviewer simulation</li>
+          <li>Grants</li></ul>
         <span class="count">14 prompts · six-step grant sequence</span>
       </a>
       <a class="pillar-card -p4" href="operations.html">
         <span class="num">Pillar 4 — adjacent</span>
         <h3>Workflow &amp; Operations</h3>
-        <p>SOPs, templates, documentation, correspondence. Deliberately brief:
-           adjacent to education, governed by the same habits.</p>
+        <p>Deliberately brief: adjacent to education, governed by the same
+           habits.</p>
+        <ul class="topics"><li>Workshops</li><li>Rotations</li>
+          <li>Courses</li><li>Conferences</li></ul>
         <span class="count">34 prompts · SOP drafting demo</span>
       </a>
     </div>
@@ -103,8 +133,7 @@
 
   <section class="section container" aria-labelledby="loop-heading">
     <div class="section-head">
-      <p class="eyebrow">The working loop</p>
-      <h2 id="loop-heading">Task → tool → prompt → verify</h2>
+      <h2 id="loop-heading">The working loop: task → tool → prompt → verify</h2>
       <p class="measure">
         The durable skill this framework teaches is not familiarity with any
         product — it is <em>appraisal</em>. Every workflow in this companion
@@ -147,41 +176,77 @@
   </section>
 
   <section class="section container" aria-labelledby="learner-heading">
-    <div class="section-head">
-      <p class="eyebrow">For trainees — and those who train them</p>
-      <h2 id="learner-heading">The overreliance paradox</h2>
-      <p class="measure">
-        The verification that makes these tools safe presupposes the knowledge
-        to judge what is being verified. A practicing clinician brings that
-        knowledge; a trainee is still assembling it. Used too early, an
-        answer-supplying tool can prevent the very competence it appears to
-        support. The manuscript names three risks to skill formation —
-        <strong>deskilling</strong>, <strong>mis-skilling</strong>, and
-        <strong>never-skilling</strong> — and answers them with three design
-        principles: <strong>foundation-first</strong>,
-        <strong>attempt-first prompting</strong>, and
-        <strong>staged autonomy</strong>.
-      </p>
-      <p><a href="guardrails.html#skills">Explore the skill-formation principles →</a></p>
+    <div class="split">
+      <div>
+        <h2 id="learner-heading">For trainees: the overreliance paradox</h2>
+        <p class="lede" style="margin-top:0.75rem">
+          The verification that makes these tools safe presupposes the
+          knowledge to judge what is being verified. A practicing clinician
+          brings that knowledge; a trainee is still assembling it.
+        </p>
+        <p class="keyline" style="margin-top:1.75rem">Used too early, an
+          answer-supplying tool can <mark>prevent the very competence it
+          appears to support.</mark></p>
+        <p style="margin-top:1.75rem">The manuscript answers with three design
+          principles — <strong>foundation-first</strong>,
+          <strong>attempt-first prompting</strong>, and
+          <strong>staged autonomy</strong>.
+          <a href="guardrails.html#skills">Explore the skill-formation
+          principles →</a></p>
+      </div>
+      <aside aria-label="Three risks to skill formation">
+        <div class="hazard-grid" style="grid-template-columns:1fr">
+          <div class="hazard">
+            <h3>Deskilling</h3>
+            <p>A competence an expert already holds, eroded through routine
+            reliance — documented after AI-assisted colonoscopy exposure.</p>
+          </div>
+          <div class="hazard">
+            <h3>Mis-skilling</h3>
+            <p>An AI error absorbed as fact: an incorrect immunoprofile carried
+            forward as something learned.</p>
+          </div>
+          <div class="hazard">
+            <h3>Never-skilling</h3>
+            <p>The competence never forms at all, because the model performed
+            the task during the formative window.</p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
   <section class="section container" aria-labelledby="library-heading">
-    <div class="section-head">
-      <p class="eyebrow">The toolkit</p>
-      <h2 id="library-heading">102 prompts, every one with a verification step</h2>
-      <p class="measure">
-        The library operationalizes the framework: 88 prompts developed for and
-        deployed at a hands-on workshop (2026 Association for Pathology
-        Informatics Bootcamp, Pathology Informatics Summit), extended here with
-        14 scholarship prompts drawn directly from the manuscript. Browse by
-        pillar, search by task, copy, adapt — and re-verify in your own tool.
-      </p>
-      <p>
-        <a class="btn -primary" href="library.html" style="text-decoration:none">Browse the library</a>
-        &nbsp;
-        <a class="btn" href="library.html#/guides/index" style="text-decoration:none">Read the how-to guides</a>
-      </p>
+    <div class="split">
+      <div>
+        <h2 id="library-heading">102 prompts, every one with a verification step</h2>
+        <p class="lede" style="margin-top:0.75rem">
+          The library operationalizes the framework: 88 prompts developed for
+          and deployed at a hands-on workshop (2026 Association for Pathology
+          Informatics Bootcamp, Pathology Informatics Summit), extended here
+          with 14 scholarship prompts drawn directly from the manuscript.
+          Browse by pillar, search by task, copy, adapt — and re-verify in your
+          own tool.
+        </p>
+        <p style="margin-top:1.75rem">
+          <a class="btn -primary" href="library.html" style="text-decoration:none">Browse the library</a>
+          &nbsp;
+          <a class="btn" href="library.html#/guides/index" style="text-decoration:none">Read the how-to guides</a>
+        </p>
+      </div>
+      <aside class="aside-panel" aria-label="What each entry includes">
+        <h2>Every entry pairs the prompt with</h2>
+        <ul class="objectives">
+          <li><strong>Intent</strong> — what the prompt is for and when to
+              reach for it</li>
+          <li><strong>Expected output</strong> — what a good response looks
+              like</li>
+          <li><strong>Common failure modes</strong> — where this exact task
+              goes wrong</li>
+          <li><strong>Required human verification</strong> — what to check
+              before you trust it</li>
+        </ul>
+      </aside>
     </div>
   </section>
 

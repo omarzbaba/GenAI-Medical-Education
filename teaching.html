@@ -7,12 +7,13 @@
   <meta name="description" content="The anchor pillar: faculty use AI as a content drafter, never a content authority. Walk through the draft→review→extend workflow and the MCQ expert gate.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/main.css">
   <style>
-    .pillar-hero { border-left: 4px solid var(--p2); padding-left: clamp(1rem, 3vw, 2rem); }
     .wt-p2 { --wt-color: var(--p2); --wt-wash: var(--p2-wash); }
+    .keyline mark { --kl-wash: var(--p2-wash); }
+    .objectives li::before { --ob: var(--p2); }
   </style>
 </head>
 <body>
@@ -39,28 +40,46 @@
 <main id="main">
 
   <section class="hero container">
-    <div class="pillar-hero">
-      <p class="eyebrow" style="color:var(--p2)">Pillar 2 of 4 — the anchor</p>
-      <h1>Teaching, Curriculum &amp; Assessment</h1>
-      <p class="lede">
-        Now the educator is at the keyboard. Faculty carry a recurring drafting
-        burden — rotation blueprints, session objectives, teaching cases, item
-        banks — most of it rebuilt from scratch each year. Generative AI shifts
-        the starting point from a blank page to a reviewable draft. The evidence
-        divides cleanly along one line: LLMs are <strong>usable content
-        drafters</strong> and <strong>unreliable content authorities</strong>.
-      </p>
-      <p class="cite-line">
-        The workflow that follows holds across every task in this pillar:
-        <em>the model proposes, and a content expert disposes.</em>
-      </p>
+    <div class="hero-grid">
+      <div>
+        <h1><span class="h-kicker" style="--hk:var(--p2)">Pillar 2 of 4 — the anchor</span>Teaching, Curriculum &amp; Assessment</h1>
+        <p class="lede">
+          Now the educator is at the keyboard. Faculty carry a recurring
+          drafting burden — rotation blueprints, session objectives, teaching
+          cases, item banks — most of it rebuilt from scratch each year.
+          Generative AI shifts the starting point from a blank page to a
+          reviewable draft. The evidence divides cleanly along one line: LLMs
+          are <strong>usable content drafters</strong> and <strong>unreliable
+          content authorities</strong>.
+        </p>
+        <p class="keyline" style="margin-top:2rem">One workflow holds across
+          every task: <mark>the model proposes, and a content expert
+          disposes.</mark></p>
+      </div>
+      <aside class="aside-panel" aria-label="In this pillar">
+        <h2>After this pillar, you can</h2>
+        <ul class="objectives">
+          <li>Run the <strong>draft → review → extend</strong> loop on a
+              teaching case — and catch the planted error</li>
+          <li>Use a model as an item <em>drafter</em> under an expert gate,
+              never as an item finalizer</li>
+          <li>Turn milestone/EPA mapping into a review-and-correct task with
+              labeled confidence</li>
+          <li>Screen generated cases for bias before they reach learners</li>
+        </ul>
+        <h2 style="margin-top:1.5rem">On this page</h2>
+        <ul class="aside-links">
+          <li><a href="#wt2-heading">Walkthrough: draft → review → extend</a></li>
+          <li><a href="#mcq-heading">Demo: the MCQ expert gate</a></li>
+          <li><a href="library.html#/library/pillar-2-teaching/index">All 21 Teaching prompts</a></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
   <section class="section container" aria-labelledby="wt2-heading">
     <div class="section-head">
-      <p class="eyebrow" style="color:var(--p2)">Interactive walkthrough</p>
-      <h2 id="wt2-heading">Draft → Review → Extend: building a teaching case</h2>
+      <h2 id="wt2-heading">Walkthrough: draft → review → extend a teaching case</h2>
       <p class="measure">
         Case writing is where the drafter role pays off most visibly, because a
         good vignette is mostly structure a model can assemble and a faculty
@@ -180,8 +199,7 @@ label this as a hypothetical, de-identified case.</pre></div>
 
   <section class="section container" aria-labelledby="mcq-heading">
     <div class="section-head">
-      <p class="eyebrow" style="color:var(--p2)">Second demo</p>
-      <h2 id="mcq-heading">The MCQ expert gate</h2>
+      <h2 id="mcq-heading">Second demo: the MCQ expert gate</h2>
       <p class="measure">
         Item generation is the most-studied task in this pillar, and the
         literature reads honestly in both directions: models draft items
