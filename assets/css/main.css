@@ -24,12 +24,12 @@
 
   --p1: oklch(46% 0.10 250);   /* learning — slate blue   */
   --p2: oklch(46% 0.09 175);   /* teaching — viridian     */
-  --p3: oklch(44% 0.11 300);   /* scholarship — aubergine */
-  --p4: oklch(52% 0.10 70);    /* operations — ochre      */
+  --p3: oklch(52% 0.10 70);    /* scholarship — gold, as in Figure 1   */
+  --p4: oklch(44% 0.11 300);   /* operations — purple, as in Figure 1  */
   --p1-wash: oklch(95.5% 0.02 250);
   --p2-wash: oklch(95.5% 0.02 175);
-  --p3-wash: oklch(95.5% 0.02 300);
-  --p4-wash: oklch(96% 0.025 70);
+  --p3-wash: oklch(96% 0.025 70);
+  --p4-wash: oklch(95.5% 0.02 300);
 
   --good: oklch(45% 0.10 150);
   --good-wash: oklch(95.5% 0.03 150);
@@ -70,8 +70,8 @@
     --accent-wash: oklch(28% 0.03 200);
     --p1: oklch(72% 0.09 250);  --p1-wash: oklch(28% 0.035 250);
     --p2: oklch(72% 0.09 175);  --p2-wash: oklch(28% 0.035 175);
-    --p3: oklch(74% 0.10 300);  --p3-wash: oklch(28% 0.035 300);
-    --p4: oklch(76% 0.10 70);   --p4-wash: oklch(28% 0.03 70);
+    --p3: oklch(76% 0.10 70);   --p3-wash: oklch(28% 0.03 70);
+    --p4: oklch(74% 0.10 300);  --p4-wash: oklch(28% 0.035 300);
     --good: oklch(72% 0.10 150); --good-wash: oklch(27% 0.04 150);
     --warn: oklch(72% 0.12 30);  --warn-wash: oklch(27% 0.03 30);
   }
@@ -642,3 +642,24 @@ h3 { font-size: var(--text-h3); }
 .pager a.-p2 { --pg: var(--p2); --pgw: var(--p2-wash); }
 .pager a.-p3 { --pg: var(--p3); --pgw: var(--p3-wash); }
 .pager a.-p4 { --pg: var(--p4); --pgw: var(--p4-wash); }
+
+
+/* ------------------------------------------------ manuscript references */
+.ms-ref {
+  display: inline-block; vertical-align: 0.12em;
+  font-family: var(--sans); font-size: var(--text-xs); font-weight: 500;
+  color: var(--ink-soft); background: var(--paper-sunken);
+  border: 1px solid var(--rule); border-radius: 6px;
+  padding: 0.12rem 0.6rem; white-space: nowrap;
+}
+.ms-figure { margin: 2.5rem 0 0; }
+.ms-figure img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--rule); border-radius: 12px;
+  background: white;
+}
+.ms-figure figcaption {
+  margin-top: 1rem; font-size: var(--text-sm); color: var(--ink-soft);
+  line-height: 1.6; max-width: 78ch;
+}
+.ms-figure figcaption b { color: var(--ink); }
