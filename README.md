@@ -59,6 +59,28 @@ front-matter or adding a prompt, regenerate the manifest:
 python3 scripts/build_manifest.py
 ```
 
+## Fidelity guard
+
+`scripts/check_fidelity.py` verifies that the site still matches the
+manuscript. It checks (1) every walkthrough and scholarship prompt block and
+(2) the 91 canonical strings in `scripts/fidelity_expected.json` — every table
+cell, supplementary-table row, worked-example fragment, figure-legend
+fragment, and key line the site presents as manuscript content. Matching is
+typography-insensitive, so only real wording drift fails.
+
+```bash
+# site-internal check (no manuscript needed)
+python3 scripts/check_fidelity.py
+
+# full check against a local plain-text extraction of the manuscript
+# (the manuscript is unpublished and is never committed to this repo)
+python3 scripts/check_fidelity.py --manuscript /path/to/manuscript.txt
+```
+
+Run it before every deploy. When the manuscript is revised, rerun with the
+new extraction: anything the revision changed will fail loudly here instead
+of drifting silently on the site.
+
 ## Fidelity to the manuscript
 
 Every prompt, verification step, table, and design principle on this site is

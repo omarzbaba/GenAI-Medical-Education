@@ -1,0 +1,463 @@
+[
+ {
+  "id": "t1.learning.audience",
+  "file": "index.html",
+  "text": "Residents, fellows, and practicing pathologists as self-directed learners"
+ },
+ {
+  "id": "t1.learning.tasks",
+  "file": "index.html",
+  "text": "Concept explanation and Q&A; board preparation and adaptive review; summarizing lectures and tumor boards; study plans, topic maps, and gap analysis"
+ },
+ {
+  "id": "t1.learning.guardrail",
+  "file": "index.html",
+  "text": "Verify consequential or uncertain factual claims against an authoritative source; calibrate trust to the task; prefer pathology-specific tools for image-anchored questions"
+ },
+ {
+  "id": "t1.teaching.audience",
+  "file": "index.html",
+  "text": "Faculty and clinician-educators (trainees and presenters as secondary audiences)"
+ },
+ {
+  "id": "t1.teaching.tasks",
+  "file": "index.html",
+  "text": "Drafting objectives and rotation blueprints mapped to ACGME milestones/EPAs; case and vignette generation; MCQ and formative-assessment drafts; presenter support"
+ },
+ {
+  "id": "t1.teaching.guardrail",
+  "file": "index.html",
+  "text": "Expert review of all generated items for content validity and blueprint alignment; bias screening of cases; a local academic-integrity policy for learners"
+ },
+ {
+  "id": "t1.scholarship.tasks",
+  "file": "index.html",
+  "text": "Research ideation and question refinement; literature scoping and search-term brainstorming; language editing and drafting; grant and specific-aims development"
+ },
+ {
+  "id": "t1.scholarship.guardrail",
+  "file": "index.html",
+  "text": "Human accountability and disclosure per ICMJE/COPE and journal policy; no AI authorship, no fabricated data or unverified citations, no AI peer review"
+ },
+ {
+  "id": "t1.ops.tasks",
+  "file": "index.html",
+  "text": "SOP and template drafting; consult-report and autopsy-report support; documentation, email, and meeting support; smart phrases"
+ },
+ {
+  "id": "t1.ops.guardrail",
+  "file": "index.html",
+  "text": "Human review of every output before use; no protected health information entered into general-purpose tools; kept adjacent to, not a substitute for, educational aims"
+ },
+ {
+  "id": "fig1.legend.a",
+  "file": "index.html",
+  "text": "The framework spans learning (concept mastery, self-quizzing, case-based reasoning, reading the literature); teaching, curriculum, and assessment (learning objectives and assessment, case vignettes, lectures and presentations, written feedback, discussion formats); scholarship (grant development, manuscript drafting and editing, literature scoping, authorship and disclosure); and workflow and operations (workshops, rotations, courses, conferences, journal clubs)."
+ },
+ {
+  "id": "fig1.legend.b",
+  "file": "index.html",
+  "text": "A single set of guardrails — accuracy, confidentiality, bias, overreliance, and accountability — applies across all four pillars."
+ },
+ {
+  "id": "key.index",
+  "file": "index.html",
+  "text": "AI shifts effort without shifting accountability"
+ },
+ {
+  "id": "key.learning",
+  "file": "learning.html",
+  "text": "foundational competence is the precondition for using AI safely — not one more thing AI can supply on demand"
+ },
+ {
+  "id": "key.teaching",
+  "file": "teaching.html",
+  "text": "the model proposes, and a content expert disposes"
+ },
+ {
+  "id": "key.scholarship",
+  "file": "scholarship.html",
+  "text": "the intellectual claims, the data, and the accountability remain human"
+ },
+ {
+  "id": "key.ops",
+  "file": "operations.html",
+  "text": "flag any step that appears incomplete or ambiguous, rather than inventing detail"
+ },
+ {
+  "id": "key.loop",
+  "file": "index.html",
+  "text": "The person prompting the model is the person who verifies its output"
+ },
+ {
+  "id": "s3.output.bigpicture",
+  "file": "learning.html",
+  "text": "An acute hemolytic transfusion reaction is the rapid destruction of transfused red cells, classically from ABO-incompatible blood — recipient antibodies bind donor cells, activate complement, and lyse them intravascularly. Severe cases are usually a patient-identification error, so the investigation is as much a safety audit as a laboratory workup."
+ },
+ {
+  "id": "s3.output.tworesults",
+  "file": "learning.html",
+  "text": "Confirmation of an ABO discrepancy via clerical recheck and repeat typing — establishes the diagnosis and flags that a second patient may be at risk."
+ },
+ {
+  "id": "s3.verification",
+  "file": "learning.html",
+  "text": "Output preserved the acute-hemolytic vs. febrile-non-hemolytic distinction that models often blur; workup steps and the ABO-incompatibility mechanism confirmed against a transfusion-medicine reference."
+ },
+ {
+  "id": "s3.judgment",
+  "file": "learning.html",
+  "text": "the choice is not unique, and the verification step is where clinical judgment is applied"
+ },
+ {
+  "id": "teach.extend.q1",
+  "file": "teaching.html",
+  "text": "What clerical checks should have caught this before issue?"
+ },
+ {
+  "id": "teach.extend.q2",
+  "file": "teaching.html",
+  "text": "What further testing confirms the diagnosis?"
+ },
+ {
+  "id": "s1.deskilling.def",
+  "file": "guardrails.html",
+  "text": "Erosion of a competence an experienced clinician already holds, through over-reliance or disuse."
+ },
+ {
+  "id": "s1.deskilling.ex",
+  "file": "guardrails.html",
+  "text": "A senior pathologist whose unaided morphologic pattern recognition dulls after routinely accepting model-generated interpretations."
+ },
+ {
+  "id": "s1.misskilling.def",
+  "file": "guardrails.html",
+  "text": "Uncritical acceptance of AI errors, so the trainee internalises flawed knowledge as fact."
+ },
+ {
+  "id": "s1.misskilling.ex",
+  "file": "guardrails.html",
+  "text": "A trainee who absorbs a chatbot's incorrect immunoprofile or a superseded criterion and carries it forward as something learned."
+ },
+ {
+  "id": "s1.neverskilling.def",
+  "file": "guardrails.html",
+  "text": "A foundational competence that never forms at all, because AI performed the task during the formative window."
+ },
+ {
+  "id": "s1.neverskilling.ex",
+  "file": "guardrails.html",
+  "text": "A trainee who elicits a polished differential from a chatbot but never learns to construct one from the slide."
+ },
+ {
+  "id": "s1.deskilling.def.index",
+  "file": "index.html",
+  "text": "Erosion of a competence an experienced clinician already holds, through over-reliance or disuse."
+ },
+ {
+  "id": "s1.misskilling.def.index",
+  "file": "index.html",
+  "text": "Uncritical acceptance of AI errors, so the trainee internalises flawed knowledge as fact."
+ },
+ {
+  "id": "s1.neverskilling.def.index",
+  "file": "index.html",
+  "text": "A foundational competence that never forms at all, because AI performed the task during the formative window."
+ },
+ {
+  "id": "s2.foundation.rule",
+  "file": "guardrails.html",
+  "text": "Foundational knowledge before AI augmentation"
+ },
+ {
+  "id": "s2.foundation.ex",
+  "file": "guardrails.html",
+  "text": "For the first months of training, the resident works up anemias with no AI assistance at all, building the skill through teaching and cases; an AI tutor is switched on only once that foundation is established."
+ },
+ {
+  "id": "s2.attempt.rule",
+  "file": "guardrails.html",
+  "text": "The learner forms their own answer, then compares it against the model's critique"
+ },
+ {
+  "id": "s2.attempt.ex",
+  "file": "guardrails.html",
+  "text": "Before querying the model about a case, the resident writes down their own differential and reasoning, then asks the model to critique it — rather than asking for the diagnosis cold."
+ },
+ {
+  "id": "s2.staged.rule",
+  "file": "guardrails.html",
+  "text": "More AI latitude as competence grows"
+ },
+ {
+  "id": "s2.staged.ex",
+  "file": "guardrails.html",
+  "text": "A subspecialty fellow may use the tool to pressure-test a differential on active cases, while a first-year is limited to a self-check on already-taught material."
+ },
+ {
+  "id": "s4.row0.ai",
+  "file": "scholarship.html",
+  "text": "Brainstorming"
+ },
+ {
+  "id": "s4.row0.human",
+  "file": "scholarship.html",
+  "text": "Scientific originality"
+ },
+ {
+  "id": "s4.row1.ai",
+  "file": "scholarship.html",
+  "text": "Organizing ideas"
+ },
+ {
+  "id": "s4.row1.human",
+  "file": "scholarship.html",
+  "text": "Scientific interpretation"
+ },
+ {
+  "id": "s4.row2.ai",
+  "file": "scholarship.html",
+  "text": "Language editing"
+ },
+ {
+  "id": "s4.row2.human",
+  "file": "scholarship.html",
+  "text": "Data accuracy"
+ },
+ {
+  "id": "s4.row3.ai",
+  "file": "scholarship.html",
+  "text": "Outline drafting"
+ },
+ {
+  "id": "s4.row3.human",
+  "file": "scholarship.html",
+  "text": "Conclusions and impact"
+ },
+ {
+  "id": "s4.row4.ai",
+  "file": "scholarship.html",
+  "text": "Improving readability"
+ },
+ {
+  "id": "s4.row4.human",
+  "file": "scholarship.html",
+  "text": "Final authorship and approval"
+ },
+ {
+  "id": "s4.row5.ai",
+  "file": "scholarship.html",
+  "text": "Naming weaknesses and candidate fixes"
+ },
+ {
+  "id": "s4.row5.human",
+  "file": "scholarship.html",
+  "text": "Writing the revised text"
+ },
+ {
+  "id": "presub.directional",
+  "file": "scholarship.html",
+  "text": "A reviewer must never run it on a manuscript assigned to them"
+ },
+ {
+  "id": "presub.ip",
+  "file": "scholarship.html",
+  "text": "unpublished intellectual property"
+ },
+ {
+  "id": "presub.ceiling",
+  "file": "scholarship.html",
+  "text": "Concordance with human review is"
+ },
+ {
+  "id": "disclosure.example",
+  "file": "scholarship.html",
+  "text": "During the preparation of this work the authors used ChatGPT (OpenAI) to improve the readability and language of the Introduction and Discussion. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication."
+ },
+ {
+  "id": "fig3.legend.a",
+  "file": "scholarship.html",
+  "text": "A six-step sequence using generative AI as an iterative thinking partner — build scientific context, have the model explain the project back, expand the scientific perspective, elicit a reviewer-style critique, organize the scientific story, and perform human review and revision — culminating in the final grant proposal."
+ },
+ {
+  "id": "fig3.legend.b",
+  "file": "scholarship.html",
+  "text": "The AI supports organization and communication while scientific content, claims, and citations remain the authors' responsibility."
+ },
+ {
+  "id": "t3.general.fit",
+  "file": "guardrails.html",
+  "text": "Text-based concept explanation, board-style question answering, quizzing, and study-plan drafting; the most accessible and most extensively evaluated tier for self-directed learners"
+ },
+ {
+  "id": "t3.general.limit",
+  "file": "guardrails.html",
+  "text": "Uneven on image-anchored and integrative content, and prone to hallucinated facts and fabricated references; outputs vary across products, versions, and runs"
+ },
+ {
+  "id": "t3.medical.fit",
+  "file": "guardrails.html",
+  "text": "Biomedical text tasks where domain fine-tuning improves accuracy over generic models, such as terminology-dense explanation and knowledge retrieval"
+ },
+ {
+  "id": "t3.medical.limit",
+  "file": "guardrails.html",
+  "text": "still text-only, so the visual-grounding gap persists; access and local deployment are less turnkey than consumer chatbots"
+ },
+ {
+  "id": "t3.foundation.fit",
+  "file": "guardrails.html",
+  "text": "Image-anchored teaching that text-only models handle poorly, including morphology retrieval and slide-level pattern exposure"
+ },
+ {
+  "id": "t3.foundation.limit",
+  "file": "guardrails.html",
+  "text": "Not conversational tutors on their own; educational validation is limited, and they raise foundation-model–specific ethical concerns such as bias and accountability"
+ },
+ {
+  "id": "t3.copilot.fit",
+  "file": "guardrails.html",
+  "text": "Case-style, image-plus-text interaction that approximates a subspecialty tutor for visual reasoning; in blinded evaluation of open-ended responses, a pathology copilot was preferred over a general vision-language model"
+ },
+ {
+  "id": "t3.copilot.limit",
+  "file": "guardrails.html",
+  "text": "Early-stage and narrowly available; outputs still require expert verification, and educational outcomes have not been rigorously evaluated"
+ },
+ {
+  "id": "t6.ok.concepts",
+  "file": "guardrails.html",
+  "text": "General concepts, mechanisms, and definitions (e.g., explaining a staining pattern or a classification change)."
+ },
+ {
+  "id": "t6.ok.published",
+  "file": "guardrails.html",
+  "text": "Published literature and other already-public information."
+ },
+ {
+  "id": "t6.ok.hypocase",
+  "file": "guardrails.html",
+  "text": "Fully hypothetical or de-identified teaching cases you constructed yourself."
+ },
+ {
+  "id": "t6.ok.notes",
+  "file": "guardrails.html",
+  "text": "Your own study notes and practice questions that contain no patient data."
+ },
+ {
+  "id": "t6.no.phi",
+  "file": "guardrails.html",
+  "text": "Protected health information or any patient identifiers — names, medical-record or accession numbers, dates, or locations."
+ },
+ {
+  "id": "t6.no.realcase",
+  "file": "guardrails.html",
+  "text": "Real case material that is not fully de-identified, including whole-slide images or gross photographs tied to a patient."
+ },
+ {
+  "id": "t6.no.ip",
+  "file": "guardrails.html",
+  "text": "Unpublished data, hypotheses, specific aims, or other intellectual property."
+ },
+ {
+  "id": "t6.no.review",
+  "file": "guardrails.html",
+  "text": "A manuscript or grant you are peer-reviewing, which is confidential by editorial policy."
+ },
+ {
+  "id": "t6.no.irb",
+  "file": "guardrails.html",
+  "text": "Anything under an IRB protocol, sponsor agreement, data-use agreement, or institutional confidentiality obligation."
+ },
+ {
+  "id": "t7.row0",
+  "file": "guardrails.html",
+  "text": "Opt out of model training in the tool's settings wherever the option exists."
+ },
+ {
+  "id": "t7.row1",
+  "file": "guardrails.html",
+  "text": "Use temporary or incognito mode for any one-off sensitive prompt."
+ },
+ {
+  "id": "t7.row2",
+  "file": "guardrails.html",
+  "text": "Secure the account with a unique password and two-factor authentication"
+ },
+ {
+  "id": "t7.row3",
+  "file": "guardrails.html",
+  "text": "Paste the minimum necessary, and delete conversations you no longer need."
+ },
+ {
+  "id": "t7.row4",
+  "file": "guardrails.html",
+  "text": "Do not rate sensitive chats with thumbs-up/down feedback."
+ },
+ {
+  "id": "t7.row5",
+  "file": "guardrails.html",
+  "text": "Never enter protected health information, patient identifiers, or images tied to a real case."
+ },
+ {
+  "id": "t7.row6",
+  "file": "guardrails.html",
+  "text": "Never upload a manuscript or grant you are reviewing"
+ },
+ {
+  "id": "t7.row7",
+  "file": "guardrails.html",
+  "text": "Treat even opted-out or “temporary” chats as semi-private."
+ },
+ {
+  "id": "t7.row8",
+  "file": "guardrails.html",
+  "text": "Re-check settings and vendor terms periodically"
+ },
+ {
+  "id": "t7.row9",
+  "file": "guardrails.html",
+  "text": "De-identify, move to a sanctioned deployment, or complete the task without AI."
+ },
+ {
+  "id": "fig2.role",
+  "file": "anatomy.html",
+  "text": "Act as an experienced hematopathology attending teaching a PGY-2",
+  "figure_image_source": true
+ },
+ {
+  "id": "fig2.context",
+  "file": "anatomy.html",
+  "text": "first month of blood bank, two days of didactics",
+  "figure_image_source": true
+ },
+ {
+  "id": "fig2.task",
+  "file": "anatomy.html",
+  "text": "Explain MGUS in three layers",
+  "figure_image_source": true
+ },
+ {
+  "id": "fig2.format",
+  "file": "anatomy.html",
+  "text": "Three paragraphs, layer name at the start of each, 3–5 sentences.",
+  "figure_image_source": true
+ },
+ {
+  "id": "fig2.verify",
+  "file": "anatomy.html",
+  "text": "Flag any numerical threshold to verify against current IMWG criteria",
+  "figure_image_source": true
+ },
+ {
+  "id": "fig2.iterate",
+  "file": "anatomy.html",
+  "text": "The first draft is rarely the keeper",
+  "figure_image_source": true
+ },
+ {
+  "id": "fig2.legend.generic",
+  "file": "anatomy.html",
+  "text": "fall back on generic assumptions"
+ }
+]

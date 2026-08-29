@@ -117,63 +117,65 @@
 
       <div class="widget-panel" data-panel="concepts" hidden>
         <div class="verdict -ok"><div class="head">Generally acceptable</div>
-        Explaining a staining pattern, a classification change, a mechanism —
-        general knowledge with no patient or proprietary content. Still verify
+        <strong>General concepts, mechanisms, and definitions (e.g., explaining
+        a staining pattern or a classification change).</strong> Still verify
         the output before you rely on it.</div>
       </div>
       <div class="widget-panel" data-panel="published" hidden>
         <div class="verdict -ok"><div class="head">Generally acceptable</div>
-        Already-public information. Remember the retrieval rule, though: models
+        <strong>Published literature and other already-public
+        information.</strong> Remember the retrieval rule, though: models
         fabricate citations, so the literature itself comes from PubMed/Scopus,
         not from the model.</div>
       </div>
       <div class="widget-panel" data-panel="hypocase" hidden>
         <div class="verdict -ok"><div class="head">Generally acceptable</div>
-        Fully hypothetical or de-identified teaching cases you constructed
-        yourself are the framework's standard working material. Label them as
-        hypothetical in the prompt, and screen generated details for
-        stereotyped attributes.</div>
+        <strong>Fully hypothetical or de-identified teaching cases you
+        constructed yourself.</strong> Label them as hypothetical in the
+        prompt, and screen generated details for stereotyped attributes.</div>
       </div>
       <div class="widget-panel" data-panel="mynotes" hidden>
         <div class="verdict -ok"><div class="head">Generally acceptable</div>
-        Your own study notes and practice questions, provided they contain no
-        patient data. Text you authored and have already made public is fine
-        as well.</div>
+        <strong>Your own study notes and practice questions that contain no
+        patient data.</strong> Text you authored and have already made public
+        is likewise acceptable.</div>
       </div>
       <div class="widget-panel" data-panel="phi" hidden>
         <div class="verdict -no"><div class="head">Keep it out — no exceptions</div>
-        Protected health information and patient identifiers — names, record
-        or accession numbers, dates, locations. Public consumer tools are not
-        HIPAA-appropriate, and no privacy toggle substitutes for a Business
-        Associate Agreement. Use a covered institutional deployment, or fully
-        de-identify first.</div>
+        <strong>Protected health information or any patient identifiers —
+        names, medical-record or accession numbers, dates, or
+        locations.</strong> Public consumer tools are not HIPAA-appropriate,
+        and no privacy toggle substitutes for a Business Associate Agreement.
+        Use a covered institutional deployment, or fully de-identify
+        first.</div>
       </div>
       <div class="widget-panel" data-panel="realcase" hidden>
         <div class="verdict -no"><div class="head">Keep it out</div>
-        Real case material that is not fully de-identified — including
-        whole-slide images or gross photographs tied to a patient. De-identify
-        completely, or use a sanctioned deployment.</div>
+        <strong>Real case material that is not fully de-identified, including
+        whole-slide images or gross photographs tied to a patient.</strong>
+        De-identify completely, or use a sanctioned deployment.</div>
       </div>
       <div class="widget-panel" data-panel="unpub" hidden>
         <div class="verdict -no"><div class="head">Keep it out</div>
-        Unpublished data, hypotheses, specific aims, and other intellectual
-        property. This is why pre-submission critique belongs in an
-        institutional or sanctioned tool whose terms exclude training — not a
-        public consumer account.</div>
+        <strong>Unpublished data, hypotheses, specific aims, or other
+        intellectual property.</strong> This is why pre-submission critique
+        belongs in an institutional or sanctioned tool whose terms exclude
+        training — not a public consumer account.</div>
       </div>
       <div class="widget-panel" data-panel="review" hidden>
         <div class="verdict -no"><div class="head">Keep it out — editorial policy</div>
-        A manuscript or grant you are peer-reviewing is confidential by
-        editorial policy. Reviewers must not upload assigned manuscripts to
-        public AI tools. This is a governance requirement, not a preference.</div>
+        <strong>A manuscript or grant you are peer-reviewing, which is
+        confidential by editorial policy.</strong> Reviewers must not upload
+        assigned manuscripts to public AI tools. This is a governance
+        requirement, not a preference.</div>
       </div>
       <div class="widget-panel" data-panel="irb" hidden>
         <div class="verdict -no"><div class="head">Follow the agreement first</div>
-        Anything under an IRB protocol, sponsor agreement, data-use agreement,
-        or institutional confidentiality obligation follows those terms.
-        When the task touches protected data and no compliant deployment
-        exists, the correct response is not a workaround but abstention:
-        de-identify, use a sanctioned tool, or complete the task without AI.</div>
+        <strong>Anything under an IRB protocol, sponsor agreement, data-use
+        agreement, or institutional confidentiality obligation.</strong> When
+        the task touches protected data and no compliant deployment exists,
+        the correct response is not a workaround but abstention: de-identify,
+        use a sanctioned tool, or complete the task without AI.</div>
       </div>
     </div>
 
@@ -181,18 +183,25 @@
       <summary style="cursor:pointer; font-weight:600">When a public tool is the only option — the precautions <span class="ms-ref">Manuscript · Table 7</span></summary>
       <div class="prose" style="margin-top:1rem">
         <ul>
-          <li>Opt out of model training wherever the setting exists.</li>
-          <li>Use temporary/incognito mode for one-off sensitive prompts.</li>
-          <li>Secure the account: unique password, two-factor authentication —
-              a compromised login is a likelier exposure route than the vendor.</li>
-          <li>Paste the minimum necessary; delete conversations you no longer need.</li>
-          <li>Don't rate sensitive chats with thumbs-up/down feedback.</li>
-          <li>Never enter PHI, patient identifiers, or images tied to a real case.</li>
-          <li>Never upload a manuscript or grant you are reviewing.</li>
-          <li>Treat even opted-out or "temporary" chats as semi-private.</li>
-          <li>Re-check settings and vendor terms periodically — defaults change.</li>
+          <li>Opt out of model training in the tool's settings wherever the
+              option exists.</li>
+          <li>Use temporary or incognito mode for any one-off sensitive
+              prompt.</li>
+          <li>Secure the account with a unique password and two-factor
+              authentication — a compromised login is a likelier exposure
+              route than the vendor itself.</li>
+          <li>Paste the minimum necessary, and delete conversations you no
+              longer need.</li>
+          <li>Do not rate sensitive chats with thumbs-up/down feedback.</li>
+          <li>Never enter protected health information, patient identifiers,
+              or images tied to a real case.</li>
+          <li>Never upload a manuscript or grant you are reviewing —
+              peer-review material is confidential.</li>
+          <li>Treat even opted-out or “temporary” chats as semi-private.</li>
+          <li>Re-check settings and vendor terms periodically — defaults,
+              menus, and policies change frequently.</li>
           <li><strong>When in doubt, stop:</strong> de-identify, move to a
-              sanctioned deployment, or do the task without AI.</li>
+              sanctioned deployment, or complete the task without AI.</li>
         </ul>
         <p>The single highest-leverage habit is the simplest: a model can only
         expose what it was given, so the most reliable protection is to
@@ -221,36 +230,38 @@
 
       <div class="widget-panel" data-panel="t-text" hidden>
         <div class="verdict -ok"><div class="head">General-purpose LLMs (ChatGPT, Claude, Gemini)</div>
-        The most accessible and most-studied tier: text-based concept
-        explanation, board-style Q&amp;A, quizzing, study-plan drafting.
+        Text-based concept explanation, board-style question answering,
+        quizzing, and study-plan drafting; the most accessible and most
+        extensively evaluated tier for self-directed learners.
         <strong>Limitation:</strong> uneven on image-anchored and integrative
-        content; prone to hallucinated facts and fabricated references; outputs
-        vary across products, versions, and runs.</div>
+        content, and prone to hallucinated facts and fabricated references;
+        outputs vary across products, versions, and runs.</div>
       </div>
       <div class="widget-panel" data-panel="t-clinical" hidden>
-        <div class="verdict -ok"><div class="head">Medical-domain LLMs (e.g., Med-PaLM-class builds)</div>
-        Instruction-tuned biomedical models sit above generic ones on clinical
-        language tasks — terminology-dense explanation and knowledge retrieval.
-        <strong>Limitation:</strong> still text-only, so the visual-grounding
-        gap persists; access is less turnkey than consumer chatbots.</div>
+        <div class="verdict -ok"><div class="head">Medical-domain LLMs (instruction-tuned biomedical builds, e.g., Med-PaLM)</div>
+        Biomedical text tasks where domain fine-tuning improves accuracy over
+        generic models, such as terminology-dense explanation and knowledge
+        retrieval. <strong>Limitation:</strong> still text-only, so the
+        visual-grounding gap persists; access and local deployment are less
+        turnkey than consumer chatbots.</div>
       </div>
       <div class="widget-panel" data-panel="t-image" hidden>
-        <div class="verdict -ok"><div class="head">Domain foundation models (e.g., Virchow-class, for pathology)</div>
-        Image–text models trained on large domain image collections bring
-        genuine visual grounding: morphology retrieval, slide-level pattern
-        exposure — the work text-only models handle poorly.
+        <div class="verdict -ok"><div class="head">Pathology foundation models (histopathology image–text models, e.g., Virchow)</div>
+        Image-anchored teaching that text-only models handle poorly, including
+        morphology retrieval and slide-level pattern exposure.
         <strong>Limitation:</strong> not conversational tutors on their own;
-        educational validation is limited; foundation-model-specific concerns
-        (bias, accountability) apply.</div>
+        educational validation is limited, and they raise
+        foundation-model–specific ethical concerns such as bias and
+        accountability.</div>
       </div>
       <div class="widget-panel" data-panel="t-case" hidden>
-        <div class="verdict -ok"><div class="head">Domain copilots (e.g., PathChat-class vision–language assistants)</div>
-        Case-style image-plus-text interaction approximating a subspecialty
-        tutor; in blinded evaluation, a pathology copilot was preferred over a
-        general vision–language model on open-ended responses.
-        <strong>Limitation:</strong> early-stage, narrowly available; outputs
-        still require expert verification; educational outcomes not yet
-        rigorously evaluated.</div>
+        <div class="verdict -ok"><div class="head">Pathology copilots (PathChat and comparable vision–language case assistants)</div>
+        Case-style, image-plus-text interaction that approximates a
+        subspecialty tutor for visual reasoning; in blinded evaluation of
+        open-ended responses, a pathology copilot was preferred over a general
+        vision-language model. <strong>Limitation:</strong> early-stage and
+        narrowly available; outputs still require expert verification, and
+        educational outcomes have not been rigorously evaluated.</div>
       </div>
     </div>
   </section>
@@ -269,24 +280,27 @@
     <div class="hazard-grid" style="margin-bottom:2.5rem">
       <div class="hazard">
         <h3>Deskilling</h3>
-        <p>Erosion of a competence an experienced clinician already holds.
-        Not hypothetical: unaided adenoma detection declined measurably among
-        endoscopists after routine exposure to AI-assisted colonoscopy
-        (28.4% → 22.4%).</p>
+        <p>Erosion of a competence an experienced clinician already holds,
+        through over-reliance or disuse. <em>A senior pathologist whose
+        unaided morphologic pattern recognition dulls after routinely
+        accepting model-generated interpretations.</em> Not hypothetical:
+        unaided adenoma detection declined measurably among endoscopists after
+        routine AI-assisted colonoscopy (28.4% → 22.4%).</p>
       </div>
       <div class="hazard">
         <h3>Mis-skilling</h3>
-        <p>Uncritical acceptance of AI errors — a trainee absorbs an incorrect
-        immunoprofile or a superseded criterion and carries it forward as
-        something learned.</p>
+        <p>Uncritical acceptance of AI errors, so the trainee internalises
+        flawed knowledge as fact. <em>A trainee who absorbs a chatbot's
+        incorrect immunoprofile or a superseded criterion and carries it
+        forward as something learned.</em></p>
       </div>
       <div class="hazard">
         <h3>Never-skilling</h3>
-        <p>The one training must guard against most: a foundational competence
-        never forms at all, because AI performed the task during the formative
-        window. The trainee is fluent in prompting but not in the reasoning
-        beneath it — false proficiency that surfaces in AI-free, high-stakes
-        assessment.</p>
+        <p>A foundational competence that never forms at all, because AI
+        performed the task during the formative window. <em>A trainee who
+        elicits a polished differential from a chatbot but never learns to
+        construct one from the slide.</em> The one training must guard
+        against most.</p>
       </div>
     </div>
 
