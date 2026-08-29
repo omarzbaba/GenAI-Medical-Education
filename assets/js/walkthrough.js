@@ -17,6 +17,18 @@
     var nav = document.createElement("div");
     nav.className = "wt-nav";
 
+    var live = document.createElement("span");
+    live.className = "wt-live";
+    live.setAttribute("aria-live", "polite");
+    live.style.cssText =
+      "position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)";
+
+    var counter = document.createElement("span");
+    counter.className = "wt-counter";
+    counter.setAttribute("aria-hidden", "true");
+    counter.style.cssText =
+      "font-size:0.875rem;color:var(--ink-faint);min-width:4.5rem";
+
     var back = document.createElement("button");
     back.type = "button";
     back.className = "btn";
@@ -52,6 +64,10 @@
       next.textContent = current === steps.length - 1
         ? "Start over"
         : "Next →";
+      counter.textContent = "Step " + (current + 1) + " of " + steps.length;
+      var h = steps[current].querySelector("h4");
+      live.textContent = "Step " + (current + 1) + " of " + steps.length +
+        (h ? ": " + h.textContent : "");
     }
 
     back.addEventListener("click", function () { go(current - 1); });
@@ -60,9 +76,18 @@
     });
 
     nav.appendChild(back);
+    nav.appendChild(counter);
     nav.appendChild(dots);
     nav.appendChild(next);
+    nav.appendChild(live);
     wt.appendChild(nav);
+
+    // Arrow-key navigation while focus is inside the walkthrough.
+    wt.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { go(current + 1); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { go(current - 1); e.preventDefault(); }
+    });
+
     go(0);
   });
 })();

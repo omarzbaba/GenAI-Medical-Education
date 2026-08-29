@@ -4,7 +4,7 @@
 
   // Mark the current page in the site nav.
   var here = location.pathname.replace(/\/+$/, "");
-  document.querySelectorAll(".site-nav a").forEach(function (a) {
+  document.querySelectorAll(".site-nav a, .pillar-nav a").forEach(function (a) {
     var href = a.getAttribute("href");
     if (!href) return;
     var target = new URL(href, location.href).pathname.replace(/\/+$/, "");
