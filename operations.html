@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pillar 4 — Workflow &amp; Operations · GenAI in Medical Education</title>
+  <meta name="description" content="The adjacent pillar: SOPs, templates, documentation, and correspondence — drafted by AI, verified and signed by a person.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .pillar-hero { border-left: 4px solid var(--p4); padding-left: clamp(1rem, 3vw, 2rem); }
+    .wt-p4 { --wt-color: var(--p4); --wt-wash: var(--p4-wash); }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="index.html">GenAI <em>in</em> Medical Education</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="library.html">Prompt Library</a>
+      <a href="anatomy.html">Prompt Anatomy</a>
+      <a href="guardrails.html">Guardrails</a>
+      <a href="about.html">About &amp; Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero container">
+    <div class="pillar-hero">
+      <p class="eyebrow" style="color:var(--p4)">Pillar 4 of 4 — adjacent by design</p>
+      <h1>Workflow &amp; Operations</h1>
+      <p class="lede">
+        Much of the day is spent on neither instruction nor scholarship but on
+        the operational text that surrounds them — SOPs, report templates,
+        documentation, correspondence, meeting notes. This pillar is
+        deliberately short, and <strong>the brevity is a claim, not an
+        omission</strong>: operational tooling is adjacent to education, not
+        part of it.
+      </p>
+      <p class="cite-line">
+        It matters here for two reasons: trainees learn the profession partly
+        by producing this documentation under supervision, and the drafting
+        habits and guardrails from the first three pillars transfer to it
+        directly. Where operational use shades into LIS deployment and data
+        governance, it leaves the scope of an education framework.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="wt4-heading">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--p4)">Interactive walkthrough</p>
+      <h2 id="wt4-heading">Notes → SOP: drafting under supervision</h2>
+      <p class="measure">
+        One prompt pattern covers most operational drafting. The educational
+        value is indirect but real: a resident who drafts an SOP with AI and
+        then corrects it against the actual bench workflow learns the procedure
+        more actively than one who copies last year's version.
+      </p>
+    </div>
+
+    <div class="walkthrough wt-p4">
+      <header>
+        <span class="kicker">Scenario</span>
+        <h3>A resident turns bench notes into a first-draft SOP</h3>
+      </header>
+      <div class="wt-body">
+
+        <div class="wt-step">
+          <p class="stage-label">Step 1 · The pattern</p>
+          <h4>One prompt, most operational tasks</h4>
+          <div class="promptbox"><pre>Convert the following procedural notes into a formatted standard
+operating procedure with sections for purpose, scope, specimen
+requirements, step-by-step method, quality control, and references.
+Flag any step that appears incomplete or ambiguous rather than
+inventing detail.</pre></div>
+          <p class="narrative">
+            The closing instruction is the load-bearing one: <em>flag, don't
+            invent</em>. A generic SOP will omit local safeguards — the flags
+            tell the resident exactly where local knowledge must be supplied.
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 2 · The draft, with flags</p>
+          <h4>Illustrative output</h4>
+          <div class="wt-output">
+            <div class="who">Model output — abridged</div>
+            <p><strong>SOP: Specimen labeling and accessioning, grossing
+            room.</strong> Purpose… Scope… Specimen requirements…</p>
+            <p>Step 4. Verify two patient identifiers against the requisition
+            before assigning the accession number.<br>
+            Step 7. <mark>⚑ FLAGGED — your notes say "check the fixative" but
+            do not state which fixative, the required volume ratio, or what to
+            do when the container arrives unfixed. Local policy needed.</mark><br>
+            Step 9. <mark>⚑ FLAGGED — no step describes handling of mismatched
+            or unlabeled specimens; most laboratories require a documented
+            reconciliation process before accessioning.</mark></p>
+          </div>
+          <p class="narrative">
+            The flags are where the learning happens — each one sends the
+            resident back to the bench, the local manual, or the supervisor.
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 3 · Verify and sign</p>
+          <h4>Every step against the actual bench workflow</h4>
+          <div class="wt-verify">
+            <div class="who">Required verification</div>
+            <p>Every step is verified against the lab's actual accessioning
+            practice and regulatory requirements before adoption, and the
+            result is reviewed by the laboratory director. The resident
+            corrects the draft against the real workflow — active learning —
+            and a supervising pathologist signs what goes into effect.</p>
+          </div>
+          <div class="note">
+            <b>The established guardrails apply without separate machinery:</b>
+            no protected health information in public tools, and every
+            clinically or procedurally consequential detail checked against the
+            governing local document before use. Because operational drafting
+            feels routine, it is also a good setting to teach documentation,
+            verification, and disclosure habits.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="prose">
+      <h2>What lives in this pillar</h2>
+      <p>
+        Concrete, text-heavy, non-diagnostic: turning a terse outline into a
+        formatted SOP; proposing a synoptic structure for a consult report;
+        converting a dictated narrative into organized provisional findings the
+        author then verifies and signs; restructuring a methods paragraph into
+        a checklist; drafting a reusable comment macro; compressing an email
+        thread into an action list. Surveys show this is where adoption already
+        clusters.
+      </p>
+      <p>
+        Operational work can also <em>feed</em> education: corrected SOP
+        drafts, refined templates, and annotated smart phrases become teaching
+        cases, onboarding materials, and assessment content. The library's
+        largest section lives here — workshop logistics, rotation documents,
+        course materials, and conference packets.
+      </p>
+      <p>
+        <a class="btn -primary" href="library.html#/library/pillar-4-workflow-operations/index" style="text-decoration:none">All 34 Workflow &amp; Operations prompts</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>The governance layer that binds all four pillars:
+       <a href="guardrails.html">Implementation &amp; Guardrails →</a></p>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="learning.html">Learning</a> ·
+      <a href="teaching.html">Teaching</a> ·
+      <a href="scholarship.html">Scholarship</a> ·
+      <a href="operations.html">Workflow &amp; Ops</a> ·
+      <a href="library.html">Library</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/walkthrough.js" defer></script>
+</body>
+</html>

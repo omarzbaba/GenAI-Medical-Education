@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pillar 2 — Teaching, Curriculum &amp; Assessment · GenAI in Medical Education</title>
+  <meta name="description" content="The anchor pillar: faculty use AI as a content drafter, never a content authority. Walk through the draft→review→extend workflow and the MCQ expert gate.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .pillar-hero { border-left: 4px solid var(--p2); padding-left: clamp(1rem, 3vw, 2rem); }
+    .wt-p2 { --wt-color: var(--p2); --wt-wash: var(--p2-wash); }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="index.html">GenAI <em>in</em> Medical Education</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="library.html">Prompt Library</a>
+      <a href="anatomy.html">Prompt Anatomy</a>
+      <a href="guardrails.html">Guardrails</a>
+      <a href="about.html">About &amp; Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero container">
+    <div class="pillar-hero">
+      <p class="eyebrow" style="color:var(--p2)">Pillar 2 of 4 — the anchor</p>
+      <h1>Teaching, Curriculum &amp; Assessment</h1>
+      <p class="lede">
+        Now the educator is at the keyboard. Faculty carry a recurring drafting
+        burden — rotation blueprints, session objectives, teaching cases, item
+        banks — most of it rebuilt from scratch each year. Generative AI shifts
+        the starting point from a blank page to a reviewable draft. The evidence
+        divides cleanly along one line: LLMs are <strong>usable content
+        drafters</strong> and <strong>unreliable content authorities</strong>.
+      </p>
+      <p class="cite-line">
+        The workflow that follows holds across every task in this pillar:
+        <em>the model proposes, and a content expert disposes.</em>
+      </p>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="wt2-heading">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--p2)">Interactive walkthrough</p>
+      <h2 id="wt2-heading">Draft → Review → Extend: building a teaching case</h2>
+      <p class="measure">
+        Case writing is where the drafter role pays off most visibly, because a
+        good vignette is mostly structure a model can assemble and a faculty
+        member can correct. Follow one case from prompt to classroom — including
+        the error the review step exists to catch.
+      </p>
+    </div>
+
+    <div class="walkthrough wt-p2">
+      <header>
+        <span class="kicker">Scenario</span>
+        <h3>A transfusion-medicine session, PGY-2 level</h3>
+      </header>
+      <div class="wt-body">
+
+        <div class="wt-step">
+          <p class="stage-label">Step 1 · Draft — the prompt</p>
+          <h4>The model generates a skeleton</h4>
+          <p class="narrative">
+            The prompt (from the manuscript) constrains structure, level, and
+            internal consistency — and labels the case as hypothetical from the
+            start:
+          </p>
+          <div class="promptbox"><pre>Create a PGY-2-level teaching case of a suspected acute hemolytic
+transfusion reaction. Include a brief clinical history, an event
+timeline, the key pre- and post-transfusion laboratory findings
+(DAT, haptoglobin, LDH, plasma-free hemoglobin, urinalysis), and
+three teaching points. Keep all values internally consistent and
+label this as a hypothetical, de-identified case.</pre></div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 2 · The draft comes back</p>
+          <h4>Illustrative output — with a defect planted where models really fail</h4>
+          <p class="narrative">
+            An abridged draft of the kind a model returns. Read the laboratory
+            table carefully — one value is wrong in a way that fluent prose
+            makes easy to miss. (Illustrative example, not a recorded run;
+            reproduce in your own tool.)
+          </p>
+          <div class="wt-output">
+            <div class="who">Model output — abridged</div>
+            <p><em>Hypothetical, de-identified teaching case.</em>
+            A 62-year-old undergoing hip revision receives a unit of packed red
+            cells. Fifteen minutes in: rigors, flank pain, temperature 38.9°C,
+            dark urine. Transfusion stopped; clerical check initiated…</p>
+            <div class="table-scroll"><table>
+              <tr><th>Test</th><th>Pre-transfusion</th><th>1 h post</th></tr>
+              <tr><td>DAT</td><td>Negative</td><td>Positive (IgG and C3d)</td></tr>
+              <tr><td>Haptoglobin</td><td>110 mg/dL</td><td><strong>168 mg/dL</strong></td></tr>
+              <tr><td>LDH</td><td>190 U/L</td><td>820 U/L</td></tr>
+              <tr><td>Plasma-free Hgb</td><td>&lt;5 mg/dL</td><td>62 mg/dL</td></tr>
+              <tr><td>Urinalysis</td><td>Normal</td><td>Hemoglobinuria, no RBCs</td></tr>
+            </table></div>
+            <p>Teaching points: (1) clerical error is the leading cause…
+            (2) the DAT distinguishes immune from non-immune hemolysis…
+            (3) monitor for DIC and renal injury…</p>
+          </div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 3 · Review — the expert gate</p>
+          <h4>Review is not optional polishing</h4>
+          <p class="narrative">
+            The educator confirms the results, the timeline, and the
+            clerical-check narrative are mutually consistent, adjusts values to
+            local reference ranges, and inserts institutional workup policy —
+            the details a text-trained model has no reliable access to. Here,
+            the check catches the planted defect:
+          </p>
+          <div class="wt-flag">
+            <div class="who">Caught at review</div>
+            <p><strong>Haptoglobin rising (110 → 168 mg/dL) during acute
+            intravascular hemolysis is backwards.</strong> Haptoglobin binds
+            free hemoglobin and is consumed — it should fall, typically to
+            undetectable. Every other value moves the right way, which is
+            exactly what makes the error dangerous: a learner drilled on this
+            case would absorb an inverted lab pattern as fact
+            (<em>mis-skilling</em>).</p>
+          </div>
+          <div class="wt-verify">
+            <div class="who">Corrected before use</div>
+            <p>Haptoglobin 1 h post-transfusion corrected to
+            <strong>&lt;8 mg/dL (undetectable)</strong>; values re-checked
+            against local reference ranges; institutional transfusion-reaction
+            workup policy inserted into the timeline.</p>
+          </div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 4 · Extend</p>
+          <h4>Only now are the discussion questions layered on</h4>
+          <p class="narrative">
+            Extend adds the questions that carry the learning — asked of the
+            <em>corrected</em> case:
+          </p>
+          <div class="wt-output">
+            <div class="who">Extension questions</div>
+            <p>“What clerical checks should have caught this before issue?”<br>
+               “What further testing confirms the diagnosis?”<br>
+               “How would the picture differ in a febrile non-hemolytic
+               reaction?”</p>
+          </div>
+          <p class="narrative">
+            Structured generation paired with expert curation — never treated
+            as finished output — is how generated cases are used safely. The
+            scalability is real; <strong>the oversight is what makes it
+            safe</strong>. One more screen: check demographic details for
+            unnecessary or stereotyped attributes before the case reaches
+            learners.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="mcq-heading">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--p2)">Second demo</p>
+      <h2 id="mcq-heading">The MCQ expert gate</h2>
+      <p class="measure">
+        Item generation is the most-studied task in this pillar, and the
+        literature reads honestly in both directions: models draft items
+        dramatically faster than human authors, <em>and</em> generated items
+        frequently lack a single defensible correct answer or carry confidently
+        misleading rationales. A distractor that is subtly also correct does
+        more harm than a missing item — it teaches the wrong thing under the
+        authority of an answer key.
+      </p>
+    </div>
+
+    <div class="walkthrough wt-p2">
+      <header>
+        <span class="kicker">Scenario</span>
+        <h3>Five pre-analytical-error MCQs, under review</h3>
+      </header>
+      <div class="wt-body">
+
+        <div class="wt-step">
+          <p class="stage-label">Step 1 · The constrained prompt</p>
+          <h4>Even the prompt anticipates the failure mode</h4>
+          <div class="promptbox"><pre>Write 5 single-best-answer MCQs on pre-analytical error in the
+clinical laboratory at the application level of Bloom's taxonomy.
+For each item give the answer key and a one-sentence rationale for
+why each distractor is wrong. Do not write any item where more than
+one option could be defended as correct.</pre></div>
+          <p class="narrative">
+            Note the last sentence — and note that it is not enough. Even with
+            a prompt this constrained, the output is a <em>candidate set</em>.
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 2 · One generated item</p>
+          <h4>Would you pass this item? (Illustrative example)</h4>
+          <div class="wt-output">
+            <div class="who">Candidate item</div>
+            <p>A potassium of 6.8 mmol/L is reported on an outpatient sample
+            drawn with a 23-gauge needle, transported by courier in winter, and
+            centrifuged 4 hours after collection. The patient is asymptomatic
+            with a normal ECG. What is the most likely explanation?</p>
+            <p>A. In-vitro hemolysis from the small-gauge draw<br>
+               B. Delayed centrifugation with prolonged cell–serum contact<br>
+               C. Cold-exposure potassium leak during transport<br>
+               D. True hyperkalemia from unrecognized renal failure</p>
+            <p><em>Keyed answer: B.</em> Rationale: potassium leaks from cells
+            when serum is left on the clot…</p>
+          </div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 3 · The gate</p>
+          <h4>The educator verifies exactly one option is defensible</h4>
+          <div class="wt-flag">
+            <div class="who">Fails review</div>
+            <p>Options A, B, <em>and</em> C are all defensible contributors in
+            this stem: a 23-gauge draw can hemolyze, delayed centrifugation
+            raises potassium, and cold transport accelerates the leak. The stem
+            stacks three real pre-analytical causes and then demands a single
+            "most likely" without giving the discriminating detail. A learner
+            graded on this item is being graded on a coin flip.</p>
+          </div>
+          <div class="wt-verify">
+            <div class="who">Disposition</div>
+            <p>Item returned for revision: keep one pre-analytical insult per
+            stem, or add the discriminating finding (e.g., hemolysis index /
+            visible pink serum) that makes exactly one answer correct. The
+            model is an item <strong>drafter operating under an expert
+            gate</strong> — never the finalizer of an item a learner will be
+            graded or misled by.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="prose">
+      <h2>The rest of the pillar</h2>
+      <ul>
+        <li><strong>Curriculum &amp; session design.</strong> A model outlines a
+            four-week rotation in seconds; the educator edits for feasibility,
+            local resources, and accuracy. The reframing — from author to
+            editor — is where the time is actually saved. Milestone/EPA
+            crosswalks come back as <em>hypotheses</em>, with confidence
+            labeled, for faculty to correct.</li>
+        <li><strong>Presenter support.</strong> Story arcs, slide sequences,
+            sharper titles — yes. AI-fabricated histology or scientific
+            diagrams — never. The presenter owns every claim on every slide.</li>
+        <li><strong>Role stratification.</strong> Faculty draft under expert
+            review; trainees get explicit academic-integrity expectations;
+            presenters use AI for structure and language, not unverified
+            content.</li>
+      </ul>
+      <p>Three guardrails across all of it: content validity and blueprint
+         alignment, active bias screening, and human accountability for every
+         AI-assisted material that reaches learners.</p>
+      <p>
+        <a class="btn -primary" href="library.html#/library/pillar-2-teaching/index" style="text-decoration:none">All 21 Teaching prompts</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Next pillar: <a href="scholarship.html">Scholarship →</a></p>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="learning.html">Learning</a> ·
+      <a href="teaching.html">Teaching</a> ·
+      <a href="scholarship.html">Scholarship</a> ·
+      <a href="operations.html">Workflow &amp; Ops</a> ·
+      <a href="library.html">Library</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/walkthrough.js" defer></script>
+</body>
+</html>

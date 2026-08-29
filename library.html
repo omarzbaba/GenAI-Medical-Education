@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Library · GenAI in Medical Education</title>
+  <meta name="description" content="102 prompts across four pillars — each with intent, expected output, common failure modes, and a required human-verification step. CC BY 4.0.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="index.html">GenAI <em>in</em> Medical Education</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="library.html">Prompt Library</a>
+      <a href="anatomy.html">Prompt Anatomy</a>
+      <a href="guardrails.html">Guardrails</a>
+      <a href="about.html">About &amp; Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container" style="padding-block: 2.5rem var(--space-section)">
+
+  <div class="lib-toolbar">
+    <input id="lib-search" class="lib-search" type="search"
+           placeholder="Search 102 prompts — try “board”, “vignette”, “grant”, “SOP”…"
+           aria-label="Search the prompt library">
+    <nav aria-label="Pillars" class="chip-row" style="margin:0">
+      <a class="pill" href="library.html#/library/pillar-1-learning/index" style="text-decoration:none">1 · Learning</a>
+      <a class="pill" href="library.html#/library/pillar-2-teaching/index" style="text-decoration:none">2 · Teaching</a>
+      <a class="pill" href="library.html#/library/pillar-3-scholarship/index" style="text-decoration:none">3 · Scholarship</a>
+      <a class="pill" href="library.html#/library/pillar-4-workflow-operations/index" style="text-decoration:none">4 · Workflow &amp; Ops</a>
+      <a class="pill" href="library.html#/guides/index" style="text-decoration:none">How-to guides</a>
+    </nav>
+  </div>
+
+  <div id="search-results" hidden></div>
+
+  <article id="library-content" class="prose" style="max-width:none">
+    <p>Loading the library…</p>
+    <p>If this message persists, the manifest could not be loaded — return to
+       the <a href="index.html">home page</a>.</p>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      Every prompt is an illustrative scaffold: model outputs are
+      non-deterministic and version-dependent — adapt and re-verify in your own
+      tool. Content licensed <a href="about.html#license">CC BY 4.0</a>.
+    </p>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="learning.html">Learning</a> ·
+      <a href="teaching.html">Teaching</a> ·
+      <a href="scholarship.html">Scholarship</a> ·
+      <a href="operations.html">Workflow &amp; Ops</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/vendor/marked.min.js"></script>
+<script src="assets/vendor/dompurify.min.js"></script>
+<script src="assets/js/library-router.js"></script>
+<script src="assets/js/search.js" defer></script>
+</body>
+</html>

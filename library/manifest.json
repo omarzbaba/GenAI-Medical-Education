@@ -1,0 +1,1278 @@
+{
+ "generated_from": "scripts/build_manifest.py",
+ "pillars": [
+  {
+   "slug": "learning",
+   "dir": "pillar-1-learning",
+   "title": "Pillar 1 \u2014 Learning",
+   "short": "Learning",
+   "tagline": "Self-directed study, from board preparation to lifelong learning.",
+   "sections": [
+    {
+     "title": "Concept work",
+     "prompts": [
+      {
+       "title": "Compare and contrast",
+       "intent": "Produces a focused side-by-side comparison of two entities you confuse, organized around the *discriminating* features that actually separate them \u2014 not a comprehensive list of every difference. The output is a table you\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "differential, entity-comparison",
+       "slug": "compare-contrast",
+       "path": "library/pillar-1-learning/prompts/compare-contrast.md"
+      },
+      {
+       "title": "Concept explanation at level",
+       "intent": "Get a pathology concept explained in three layers calibrated to your specific gap \u2014 not a textbook dump and not a \"for dummies\" version. The output meets you at your current level, gives you something more than you came \u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "<2min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "concepts, scaffolding",
+       "slug": "concept-explanation-at-level",
+       "path": "library/pillar-1-learning/prompts/concept-explanation-at-level.md"
+      },
+      {
+       "title": "Guideline plain-language translation",
+       "intent": "Translates published guideline recommendations into plain language at a target reading level while **preserving every qualifier, conditional, and strength-of-recommendation grade exactly**. The output is suitable for bri\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "guidelines, plain-language",
+       "slug": "guideline-plain-language",
+       "path": "library/pillar-1-learning/prompts/guideline-plain-language.md"
+      },
+      {
+       "title": "LIS / informatics concept review",
+       "intent": "Bridges the vocabulary gap between clinical pathologists and informatics. You name a concept (HL7 segments, FHIR resources, middleware autoverification, LOINC mapping, instrument interfacing); the model gives you the men\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "informatics, lis, standards",
+       "slug": "lis-informatics-review",
+       "path": "library/pillar-1-learning/prompts/lis-informatics-review.md"
+      }
+     ]
+    },
+    {
+     "title": "Self-quizzing",
+     "prompts": [
+      {
+       "title": "Anki flashcard generation",
+       "intent": "Converts a topic, paper, set of notes, or lecture into Anki-import-ready flashcards in tab-separated format. The prompt enforces *atomic* cards (one fact per card), *specific* questions (not \"what is X\"), and *verificati\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "spaced-repetition, anki",
+       "slug": "anki-flashcards",
+       "path": "library/pillar-1-learning/prompts/anki-flashcards.md"
+      },
+      {
+       "title": "Board prep schedule",
+       "intent": "Generates a personalized board prep schedule that adapts to your actual constraints (weeks remaining, daily hours available, strongest/weakest subspecialties, resources you'll use). Includes mandatory rest days, a rescue\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": ">10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "planning, board-prep",
+       "slug": "board-prep-schedule",
+       "path": "library/pillar-1-learning/prompts/board-prep-schedule.md"
+      },
+      {
+       "title": "MCQ generation with rationales",
+       "intent": "Generates board-style MCQs with detailed rationales for **every** answer choice \u2014 not just the correct one. The rationales for incorrect choices are the highest-yield learning, because they teach the cognitive moves that\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "mcq, board-prep, question-writing",
+       "slug": "mcq-generation-with-rationales",
+       "path": "library/pillar-1-learning/prompts/mcq-generation-with-rationales.md"
+      },
+      {
+       "title": "Question bank gap analysis",
+       "intent": "Takes a list of qbank questions you've missed and identifies the underlying *concept gaps* \u2014 not the surface-level facts you didn't know, but the recurring patterns of misunderstanding that explain why those specific que\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "board-prep, gap-analysis, metacognition",
+       "slug": "question-bank-gap-analysis",
+       "path": "library/pillar-1-learning/prompts/question-bank-gap-analysis.md"
+      },
+      {
+       "title": "Self-quiz one at a time",
+       "intent": "Drills you with one question at a time, with the model adapting the next question based on what you got wrong. The *interaction structure* matters as much as the content \u2014 the rhythm of one-question-then-pause is what ma\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "self-assessment, drilling, interactive",
+       "slug": "self-quiz-one-at-a-time",
+       "path": "library/pillar-1-learning/prompts/self-quiz-one-at-a-time.md"
+      }
+     ]
+    },
+    {
+     "title": "Case-based drilling",
+     "prompts": [
+      {
+       "title": "Diagnostic algorithm walkthrough",
+       "intent": "Walks through a published diagnostic algorithm step by step \u2014 not just naming what happens at each decision point but explaining *why* the question is being asked there, what the answer rules in or out, what the common p\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "algorithm, diagnostic-workup, guidelines",
+       "slug": "diagnostic-algorithm-walkthrough",
+       "path": "library/pillar-1-learning/prompts/diagnostic-algorithm-walkthrough.md"
+      },
+      {
+       "title": "Differential by histologic pattern",
+       "intent": "You describe a histologic pattern (small round blue cells in a child, spindle cell tumor of the dermis, granulomatous inflammation in lung), and the model generates a complete pattern-based differential, ranked by likeli\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "differential, morphology, pattern-recognition",
+       "slug": "differential-by-histologic-pattern",
+       "path": "library/pillar-1-learning/prompts/differential-by-histologic-pattern.md"
+      },
+      {
+       "title": "Forward case drill \u2014 diagnosis to expected findings",
+       "intent": "Reverses the usual study direction: instead of given-findings-name-diagnosis, you name a diagnosis and the model generates the full constellation of findings you would expect, labeled by diagnostic weight (pathognomonic \u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "case-based, drilling, expected-findings",
+       "slug": "forward-case-drill",
+       "path": "library/pillar-1-learning/prompts/forward-case-drill.md"
+      },
+      {
+       "title": "Frozen section thinking-out-loud drill",
+       "intent": "Simulates frozen section decision-making under time pressure, including the meta-cognitive challenge: what to say to the surgeon when you're uncertain, when to defer to permanent, and how to communicate the implications \u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "frozen-section, time-pressure, decision-making",
+       "slug": "frozen-section-thinking-aloud",
+       "path": "library/pillar-1-learning/prompts/frozen-section-thinking-aloud.md"
+      },
+      {
+       "title": "Negative drill \u2014 what would change the diagnosis",
+       "intent": "Trains the habit of *disconfirmation*: take a working diagnosis you're confident in and ask the model to enumerate the findings or test results that would force you to reconsider, ranked by **clinical likelihood** rather\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "disconfirmation, counterfactual-reasoning",
+       "slug": "negative-drill",
+       "path": "library/pillar-1-learning/prompts/negative-drill.md"
+      },
+      {
+       "title": "Reverse case drill \u2014 findings to diagnosis",
+       "intent": "You provide a set of findings from a case (anonymized, no PHI). The model works the case in reverse \u2014 from findings alone, walking through the differential, narrowing systematically, reaching a diagnosis, and naming the \u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "case-based, drilling, reasoning",
+       "slug": "reverse-case-drill",
+       "path": "library/pillar-1-learning/prompts/reverse-case-drill.md"
+      }
+     ]
+    },
+    {
+     "title": "Reading the literature",
+     "prompts": [
+      {
+       "title": "Journal club pre-read prep",
+       "intent": "Generates a one-page pre-read for a journal club paper that attendees can actually use to arrive prepared. Includes background context, study summary with specific numbers, named strengths and limitations, and five discu\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7 with paper attached",
+       "tags": "journal-club, preparation, literature",
+       "slug": "journal-club-preread",
+       "path": "library/pillar-1-learning/prompts/journal-club-preread.md"
+      },
+      {
+       "title": "Paper methods critique",
+       "intent": "Generates a structured methodology critique using the appropriate reporting guideline as the framework (CONSORT for RCTs, STROBE for observational, STARD for diagnostic accuracy, PRISMA for systematic reviews, TRIPOD for\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "literature, critical-appraisal, methods",
+       "slug": "paper-methods-critique",
+       "path": "library/pillar-1-learning/prompts/paper-methods-critique.md"
+      },
+      {
+       "title": "Paper summarization",
+       "intent": "Generates a structured paper summary covering question / design / headline finding / most important limitation / would-this-change-practice / attending Q&A prep \u2014 in that order, no skipping. The output is a triage tool: \u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "resident",
+       "best_model": "Gemini 2.5 Pro",
+       "tags": "literature, summarization, triage",
+       "slug": "paper-summarization",
+       "path": "library/pillar-1-learning/prompts/paper-summarization.md"
+      }
+     ]
+    },
+    {
+     "title": "Multimodal & lab",
+     "prompts": [
+      {
+       "title": "Blood smear systematic review walkthrough",
+       "intent": "Builds the habit of reading a peripheral blood smear systematically \u2014 RBCs, WBCs, platelets, in that order, with specific observations at each magnification \u2014 rather than pattern-matching to the most likely diagnosis. Th\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "blood-smear, hematology, systematic-review, multimodal",
+       "slug": "blood-smear-systematic-review",
+       "path": "library/pillar-1-learning/prompts/blood-smear-systematic-review.md"
+      },
+      {
+       "title": "IHC stain interpretation walkthrough",
+       "intent": "Walks through interpretation of an IHC stain image or panel result, building the discipline of *describe the staining pattern \u2192 interpret the pattern \u2192 integrate with morphology \u2192 arrive at a conclusion*. The model holds\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "ihc, immunohistochemistry, stain-interpretation",
+       "slug": "ihc-stain-interpretation",
+       "path": "library/pillar-1-learning/prompts/ihc-stain-interpretation.md"
+      },
+      {
+       "title": "Photomicrograph description practice",
+       "intent": "Builds your morphologic description discipline using a published teaching image. You upload an image, the model describes what it sees and offers a differential **before you commit**, you commit your own interpretation, \u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Gemini 2.5 Pro",
+       "tags": "multimodal, morphology, image-analysis, safety-critical",
+       "slug": "multimodal-photomicrograph",
+       "path": "library/pillar-1-learning/prompts/multimodal-photomicrograph.md"
+      },
+      {
+       "title": "SPEP / IFE trace interpretation walkthrough",
+       "intent": "Walks through SPEP or IFE interpretation as a guided drill \u2014 you commit at each step before the model reveals what it sees. Builds the regional reading discipline (orient \u2192 describe each region \u2192 identify abnormality \u2192 i\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "multimodal, spep, ife, paraprotein",
+       "slug": "multimodal-spep-ife",
+       "path": "library/pillar-1-learning/prompts/multimodal-spep-ife.md"
+      }
+     ]
+    },
+    {
+     "title": "Molecular & CP workflow",
+     "prompts": [
+      {
+       "title": "Critical value workflow drill",
+       "intent": "Drill the complete critical value workflow for a given result: confirm the value is real, identify and notify the right provider, document the call, follow up on disposition, and recognize when a value crosses from criti\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "critical-values, lab-workflow, cp, notification",
+       "slug": "critical-value-workflow",
+       "path": "library/pillar-1-learning/prompts/critical-value-workflow.md"
+      },
+      {
+       "title": "Molecular result interpretation drill",
+       "intent": "Walks through interpretation of a molecular result (single variant, fusion, copy number alteration, MSI/TMB result, or NGS panel) by drilling the four-step reasoning framework: *what is the alteration \u2192 what is its funct\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "molecular, ngs, variant-interpretation, classification",
+       "slug": "molecular-result-interpretation",
+       "path": "library/pillar-1-learning/prompts/molecular-result-interpretation.md"
+      }
+     ]
+    },
+    {
+     "title": "Source-grounded AI (NotebookLM & Claude Projects)",
+     "prompts": [
+      {
+       "title": "Build a board prep notebook",
+       "intent": "Step-by-step setup for a board prep notebook (NotebookLM or Claude Projects) that becomes your study companion for the months leading up to RISE, ABPath, or in-service exams. The key idea: stop pasting the same source ma\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "source-grounded, board-prep, notebooklm, claude-projects",
+       "slug": "sg-board-prep-notebook",
+       "path": "library/pillar-1-learning/prompts/sg-board-prep-notebook.md"
+      },
+      {
+       "title": "Source-grounded concept explanation",
+       "intent": "The source-grounded version of [Concept explanation at level](library.html#/library/pillar-1-learning/prompts/concept-explanation-at-level). Anchors every substantive claim to a specific uploaded source \u2014 not just \"this \u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "<2min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "source-grounded, concept, citation-required",
+       "slug": "sg-concept-explanation-sourced",
+       "path": "library/pillar-1-learning/prompts/sg-concept-explanation-sourced.md"
+      },
+      {
+       "title": "Cross-source comparison drill",
+       "intent": "Asks the notebook to compare how multiple uploaded sources address the same topic \u2014 surfacing discrepancies, definitional differences, and version drift between editions. Especially valuable when your corpus spans multip\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "source-grounded, comparison, discrepancy-detection",
+       "slug": "sg-cross-source-comparison",
+       "path": "library/pillar-1-learning/prompts/sg-cross-source-comparison.md"
+      },
+      {
+       "title": "Build a journal club notebook",
+       "intent": "Sets up a journal-club-specific notebook containing the paper you're presenting plus 5-10 related papers, so you can discuss your paper in deep context \u2014 citing prior literature, naming contradictions, anticipating quest\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "source-grounded, journal-club, notebooklm, claude-projects, literature",
+       "slug": "sg-journal-club-notebook",
+       "path": "library/pillar-1-learning/prompts/sg-journal-club-notebook.md"
+      },
+      {
+       "title": "Knowledge gap discovery from uploaded sources",
+       "intent": "Asks the notebook to surface YOUR knowledge gaps relative to YOUR uploaded study material \u2014 through an adaptive quiz that progressively narrows on weak topics, then summarizes the gaps with specific reading recommendatio\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "source-grounded, gap-discovery, study-planning",
+       "slug": "sg-knowledge-gap-discovery",
+       "path": "library/pillar-1-learning/prompts/sg-knowledge-gap-discovery.md"
+      },
+      {
+       "title": "Source-grounded MCQ generation",
+       "intent": "The source-grounded version of [MCQ generation with rationales](library.html#/library/pillar-1-learning/prompts/mcq-generation-with-rationales). Generates board-style MCQs from YOUR uploaded study materials, with every a\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "source-grounded, mcq, board-prep",
+       "slug": "sg-mcq-generation-sourced",
+       "path": "library/pillar-1-learning/prompts/sg-mcq-generation-sourced.md"
+      },
+      {
+       "title": "Source-grounded paper critique against your corpus",
+       "intent": "Critiques a paper against the broader literature in your notebook \u2014 not against the model's general training. Surfaces where this paper agrees with, extends, or contradicts the other sources you've uploaded. Useful for j\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "source-grounded, paper-critique, cross-source-comparison",
+       "slug": "sg-paper-critique-against-corpus",
+       "path": "library/pillar-1-learning/prompts/sg-paper-critique-against-corpus.md"
+      },
+      {
+       "title": "Source-grounded self-quiz from notebook material",
+       "intent": "The source-grounded version of [Self-quiz one at a time](library.html#/library/pillar-1-learning/prompts/self-quiz-one-at-a-time). Drills you with questions that the model generates FROM your uploaded sources, with the a\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "source-grounded, self-quiz, drilling",
+       "slug": "sg-self-quiz-sourced",
+       "path": "library/pillar-1-learning/prompts/sg-self-quiz-sourced.md"
+      },
+      {
+       "title": "Build a sign-out preview notebook",
+       "intent": "Sets up a subspecialty-specific notebook for the rotation you're on right now. Becomes your \"preview before sign-out\" tool \u2014 you load yesterday's cases mentally, the notebook helps you anticipate today's sign-out questio\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "source-grounded, sign-out, rotation, notebooklm, claude-projects",
+       "slug": "sg-signout-notebook",
+       "path": "library/pillar-1-learning/prompts/sg-signout-notebook.md"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "teaching",
+   "dir": "pillar-2-teaching",
+   "title": "Pillar 2 \u2014 Teaching, Curriculum & Assessment",
+   "short": "Teaching",
+   "tagline": "The faculty-facing anchor: the model proposes, the expert disposes.",
+   "sections": [
+    {
+     "title": "Learning objectives & assessment",
+     "prompts": [
+      {
+       "title": "ACGME / EPA learning objective generation",
+       "intent": "Generates learning objectives in the format your CCC and program leadership expect: measurable verbs, conditions, criteria, and an explicit map to a specific ACGME milestone sub-competency or EPA. Also identifies the mil\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "learning-objectives, acgme, epa, assessment",
+       "slug": "acgme-epa-objectives",
+       "path": "library/pillar-2-teaching/prompts/acgme-epa-objectives.md"
+      },
+      {
+       "title": "Bloom's taxonomy MCQ generation",
+       "intent": "Generates MCQs at specified Bloom's taxonomy levels \u2014 Application, Analysis, Evaluation \u2014 with rationales calibrated to the cognitive task each question tests. Avoids the default failure mode of disguising Recall as Appl\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "mcq, assessment, blooms, cognitive-level",
+       "slug": "blooms-mcq",
+       "path": "library/pillar-2-teaching/prompts/blooms-mcq.md"
+      }
+     ]
+    },
+    {
+     "title": "Cases & vignettes",
+     "prompts": [
+      {
+       "title": "Case vignette at PGY level",
+       "intent": "Generates a case vignette calibrated to a specific PGY level, with the right complexity, the right amount of clinical context, and demographics that reflect actual epidemiology rather than the textbook-archetype default.\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "vignette, case-based, level-calibration",
+       "slug": "case-vignette-pgy",
+       "path": "library/pillar-2-teaching/prompts/case-vignette-pgy.md"
+      },
+      {
+       "title": "Matched case pair \u2014 reactive vs neoplastic",
+       "intent": "Generates two case vignettes that share superficial features but diverge on a specific discriminating feature \u2014 the one you want to teach. The pair structure forces residents to NOTICE the discriminator rather than patte\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "vignette, differential, paired-cases",
+       "slug": "matched-case-pair",
+       "path": "library/pillar-2-teaching/prompts/matched-case-pair.md"
+      },
+      {
+       "title": "OSCE station drafting",
+       "intent": "Drafts a complete OSCE station: examinee instructions, simulated-other-party script that handles real conversational variation, expected examinee actions ranked by importance, a behaviorally-anchored scoring rubric, and \u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "osce, assessment, simulation",
+       "slug": "osce-station",
+       "path": "library/pillar-2-teaching/prompts/osce-station.md"
+      }
+     ]
+    },
+    {
+     "title": "Lectures & presentations",
+     "prompts": [
+      {
+       "title": "Audience poll question generation",
+       "intent": "Generates audience poll questions for a live talk \u2014 designed for engagement and misconception-surfacing, not assessment. Each poll has a \"wrong\" answer that most of the audience will pick (by design \u2014 that's where the te\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "polls, audience-engagement, live-teaching",
+       "slug": "audience-polls",
+       "path": "library/pillar-2-teaching/prompts/audience-polls.md"
+      },
+      {
+       "title": "Microscopy teaching session design",
+       "intent": "Designs a microscopy-anchored teaching session built around 6-10 images rather than slides of text. Generates per-image talking points, discussion questions, and the teaching arc that holds the images together \u2014 not just\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "teaching, microscopy, image-based, session-design",
+       "slug": "microscopy-teaching-session",
+       "path": "library/pillar-2-teaching/prompts/microscopy-teaching-session.md"
+      },
+      {
+       "title": "Slide outline for a 1-hour lecture",
+       "intent": "Generates a slide outline for a 1-hour lecture: 35-45 slides, beat structure (hook \u2192 roadmap \u2192 3-4 content beats \u2192 synthesis \u2192 Q&A), per-slide visuals, audience interaction moments, anchor slides, and a contingency cut l\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "lecture, slides, timing",
+       "slug": "slide-outline-1hr",
+       "path": "library/pillar-2-teaching/prompts/slide-outline-1hr.md"
+      },
+      {
+       "title": "Speaker notes for existing slides",
+       "intent": "Generates speaker notes for your existing slide deck: paste your slide titles + bullets, get back per-slide notes that expand bullets into spoken prose, include the specific example to use, mark interaction beats, and br\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "lecture, speaker-notes, spoken-voice",
+       "slug": "speaker-notes",
+       "path": "library/pillar-2-teaching/prompts/speaker-notes.md"
+      },
+      {
+       "title": "Video script and storyboard",
+       "intent": "Drafts a 2-column video script (narration / visuals) for a short educational explainer, with timed beats, specific visual cues, opening hook, and a single takeaway. Built for short asynchronous content (2-5 min) where pa\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "video, scripting, storyboard",
+       "slug": "video-script",
+       "path": "library/pillar-2-teaching/prompts/video-script.md"
+      },
+      {
+       "title": "Visual metaphor brainstorming",
+       "intent": "Generates 5-7 candidate visual metaphors for an abstract concept, with explicit precision-vs-accessibility tradeoffs scored for each. The point isn't to pick the metaphor for you but to surface options you wouldn't have \u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "teaching, metaphor, abstract-concepts",
+       "slug": "visual-metaphor",
+       "path": "library/pillar-2-teaching/prompts/visual-metaphor.md"
+      }
+     ]
+    },
+    {
+     "title": "Written feedback & narrative",
+     "prompts": [
+      {
+       "title": "CCC narrative comment drafting",
+       "intent": "Converts your bullet observations into a CCC narrative comment that defensibly maps evidence to milestone level. Strict discipline about not inflating beyond the evidence you provided \u2014 if your evidence supports level 3 \u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "ccc, narrative, milestone-evidence, high-stakes",
+       "slug": "ccc-narrative-comment",
+       "path": "library/pillar-2-teaching/prompts/ccc-narrative-comment.md"
+      },
+      {
+       "title": "Difficult feedback conversation prep",
+       "intent": "Preps you for a feedback conversation that's harder than usual \u2014 a struggling resident, a professionalism concern, performance below expectations, or a conversation where you need to escalate to formal documentation. Gen\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "feedback, hard-conversation, professionalism",
+       "slug": "difficult-feedback-conversation-prep",
+       "path": "library/pillar-2-teaching/prompts/difficult-feedback-conversation-prep.md"
+      },
+      {
+       "title": "Letter of recommendation starting draft",
+       "intent": "Produces a structured *scaffold* for a letter of recommendation \u2014 never a finished letter. The model holds the bones (paragraph structure, transition logic, closing strength) while you supply the entire substance (specif\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "lor, narrative, high-stakes",
+       "slug": "lor-starting-draft",
+       "path": "library/pillar-2-teaching/prompts/lor-starting-draft.md"
+      },
+      {
+       "title": "Resident feedback note drafting",
+       "intent": "Converts your bullet observations from a rotation into a polished feedback note that residents will actually read and remember. Strict discipline: every claim in the note must trace to an observation you provided. No ext\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "feedback, narrative, evidence-based",
+       "slug": "resident-feedback-note",
+       "path": "library/pillar-2-teaching/prompts/resident-feedback-note.md"
+      }
+     ]
+    },
+    {
+     "title": "Discussion-based formats",
+     "prompts": [
+      {
+       "title": "Journal club discussion questions",
+       "intent": "Generates 5 discussion questions for journal club, ordered from concrete (methods, numbers) to abstract (implications, practice-change) and ending with one genuinely contested question that reasonable experts disagree ab\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "journal-club, discussion, escalating-questions",
+       "slug": "journal-club-discussion-q",
+       "path": "library/pillar-2-teaching/prompts/journal-club-discussion-q.md"
+      },
+      {
+       "title": "Resident-as-teacher scaffolding",
+       "intent": "Scaffolds a teaching session for a resident who has been asked to teach \u2014 typically for the first time. Forces the resident to think about teaching as a deliberate practice (one concept, one slide, one exercise) rather t\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "resident-as-teacher, scaffolding, teaching-skills",
+       "slug": "resident-as-teacher",
+       "path": "library/pillar-2-teaching/prompts/resident-as-teacher.md"
+      },
+      {
+       "title": "Sign-out teaching turn",
+       "intent": "Converts a sign-out moment \u2014 a case that just came up, a finding that's worth pausing on, a question a resident asked \u2014 into a structured 3-5 minute teaching point you can deliver in the flow of the day. The model gives \u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "teaching, sign-out, capture-the-moment",
+       "slug": "sign-out-teaching-turn",
+       "path": "library/pillar-2-teaching/prompts/sign-out-teaching-turn.md"
+      },
+      {
+       "title": "Tumor board prep coaching",
+       "intent": "Coaches a resident who will present at tumor board. The model interviews them on the case, identifies where their presentation is weakest, and gives them specific drilling on the 2-3 highest-stakes questions board member\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "tumor-board, coaching, presentation-skills",
+       "slug": "tumor-board-prep-coaching",
+       "path": "library/pillar-2-teaching/prompts/tumor-board-prep-coaching.md"
+      },
+      {
+       "title": "Tumor board case presentation template",
+       "intent": "Generates a tumor board case presentation outline that walks through history \u2192 imaging \u2192 pathology in the order the audience needs it, ends with an explicit decision question for the board, and anticipates the 2-3 most l\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "tumor-board, presentation, structured-format",
+       "slug": "tumor-board-presentation",
+       "path": "library/pillar-2-teaching/prompts/tumor-board-presentation.md"
+      }
+     ]
+    },
+    {
+     "title": "Resident communication",
+     "prompts": [
+      {
+       "title": "Sub-specialty rotation goals letter",
+       "intent": "Drafts the \"here's what I'd like to get out of this rotation\" letter or email that a resident sends to their incoming rotation director a week or two before the rotation starts. Signals intent, sets expectations, and giv\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "rotation, goal-setting, communication",
+       "slug": "subspecialty-rotation-goals-letter",
+       "path": "library/pillar-2-teaching/prompts/subspecialty-rotation-goals-letter.md"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "scholarship",
+   "dir": "pillar-3-scholarship",
+   "title": "Pillar 3 \u2014 Scholarship",
+   "short": "Scholarship",
+   "tagline": "Ideation to disclosure \u2014 AI accelerates scaffolding; accountability stays human.",
+   "sections": [
+    {
+     "title": "Ideation & question refinement",
+     "prompts": [
+      {
+       "title": "Research question refinement",
+       "intent": "Turns a vague clinical observation into a focused, testable research question, and names the key variables and confounders you will have to handle. The value is generative breadth rather than correctness: the model widen\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident, faculty",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "ideation, study-design",
+       "slug": "research-question-refinement",
+       "path": "library/pillar-3-scholarship/prompts/research-question-refinement.md"
+      },
+      {
+       "title": "Five testable questions at levels of ambition",
+       "intent": "Converts a diffuse research interest into five specific, testable questions arranged by ambition \u2014 from a single-institution pilot to a multicenter trial \u2014 each with its primary outcome and main threat to validity.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident, faculty",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "ideation, study-design",
+       "slug": "testable-questions-ladder",
+       "path": "library/pillar-3-scholarship/prompts/testable-questions-ladder.md"
+      }
+     ]
+    },
+    {
+     "title": "Literature scoping",
+     "prompts": [
+      {
+       "title": "MeSH and keyword clustering",
+       "intent": "Takes the candidate terms you already collected and organizes them: thematic clusters, redundancies flagged, gaps suggested. Note the closing instruction \u2014 it explicitly forbids the failure mode (fabricated citations) th\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "resident, faculty",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "literature, search-strategy",
+       "slug": "mesh-term-clustering",
+       "path": "library/pillar-3-scholarship/prompts/mesh-term-clustering.md"
+      },
+      {
+       "title": "Literature search-term scoping",
+       "intent": "Brainstorms PubMed search terms, MeSH headings, and synonym clusters for a review topic \u2014 the step *before* a formal search. It maps how a literature is organized; it does not retrieve it.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident, faculty",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "literature, search-strategy",
+       "slug": "search-term-scoping",
+       "path": "library/pillar-3-scholarship/prompts/search-term-scoping.md"
+      }
+     ]
+    },
+    {
+     "title": "Manuscript drafting & editing",
+     "prompts": [
+      {
+       "title": "Discussion outline from bullet notes",
+       "intent": "Converts your bullet-point findings into a proposed Discussion outline \u2014 opening interpretation, comparison with prior work, limitations, implications. The model organizes; the claims stay yours.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident, faculty",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "writing, structure",
+       "slug": "discussion-outline-from-notes",
+       "path": "library/pillar-3-scholarship/prompts/discussion-outline-from-notes.md"
+      },
+      {
+       "title": "Guardrailed language editing",
+       "intent": "The clearest and most defensible scholarly use of AI: language work on text you already own. The prompt pins the model to clarity and concision while forbidding it from touching your numbers or claims. This matters most \u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "resident, faculty",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "writing, editing",
+       "slug": "language-editing-guardrailed",
+       "path": "library/pillar-3-scholarship/prompts/language-editing-guardrailed.md"
+      }
+     ]
+    },
+    {
+     "title": "Pre-submission critique",
+     "prompts": [
+      {
+       "title": "Pre-submission reviewer simulation",
+       "intent": "Asks a model to predict what a reviewer would object to in your own unsubmitted draft \u2014 a rehearsal of peer review, not a substitute for it. The instruction to diagnose rather than rewrite is deliberate: it keeps your vo\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Frontier reasoning tier (e.g., Claude Opus)",
+       "tags": "peer-review, revision",
+       "slug": "pre-submission-critique",
+       "path": "library/pillar-3-scholarship/prompts/pre-submission-critique.md"
+      }
+     ]
+    },
+    {
+     "title": "Grant development",
+     "prompts": [
+      {
+       "title": "Grant step 1 \u2014 Build context",
+       "intent": "Step 1 of the manuscript's six-step grant-development sequence (Table 5, Figure 3): **surface the core scientific narrative before any drafting**. The sequence uses AI as an iterative thinking partner that improves scien\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Frontier reasoning tier (e.g., Claude Opus)",
+       "tags": "grants, specific-aims, sequence",
+       "slug": "grant-step-1-build-context",
+       "path": "library/pillar-3-scholarship/prompts/grant-step-1-build-context.md"
+      },
+      {
+       "title": "Grant step 2 \u2014 Test understanding",
+       "intent": "Step 2 of the manuscript's six-step grant-development sequence (Table 5, Figure 3): **check whether the project reads clearly to a non-specialist reviewer**. The sequence uses AI as an iterative thinking partner that imp\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Frontier reasoning tier (e.g., Claude Opus)",
+       "tags": "grants, specific-aims, sequence",
+       "slug": "grant-step-2-test-understanding",
+       "path": "library/pillar-3-scholarship/prompts/grant-step-2-test-understanding.md"
+      },
+      {
+       "title": "Grant step 3 \u2014 Expand significance",
+       "intent": "Step 3 of the manuscript's six-step grant-development sequence (Table 5, Figure 3): **generate candidate angles that could strengthen impact**. The sequence uses AI as an iterative thinking partner that improves scientif\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Frontier reasoning tier (e.g., Claude Opus)",
+       "tags": "grants, specific-aims, sequence",
+       "slug": "grant-step-3-expand-significance",
+       "path": "library/pillar-3-scholarship/prompts/grant-step-3-expand-significance.md"
+      },
+      {
+       "title": "Grant step 4 \u2014 Reviewer critique",
+       "intent": "Step 4 of the manuscript's six-step grant-development sequence (Table 5, Figure 3): **stress-test the argument before a real reviewer does**. The sequence uses AI as an iterative thinking partner that improves scientific\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Frontier reasoning tier (e.g., Claude Opus)",
+       "tags": "grants, specific-aims, sequence",
+       "slug": "grant-step-4-reviewer-critique",
+       "path": "library/pillar-3-scholarship/prompts/grant-step-4-reviewer-critique.md"
+      },
+      {
+       "title": "Grant step 5 \u2014 Build the story",
+       "intent": "Step 5 of the manuscript's six-step grant-development sequence (Table 5, Figure 3): **impose a logical structure on the proposal**. The sequence uses AI as an iterative thinking partner that improves scientific communica\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Frontier reasoning tier (e.g., Claude Opus)",
+       "tags": "grants, specific-aims, sequence",
+       "slug": "grant-step-5-build-story",
+       "path": "library/pillar-3-scholarship/prompts/grant-step-5-build-story.md"
+      },
+      {
+       "title": "Grant step 6 \u2014 Draft the Aims framework",
+       "intent": "Step 6 of the manuscript's six-step grant-development sequence (Table 5, Figure 3): **produce a specific aims scaffold flagged for human input**. The sequence uses AI as an iterative thinking partner that improves scient\u2026",
+       "difficulty": "advanced",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Frontier reasoning tier (e.g., Claude Opus)",
+       "tags": "grants, specific-aims, sequence",
+       "slug": "grant-step-6-draft-aims",
+       "path": "library/pillar-3-scholarship/prompts/grant-step-6-draft-aims.md"
+      }
+     ]
+    },
+    {
+     "title": "Authorship & disclosure",
+     "prompts": [
+      {
+       "title": "AI-use disclosure statement",
+       "intent": "Drafts the AI-use disclosure statement your target journal requires. Editorial governance is explicit: ICMJE and COPE state that AI cannot be an author because it cannot take responsibility for the work, while human auth\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty, fellow",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "disclosure, authorship, ICMJE",
+       "slug": "ai-disclosure-drafting",
+       "path": "library/pillar-3-scholarship/prompts/ai-disclosure-drafting.md"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "slug": "workflow-operations",
+   "dir": "pillar-4-workflow-operations",
+   "title": "Pillar 4 \u2014 Workflow & Operations",
+   "short": "Workflow & Ops",
+   "tagline": "The adjacent domain: operational text, drafted under review.",
+   "sections": [
+    {
+     "title": "Workshops",
+     "prompts": [
+      {
+       "title": "Access card layout",
+       "intent": "Specifies a printable access card (business card or keycard size) with a QR code linking to the companion site, attendee name, usage instructions, and contact-for-help info. Enforces \u226525mm QR code with error correction l\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "design, access-card, qr-code",
+       "slug": "access-card-layout",
+       "path": "library/pillar-4-workflow-operations/prompts/access-card-layout.md"
+      },
+      {
+       "title": "Announcement and registration copy",
+       "intent": "Drafts a workshop announcement that drives registration without overpromising \u2014 a 100-word promotional blurb, a full registration page, and a registration confirmation email. The hardest discipline this enforces: no empt\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "marketing, copy, registration",
+       "slug": "announcement-registration",
+       "path": "library/pillar-4-workflow-operations/prompts/announcement-registration.md"
+      },
+      {
+       "title": "Badge design specifications",
+       "intent": "Drafts a printable badge spec: dimensions, fields, font sizes (meeting WCAG accessibility minimums for name visibility), color palette, lanyard/holder type, and a 10% buffer quantity for last-minute attendees and reprint\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "design, badges, accessibility",
+       "slug": "badge-design-spec",
+       "path": "library/pillar-4-workflow-operations/prompts/badge-design-spec.md"
+      },
+      {
+       "title": "Certificate of completion template",
+       "intent": "Drafts a certificate of completion template with attestation language, signature blocks, optional authentication elements (certificate number, QR code), and a designer-ready layout brief. Strict rule: NO CME, MOC, or con\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "design, certificates, accreditation",
+       "slug": "certificate-of-completion",
+       "path": "library/pillar-4-workflow-operations/prompts/certificate-of-completion.md"
+      },
+      {
+       "title": "Day-of facilitator run-of-show",
+       "intent": "Generates the minute-by-minute facilitator run-of-show \u2014 the document the lead facilitator holds in their hand all day. Every block has a time range, owner, transition cue, and contingencies for running long, short, or t\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "operations, run-of-show, contingencies",
+       "slug": "facilitator-runofshow",
+       "path": "library/pillar-4-workflow-operations/prompts/facilitator-runofshow.md"
+      },
+      {
+       "title": "Faculty feedback summary email",
+       "intent": "Converts raw attendee feedback into a faculty debrief email organized by theme, ordered by frequency, with honest separation of signal vs noise and ranked suggested actions.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "feedback, debrief, themes",
+       "slug": "faculty-feedback-summary",
+       "path": "library/pillar-4-workflow-operations/prompts/faculty-feedback-summary.md"
+      },
+      {
+       "title": "Lab incident debrief template",
+       "intent": "Generates a structured debrief template for when something has gone wrong in the lab \u2014 specimen lost, critical value missed, mis-identification, wrong-patient result, near-miss. The template follows just-culture principl\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "incident, debrief, just-culture, quality",
+       "slug": "lab-incident-debrief",
+       "path": "library/pillar-4-workflow-operations/prompts/lab-incident-debrief.md"
+      },
+      {
+       "title": "Post-workshop thank-you email",
+       "intent": "Drafts a post-workshop thank-you email under 200 words with links to materials, a feedback request, and a specific reference to a moment from the workshop. The specific-moment reference is non-negotiable \u2014 and the model \u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "comms, thank-you, follow-up",
+       "slug": "post-workshop-thank-you",
+       "path": "library/pillar-4-workflow-operations/prompts/post-workshop-thank-you.md"
+      },
+      {
+       "title": "Pre-workshop survey design",
+       "intent": "Designs a pre-workshop survey that captures the data you actually need to calibrate the workshop, without burning attendee goodwill. Hard cap: under 3 minutes to complete, 5-8 questions, every question maps to a decision\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "survey, intake, attendee-calibration",
+       "slug": "pre-workshop-survey",
+       "path": "library/pillar-4-workflow-operations/prompts/pre-workshop-survey.md"
+      },
+      {
+       "title": "Station-by-station facilitator guide",
+       "intent": "Generates per-station facilitator guides for a rotating-station workshop. Each station gets its own consistent-format guide: objectives, materials, setup, minute-by-minute script, reset instructions, what attendees walk \u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "station-guide, parallel-documents,rotating-stations",
+       "slug": "station-by-station-guide",
+       "path": "library/pillar-4-workflow-operations/prompts/station-by-station-guide.md"
+      }
+     ]
+    },
+    {
+     "title": "Rotations",
+     "prompts": [
+      {
+       "title": "Call schedule generator with constraints",
+       "intent": "Generates a fair call schedule respecting constraints (vacations, time-off requests, ACGME work-hour rules, fairness across residents, weekend equity). This is the chief resident task that consumes hours and produces res\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "program-director",
+       "best_model": "Claude Opus 4.7",
+       "tags": "call-schedule, planning, constraints",
+       "slug": "call-schedule-generator",
+       "path": "library/pillar-4-workflow-operations/prompts/call-schedule-generator.md"
+      },
+      {
+       "title": "Daily schedule template",
+       "intent": "Generates a typical-day schedule template for a rotation with required blocks (sign-out, didactics, case review, protected reading) and explicit acknowledgment of when protected reading time is unrealistic given the rota\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "program-director",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "schedule, daily-template, protected-time",
+       "slug": "daily-schedule",
+       "path": "library/pillar-4-workflow-operations/prompts/daily-schedule.md"
+      },
+      {
+       "title": "End-of-rotation evaluation",
+       "intent": "Generates an end-of-rotation evaluation form aligned to milestones, with numeric ratings, narrative comments per dimension, an overall narrative, a specific commitment for next rotation, and an \"unable to assess\" gate to\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "program-director",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "evaluation, end-of-rotation, milestone-aligned",
+       "slug": "end-of-rotation-evaluation",
+       "path": "library/pillar-4-workflow-operations/prompts/end-of-rotation-evaluation.md"
+      },
+      {
+       "title": "Rotation evaluation rubric",
+       "intent": "Generates a milestone-aligned evaluation rubric with behaviorally-anchored level descriptors. The key discipline: anchors describe OBSERVABLE BEHAVIORS, not personality traits, and they GENUINELY DISCRIMINATE between lev\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "program-director",
+       "best_model": "Claude Opus 4.7",
+       "tags": "evaluation, rubric, milestone-alignment",
+       "slug": "evaluation-rubric",
+       "path": "library/pillar-4-workflow-operations/prompts/evaluation-rubric.md"
+      },
+      {
+       "title": "Rotation expectations document",
+       "intent": "Generates a rotation expectations document mapping objectives to milestones, specifying daily/weekly responsibilities, defining the supervision model, and naming the evaluation criteria. Lives in the rotation handbook.",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "program-director",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "expectations, syllabus, milestones",
+       "slug": "expectations-doc",
+       "path": "library/pillar-4-workflow-operations/prompts/expectations-doc.md"
+      },
+      {
+       "title": "Mid-rotation feedback template",
+       "intent": "Generates a mid-rotation feedback template that surfaces course-correction opportunities before the end-of-rotation evaluation locks in. Structures a 10-15 minute conversation (not a paper exercise) with reflection promp\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "program-director",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "feedback, mid-rotation, course-correction",
+       "slug": "mid-rotation-feedback",
+       "path": "library/pillar-4-workflow-operations/prompts/mid-rotation-feedback.md"
+      },
+      {
+       "title": "Rotation orientation one-pager",
+       "intent": "Generates a one-page rotation orientation that removes day-1 confusion. Ruthlessly prioritized \u2014 the one-page constraint is the value, forcing cuts to anything that's not essential.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "program-director",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "orientation, onepager, day-one",
+       "slug": "orientation-onepager",
+       "path": "library/pillar-4-workflow-operations/prompts/orientation-onepager.md"
+      },
+      {
+       "title": "Rotation reading list with rationale",
+       "intent": "Generates a curated rotation reading list (8-15 items) with a one-sentence rationale per item, prioritized as Required / Strongly Recommended / Optional Deep Dive. The hardest discipline: **verify every citation**. Model\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "program-director",
+       "best_model": "Claude Opus 4.7",
+       "tags": "reading-list, curation, references",
+       "slug": "reading-list",
+       "path": "library/pillar-4-workflow-operations/prompts/reading-list.md"
+      },
+      {
+       "title": "Resident-to-resident handoff document",
+       "intent": "Generates a peer-to-peer handoff template that captures the outgoing resident's tacit knowledge for the incoming resident \u2014 practical tips, attending preferences, useful resources, the early mistake to avoid. Lowers acti\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "handoff, peer, tacit-knowledge",
+       "slug": "resident-to-resident-handoff",
+       "path": "library/pillar-4-workflow-operations/prompts/resident-to-resident-handoff.md"
+      },
+      {
+       "title": "Rotation block scheduling across an academic year",
+       "intent": "Generates a year-long rotation block schedule respecting required experiences, board prep timing, elective preferences, and constraints (vacation, conference, life events). Different from call scheduling \u2014 this is the \"w\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "program-director",
+       "best_model": "Claude Opus 4.7",
+       "tags": "rotation-schedule, annual-planning, constraints",
+       "slug": "rotation-block-scheduling",
+       "path": "library/pillar-4-workflow-operations/prompts/rotation-block-scheduling.md"
+      }
+     ]
+    },
+    {
+     "title": "Courses",
+     "prompts": [
+      {
+       "title": "Assignment grading rubric",
+       "intent": "",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "rubric, grading, assessment",
+       "slug": "assignment-grading-rubric",
+       "path": "library/pillar-4-workflow-operations/prompts/assignment-grading-rubric.md"
+      },
+      {
+       "title": "Course post-mortem document",
+       "intent": "Generates a course post-mortem template that structures a 45-60 minute meeting AND produces a documented artifact for the curriculum file. The discipline: action items must have named owners and dates. Aspirational chang\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "postmortem, retrospective, action-items",
+       "slug": "course-postmortem",
+       "path": "library/pillar-4-workflow-operations/prompts/course-postmortem.md"
+      },
+      {
+       "title": "Course feedback collection form",
+       "intent": "Generates a course feedback form designed to actually be completed (under 5 minutes, bias toward structured items) and to actually inform decisions (every item maps to a specific change you'd make for the next iteration)\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "feedback, survey, completion-rate",
+       "slug": "feedback-collection-form",
+       "path": "library/pillar-4-workflow-operations/prompts/feedback-collection-form.md"
+      },
+      {
+       "title": "IRB protocol for QI or educational research",
+       "intent": "Drafts a starting IRB protocol for an educational intervention or quality improvement study \u2014 the type most pathology educators do. Walks through whether it's QI or research, the appropriate level of IRB review (exempt /\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "irb, qi, educational-research, regulatory",
+       "slug": "irb-qi-protocol",
+       "path": "library/pillar-4-workflow-operations/prompts/irb-qi-protocol.md"
+      },
+      {
+       "title": "Promotion / portfolio teaching narrative",
+       "intent": "Drafts the \"teaching and education\" narrative section of a faculty promotion portfolio. This is the high-stakes annual writing that committee members read to evaluate teaching contributions for promotion to associate or \u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "promotion, portfolio, teaching-narrative, high-stakes",
+       "slug": "promotion-portfolio-narrative",
+       "path": "library/pillar-4-workflow-operations/prompts/promotion-portfolio-narrative.md"
+      },
+      {
+       "title": "Course syllabus",
+       "intent": "Generates a complete course syllabus with weekly schedule, objectives, assessment plan, resources, policies (including an EXPLICIT AI use policy \u2014 not silence), and communication norms.",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "syllabus, course, policies",
+       "slug": "syllabus",
+       "path": "library/pillar-4-workflow-operations/prompts/syllabus.md"
+      },
+      {
+       "title": "Weekly module learning packet",
+       "intent": "Generates a weekly module learning packet that serves TWO audiences: a learner-facing version (concise, 1-2 pages, focused on what to do) and an instructor-facing version (detailed, 2-3 pages, focused on how to teach). I\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "module, packet, two-audience",
+       "slug": "weekly-module-packet",
+       "path": "library/pillar-4-workflow-operations/prompts/weekly-module-packet.md"
+      }
+     ]
+    },
+    {
+     "title": "Conferences & journal clubs",
+     "prompts": [
+      {
+       "title": "Conference schedule and topic rotation",
+       "intent": "Generates a quarterly or annual conference schedule with topic rotation across subspecialties, balanced presenter loads, required-topic coverage, and buffer sessions. Includes a draft invitation email template.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "schedule, topic-rotation, presenter-balance",
+       "slug": "conference-schedule",
+       "path": "library/pillar-4-workflow-operations/prompts/conference-schedule.md"
+      },
+      {
+       "title": "Grand rounds speaker prep",
+       "intent": "",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "grand-rounds, speaker-prep, audience-reading",
+       "slug": "grand-rounds-speaker-prep",
+       "path": "library/pillar-4-workflow-operations/prompts/grand-rounds-speaker-prep.md"
+      },
+      {
+       "title": "Journal club packet generation",
+       "intent": "",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7 with paper attached",
+       "tags": "journal-club, packet, paper-engagement",
+       "slug": "journal-club-packet",
+       "path": "library/pillar-4-workflow-operations/prompts/journal-club-packet.md"
+      },
+      {
+       "title": "Conference abstract for medical education research",
+       "intent": "Drafts a conference abstract for medical education research (AAMC, AMEE, society educational sections). Medical education abstracts follow different conventions than clinical research abstracts \u2014 different sections, diff\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "abstract, medical-education-research, scholarship",
+       "slug": "medical-education-abstract",
+       "path": "library/pillar-4-workflow-operations/prompts/medical-education-abstract.md"
+      },
+      {
+       "title": "Q&A preparation document",
+       "intent": "",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "qa-prep, presentation, anticipation",
+       "slug": "qa-prep-doc",
+       "path": "library/pillar-4-workflow-operations/prompts/qa-prep-doc.md"
+      },
+      {
+       "title": "Tumor board case packet",
+       "intent": "Generates a tumor board case packet template supporting N cases per session. Every case is structured identically. Strict PHI protection: no name, no MRN, no exact age, no exact date, no rare-combination giveaways.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "tumor-board, case-packet, phi-protection",
+       "slug": "tumor-board-case-packet",
+       "path": "library/pillar-4-workflow-operations/prompts/tumor-board-case-packet.md"
+      },
+      {
+       "title": "Visiting professor invitation letter",
+       "intent": "Drafts the formal invitation letter to a visiting professor for a grand rounds talk or visiting professorship. Substantive enough that the invitee takes it seriously, gracious enough that the relationship starts well, sp\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "visiting-professor, invitation, hospitality",
+       "slug": "visiting-professor-invitation",
+       "path": "library/pillar-4-workflow-operations/prompts/visiting-professor-invitation.md"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

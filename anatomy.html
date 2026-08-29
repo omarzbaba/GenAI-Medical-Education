@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prompt Anatomy · GenAI in Medical Education</title>
+  <meta name="description" content="The five components of a well-formed prompt — role, context, task, format, verification cue. Toggle each off and watch what the model has to assume.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="index.html">GenAI <em>in</em> Medical Education</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="library.html">Prompt Library</a>
+      <a href="anatomy.html">Prompt Anatomy</a>
+      <a href="guardrails.html">Guardrails</a>
+      <a href="about.html">About &amp; Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero container">
+    <p class="eyebrow">Manuscript Figure 2, interactive</p>
+    <h1>Anatomy of an effective prompt</h1>
+    <p class="lede">
+      The quality of what comes out of an LLM is strongly influenced by how the
+      task is framed — prompt structure measurably affects the quality and
+      validity of generated content. A well-formed prompt has five components.
+      Toggle any of them off below and watch what the model is left to assume.
+    </p>
+  </section>
+
+  <section class="section container">
+    <div class="widget anatomy">
+      <h3>Build the prompt</h3>
+      <div class="anatomy-grid">
+        <div class="anatomy-toggles" role="group" aria-label="Prompt components">
+          <button type="button" class="anatomy-toggle" data-seg="role" data-warn-as="role" aria-pressed="true">
+            <span class="sw" aria-hidden="true"></span>
+            <span><b>Role</b>
+            <small>The voice and frame of reference the model should adopt.
+            Without it: a generic assistant with no stake in your discipline.</small></span>
+          </button>
+          <button type="button" class="anatomy-toggle" data-seg="context" data-warn-as="context" aria-pressed="true">
+            <span class="sw" aria-hidden="true"></span>
+            <span><b>Context</b>
+            <small>What the model cannot infer — institution, learner level,
+            the specific scenario. Without it: answers pitched at nobody.</small></span>
+          </button>
+          <button type="button" class="anatomy-toggle" data-seg="task" data-warn-as="task" aria-pressed="true">
+            <span class="sw" aria-hidden="true"></span>
+            <span><b>Task</b>
+            <small>A verb and a clear deliverable; multi-part tasks numbered.
+            Without it: the model guesses what "help me with this" means.</small></span>
+          </button>
+          <button type="button" class="anatomy-toggle" data-seg="format" data-warn-as="format" aria-pressed="true">
+            <span class="sw" aria-hidden="true"></span>
+            <span><b>Format</b>
+            <small>Length, structure, named sections of the answer.
+            Without it: the model's default — usually longer and looser than
+            you want.</small></span>
+          </button>
+          <button type="button" class="anatomy-toggle" data-seg="verify" data-warn-as="verification cue" aria-pressed="true">
+            <span class="sw" aria-hidden="true"></span>
+            <span><b>Verification cue</b>
+            <small>An explicit instruction to flag uncertainty and claims to
+            check. Without it: confident prose with the doubt sanded off.</small></span>
+          </button>
+        </div>
+
+        <div>
+          <div class="promptbox anatomy-out"><pre><span class="seg" data-seg="role">You are a hematopathology attending coaching a resident before
+sign-out.
+</span><span class="seg" data-seg="context">I am a PGY-2 on my second month of heme, and tomorrow we sign out
+several marrow cases with possible myelodysplastic syndrome. I am
+comfortable with normal marrow morphology but shaky on dysplasia
+thresholds.
+</span><span class="seg" data-seg="task">Explain how the current WHO classification distinguishes MDS from
+reactive dysplasia, then walk me through the three findings that
+most change the diagnosis.
+</span><span class="seg" data-seg="format">Keep it under 400 words: one big-picture paragraph, then a numbered
+list of the three findings with one sentence each on why it matters.
+</span><span class="seg" data-seg="verify">Name the classification edition you are using, and flag any
+threshold or percentage you are not certain about as [VERIFY]
+rather than stating it as fact.</span></pre></div>
+          <div class="anatomy-warn" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:2.5rem">
+      <h2>Iteration, not incantation</h2>
+      <p>
+        Prompts improve through iteration — draft, observe, refine — rather
+        than in a single pass. The first draft is rarely the one to keep, and
+        refinement continues until the output holds up <em>and has been
+        verified</em>. Two habits from the manuscript's governance layer belong
+        in the prompt itself:
+      </p>
+      <ul>
+        <li><strong>Name the version.</strong> Many tasks ask a model to apply
+            an external rubric — a classification, a protocol, a milestone
+            framework — and those rubrics are revised on their own schedule. A
+            prompt that encodes a superseded standard produces fluent output
+            measured against the wrong yardstick, and nothing in the response
+            signals it.</li>
+        <li><strong>Ask for uncertainty.</strong> A verification cue does not
+            make the model honest; it makes the places to check visible.
+            Verification itself still falls to you.</li>
+      </ul>
+      <p>
+        Prompting deserves explicit teaching as a practical AI-literacy skill —
+        it is a competency the learner carries into every pillar of the
+        framework. For a teachable one-hour version, see the guide
+        <a href="library.html#/guides/how-to-write-a-good-prompt">How to write
+        a good prompt</a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="learning.html">Learning</a> ·
+      <a href="teaching.html">Teaching</a> ·
+      <a href="scholarship.html">Scholarship</a> ·
+      <a href="operations.html">Workflow &amp; Ops</a> ·
+      <a href="guardrails.html">Guardrails</a> ·
+      <a href="library.html">Library</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/widgets.js" defer></script>
+</body>
+</html>

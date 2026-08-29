@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pillar 3 — Scholarship · GenAI in Medical Education</title>
+  <meta name="description" content="AI for scholarship: ideation, literature scoping, language editing, pre-submission critique, and the six-step grant-development sequence — bounded by authorship and disclosure rules.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .pillar-hero { border-left: 4px solid var(--p3); padding-left: clamp(1rem, 3vw, 2rem); }
+    .wt-p3 { --wt-color: var(--p3); --wt-wash: var(--p3-wash); }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="index.html">GenAI <em>in</em> Medical Education</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="library.html">Prompt Library</a>
+      <a href="anatomy.html">Prompt Anatomy</a>
+      <a href="guardrails.html">Guardrails</a>
+      <a href="about.html">About &amp; Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero container">
+    <div class="pillar-hero">
+      <p class="eyebrow" style="color:var(--p3)">Pillar 3 of 4</p>
+      <h1>Scholarship</h1>
+      <p class="lede">
+        Clinician-educators are also scholars — designing studies, scoping
+        literature, drafting manuscripts, writing grants, often in fragments of
+        protected time. This is where AI use collides most directly with formal
+        rules: authorship criteria, disclosure requirements, and confidentiality
+        norms written specifically for LLMs. The organizing principle is
+        narrower than in the other pillars: <strong>AI can accelerate the
+        scaffolding of scholarly work, but the intellectual claims, the data,
+        and the accountability remain human.</strong>
+      </p>
+      <p class="cite-line">
+        ICMJE and COPE are explicit: AI cannot be an author, because it cannot
+        take responsibility for the work. Human authors remain accountable for
+        AI-assisted content, and disclosure is increasingly mandatory.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="prose">
+      <h2>The scholarly tasks, in one view</h2>
+      <div class="table-scroll"><table>
+        <tr><th>Task</th><th>Safe role for AI</th><th>The hard line</th></tr>
+        <tr>
+          <td><strong>Ideation &amp; question refinement</strong></td>
+          <td>Restate a hunch as competing hypotheses; widen the option space</td>
+          <td>Design decisions are the investigator's</td>
+        </tr>
+        <tr>
+          <td><strong>Literature scoping</strong></td>
+          <td>Brainstorm terms, cluster themes, first-pass screening under review</td>
+          <td>Never a source of citations — models fabricate plausible references. PubMed/Scopus are the systems of record</td>
+        </tr>
+        <tr>
+          <td><strong>Language editing</strong></td>
+          <td>Tighten prose you already own; flag ambiguity</td>
+          <td>No number, claim, or hedge may silently change — compare line by line</td>
+        </tr>
+        <tr>
+          <td><strong>Pre-submission critique</strong></td>
+          <td>Predict reviewer objections on your <em>own unsubmitted</em> draft</td>
+          <td>Never on a manuscript you are reviewing — that is confidential by editorial policy</td>
+        </tr>
+        <tr>
+          <td><strong>Grant development</strong></td>
+          <td>Iterative thinking partner, before drafting (sequence below)</td>
+          <td>No confidential proposal material in public tools; every suggested connection verified in primary literature</td>
+        </tr>
+        <tr>
+          <td><strong>Disclosure</strong></td>
+          <td>Draft the statement in the journal's format</td>
+          <td>Its honesty is yours; AI is never an author</td>
+        </tr>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="wt3-heading">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--p3)">Interactive walkthrough</p>
+      <h2 id="wt3-heading">The six-step grant-development sequence</h2>
+      <p class="measure">
+        The hard part of a grant is often not producing text but articulating
+        the significance of work you know intimately — deep immersion makes it
+        easy to assume reviewers share your background. Rather than asking a
+        model to draft a Specific Aims page immediately, the manuscript's
+        sequence (Table 5, Figure 3) uses AI to improve the <em>scientific
+        communication</em> before any drafting begins. Run it in order, in a
+        single conversation.
+      </p>
+    </div>
+
+    <div class="walkthrough wt-p3">
+      <header>
+        <span class="kicker">Worked sequence</span>
+        <h3>From immersed investigator to legible proposal</h3>
+      </header>
+      <div class="wt-body">
+
+        <div class="wt-step">
+          <p class="stage-label">Step 1 · Build context</p>
+          <h4>Surface the core scientific narrative</h4>
+          <div class="promptbox"><pre>I am developing a grant proposal. Based only on the information I
+provide, summarize the scientific problem, knowledge gap, novelty,
+and potential impact. Clearly distinguish established findings from
+hypotheses.</pre></div>
+          <p class="narrative">
+            Supply <strong>non-confidential</strong> context only. "Based only
+            on the information I provide" keeps the model from decorating your
+            science with invented background.
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 2 · Test understanding</p>
+          <h4>The model explains the project back</h4>
+          <div class="promptbox"><pre>Explain this project back to me as if you were describing it to an
+NIH study-section reviewer outside my specialty. What do you think
+the project is really about, and what is its central innovation?</pre></div>
+          <div class="wt-flag">
+            <div class="who">The diagnostic signal</div>
+            <p>If the model misstates the central hypothesis, innovation, or
+            significance despite detailed background, a reviewer unfamiliar
+            with the field is likely to stumble in the same place — a signal
+            that <strong>the framing needs work, not the prose</strong>.</p>
+          </div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 3 · Expand significance</p>
+          <h4>Widen the scientific perspective</h4>
+          <div class="promptbox"><pre>Suggest related diseases, biomarkers, biological pathways,
+technologies, or clinical applications that could strengthen the
+significance of this proposal. Clearly identify which suggestions
+require literature verification.</pre></div>
+          <p class="narrative">
+            An investigator studying a prostate-cancer biomarker may find that
+            related markers or analytic approaches were explored in breast,
+            lung, or colorectal disease.
+          </p>
+          <div class="wt-verify">
+            <div class="who">Verification rule</div>
+            <p>These connections are <strong>hypotheses to pursue in the
+            primary literature, not established facts</strong> — each requires
+            verification before it enters an application.</p>
+          </div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 4 · Reviewer critique</p>
+          <h4>Stress-test before a real reviewer does</h4>
+          <div class="promptbox"><pre>Act as an experienced grant reviewer. Identify the three biggest
+weaknesses in my significance argument. What evidence is missing?
+Which claims appear overstated?</pre></div>
+          <p class="narrative">
+            Confirm each weakness against your preliminary data before
+            restructuring. And mind <strong>rubric currency</strong>: review
+            frameworks are revised on their own schedule — NIH has proposed
+            replacing overall impact scores and percentiles with categories —
+            so name the version you are simulating.
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 5 · Build the story</p>
+          <h4>Impose the canonical arc</h4>
+          <div class="promptbox"><pre>Organize my proposal into the following structure: Important
+Problem → Knowledge Gap → Preliminary Data → Central Hypothesis →
+Specific Aims → Expected Impact. Explain the purpose of each
+section and ensure each leads logically to the next.</pre></div>
+          <p class="narrative">
+            Read the result for the weakest hand-off between sections — that is
+            where a reviewer will stop believing. Strengthen the science there
+            before drafting.
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 6 · Draft the framework</p>
+          <h4>A Specific Aims scaffold, flagged for human input</h4>
+          <div class="promptbox"><pre>Draft a Specific Aims framework using the structure above. Mark
+every place where additional preliminary data, citations, or
+investigator interpretation is required. Do not fabricate
+references or scientific findings.</pre></div>
+          <div class="wt-verify">
+            <div class="who">The closing principle</div>
+            <p>The applicant rewrites the scaffold with real preliminary data
+            and domain judgment. <strong>The model reduces blank-page time; it
+            does not supply the science.</strong> Every scientific claim,
+            citation, and interpretation is independently verified before it
+            enters the proposal — and confidential or unpublished material
+            never enters a public consumer tool.</p>
+          </div>
+          <p>
+            <a class="btn -primary" href="library.html#/library/pillar-3-scholarship/index" style="text-decoration:none">All 14 Scholarship prompts</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="critique-heading">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--p3)">The editorial line</p>
+      <h2 id="critique-heading">Pre-submission critique — three binding conditions</h2>
+    </div>
+    <div class="prose">
+      <p>
+        Asking a model to critique your unsubmitted draft is a rehearsal of
+        peer review, not a substitute for it. The manuscript bounds it three
+        ways:
+      </p>
+      <ol>
+        <li><strong>Directional.</strong> Your own unsubmitted work only. A
+            reviewer must never run it on a manuscript assigned to them —
+            confidential by editorial policy.</li>
+        <li><strong>Deployment.</strong> An unsubmitted manuscript is
+            unpublished intellectual property — use an institutional or
+            sanctioned tool whose terms exclude training, not a public
+            consumer account.</li>
+        <li><strong>Interpretive.</strong> The model anticipates objections a
+            competent reviewer <em>would</em> raise — not the misreadings a
+            reviewer <em>should not</em> raise. Concordance with human review
+            is a ceiling, not a gold standard; silence is not clearance.</li>
+      </ol>
+      <p>
+        The instruction to <em>diagnose rather than rewrite</em> is deliberate:
+        it keeps your voice, keeps revision a learning event, and keeps
+        disclosure simple, because no generated prose enters the manuscript.
+        And simulated critique does not replace mentorship — an experienced
+        colleague reads for what a model cannot.
+      </p>
+
+      <h2>Division of responsibilities</h2>
+      <div class="table-scroll"><table>
+        <tr><th>AI can assist with</th><th>Investigator remains responsible for</th></tr>
+        <tr><td>Brainstorming</td><td>Scientific originality</td></tr>
+        <tr><td>Organizing ideas</td><td>Scientific interpretation</td></tr>
+        <tr><td>Language editing</td><td>Data accuracy</td></tr>
+        <tr><td>Reviewer simulation</td><td>Running it only on the authors' own unsubmitted work</td></tr>
+        <tr><td>Outline drafting</td><td>Conclusions and impact</td></tr>
+        <tr><td>Improving readability</td><td>Final authorship and approval</td></tr>
+        <tr><td>Naming weaknesses and candidate fixes</td><td>Writing the revised text</td></tr>
+      </table></div>
+
+      <h2>Disclosure, in practice</h2>
+      <p>A defensible disclosure identifies the tool and its role in the manner
+         the target journal requires. The manuscript's own working example:</p>
+      <blockquote>
+        During the preparation of this work the authors used ChatGPT (OpenAI)
+        to improve the readability and language of the Introduction and
+        Discussion. After using this tool, the authors reviewed and edited the
+        content as needed and take full responsibility for the content of the
+        publication.
+      </blockquote>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Next pillar: <a href="operations.html">Workflow &amp; Operations →</a></p>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="learning.html">Learning</a> ·
+      <a href="teaching.html">Teaching</a> ·
+      <a href="scholarship.html">Scholarship</a> ·
+      <a href="operations.html">Workflow &amp; Ops</a> ·
+      <a href="library.html">Library</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/walkthrough.js" defer></script>
+</body>
+</html>

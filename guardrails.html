@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implementation &amp; Guardrails · GenAI in Medical Education</title>
+  <meta name="description" content="The single governance layer that binds all four pillars: accuracy, confidentiality, bias, overreliance, accountability — with an interactive data-sensitivity check and tool-tier matcher.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="index.html">GenAI <em>in</em> Medical Education</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="library.html">Prompt Library</a>
+      <a href="anatomy.html">Prompt Anatomy</a>
+      <a href="guardrails.html">Guardrails</a>
+      <a href="about.html">About &amp; Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero container">
+    <p class="eyebrow">One governance layer, not four sets of caveats</p>
+    <h1>Implementation &amp; Guardrails</h1>
+    <p class="lede">
+      The same failure modes recur across learning, teaching, scholarship, and
+      operations — so the guardrails are treated as a single governance layer.
+      The four pillars share one obligation: whatever the tool produces, a
+      person remains accountable for it.
+    </p>
+  </section>
+
+  <section class="section container" aria-labelledby="hazards-heading">
+    <div class="section-head">
+      <h2 id="hazards-heading">The five recurring hazards</h2>
+    </div>
+    <div class="hazard-grid">
+      <div class="hazard">
+        <h4>Accuracy</h4>
+        <p>Fluent text whether or not the claim is correct: fabricated
+        references, superseded guideline language, confident error on
+        image-anchored and integrative content. Every factual assertion is
+        provisional until checked against a primary source.</p>
+      </div>
+      <div class="hazard">
+        <h4>Confidentiality</h4>
+        <p>Public consumer interfaces may retain and reuse submitted text.
+        Clinical work is saturated with identifiable data; scholarship adds
+        unpublished IP and material under review. The operative question at
+        every prompt: <em>what may this specific text safely be exposed to?</em></p>
+      </div>
+      <div class="hazard">
+        <h4>Bias &amp; equity</h4>
+        <p>Generated cases can encode stereotype — default ages, sexes, races,
+        resource assumptions — so screen actively. And access itself is
+        unequal: paid subscriptions, connectivity, and English proficiency can
+        widen training inequities. Prefer exercises runnable on free models.</p>
+      </div>
+      <div class="hazard">
+        <h4>Overreliance</h4>
+        <p>The learner-specific hazard. Verification presupposes the knowledge
+        to judge what is being verified — used too early, an answer-supplying
+        tool can prevent the very competence it appears to support.</p>
+      </div>
+      <div class="hazard">
+        <h4>Accountability</h4>
+        <p>AI cannot be an author and cannot take responsibility. Disclosure of
+        AI assistance is an integrity obligation; the person prompting the
+        model is the person who verifies — and answers for — its output.</p>
+      </div>
+    </div>
+    <div class="note measure" style="margin-top:1.5rem">
+      <b>Two kinds of drift to design for.</b> Models are non-deterministic and
+      version-dependent — the same prompt behaves differently across tools and
+      dates. And the rubrics prompts invoke (classifications, protocols,
+      review criteria) are revised on their own schedule. Name the version in
+      the prompt; re-check when the governing body revises. Rubric currency is
+      a maintenance obligation, not a one-time setup step.
+    </div>
+  </section>
+
+  <section class="section container" id="sensitivity" aria-labelledby="sens-heading">
+    <div class="section-head">
+      <p class="eyebrow">Interactive · manuscript Table 6</p>
+      <h2 id="sens-heading">Can this go into a public consumer tool?</h2>
+      <p class="measure">Pick the material you're about to paste. The same rule
+      applies across all four pillars.</p>
+    </div>
+
+    <div class="widget chip-widget">
+      <div class="chip-row" role="group" aria-label="Material types">
+        <button type="button" class="chip" data-target="concepts" aria-pressed="false">A concept, mechanism, or definition</button>
+        <button type="button" class="chip" data-target="published" aria-pressed="false">Published literature</button>
+        <button type="button" class="chip" data-target="hypocase" aria-pressed="false">A hypothetical teaching case I wrote</button>
+        <button type="button" class="chip" data-target="mynotes" aria-pressed="false">My own study notes / practice questions</button>
+        <button type="button" class="chip" data-target="phi" aria-pressed="false">Patient information or identifiers</button>
+        <button type="button" class="chip" data-target="realcase" aria-pressed="false">Real case material, not fully de-identified</button>
+        <button type="button" class="chip" data-target="unpub" aria-pressed="false">Unpublished data, aims, or IP</button>
+        <button type="button" class="chip" data-target="review" aria-pressed="false">A manuscript or grant I'm peer-reviewing</button>
+        <button type="button" class="chip" data-target="irb" aria-pressed="false">Material under IRB / sponsor / DUA terms</button>
+      </div>
+
+      <div class="widget-panel" data-panel="concepts" hidden>
+        <div class="verdict -ok"><div class="head">Generally acceptable</div>
+        Explaining a staining pattern, a classification change, a mechanism —
+        general knowledge with no patient or proprietary content. Still verify
+        the output before you rely on it.</div>
+      </div>
+      <div class="widget-panel" data-panel="published" hidden>
+        <div class="verdict -ok"><div class="head">Generally acceptable</div>
+        Already-public information. Remember the retrieval rule, though: models
+        fabricate citations, so the literature itself comes from PubMed/Scopus,
+        not from the model.</div>
+      </div>
+      <div class="widget-panel" data-panel="hypocase" hidden>
+        <div class="verdict -ok"><div class="head">Generally acceptable</div>
+        Fully hypothetical or de-identified teaching cases you constructed
+        yourself are the framework's standard working material. Label them as
+        hypothetical in the prompt, and screen generated details for
+        stereotyped attributes.</div>
+      </div>
+      <div class="widget-panel" data-panel="mynotes" hidden>
+        <div class="verdict -ok"><div class="head">Generally acceptable</div>
+        Your own study notes and practice questions, provided they contain no
+        patient data. Text you authored and have already made public is fine
+        as well.</div>
+      </div>
+      <div class="widget-panel" data-panel="phi" hidden>
+        <div class="verdict -no"><div class="head">Keep it out — no exceptions</div>
+        Protected health information and patient identifiers — names, record
+        or accession numbers, dates, locations. Public consumer tools are not
+        HIPAA-appropriate, and no privacy toggle substitutes for a Business
+        Associate Agreement. Use a covered institutional deployment, or fully
+        de-identify first.</div>
+      </div>
+      <div class="widget-panel" data-panel="realcase" hidden>
+        <div class="verdict -no"><div class="head">Keep it out</div>
+        Real case material that is not fully de-identified — including
+        whole-slide images or gross photographs tied to a patient. De-identify
+        completely, or use a sanctioned deployment.</div>
+      </div>
+      <div class="widget-panel" data-panel="unpub" hidden>
+        <div class="verdict -no"><div class="head">Keep it out</div>
+        Unpublished data, hypotheses, specific aims, and other intellectual
+        property. This is why pre-submission critique belongs in an
+        institutional or sanctioned tool whose terms exclude training — not a
+        public consumer account.</div>
+      </div>
+      <div class="widget-panel" data-panel="review" hidden>
+        <div class="verdict -no"><div class="head">Keep it out — editorial policy</div>
+        A manuscript or grant you are peer-reviewing is confidential by
+        editorial policy. Reviewers must not upload assigned manuscripts to
+        public AI tools. This is a governance requirement, not a preference.</div>
+      </div>
+      <div class="widget-panel" data-panel="irb" hidden>
+        <div class="verdict -no"><div class="head">Follow the agreement first</div>
+        Anything under an IRB protocol, sponsor agreement, data-use agreement,
+        or institutional confidentiality obligation follows those terms.
+        When the task touches protected data and no compliant deployment
+        exists, the correct response is not a workaround but abstention:
+        de-identify, use a sanctioned tool, or complete the task without AI.</div>
+      </div>
+    </div>
+
+    <details class="measure" style="margin-top:1.5rem">
+      <summary style="cursor:pointer; font-weight:600">When a public tool is the only option — the precautions (Table 7)</summary>
+      <div class="prose" style="margin-top:1rem">
+        <ul>
+          <li>Opt out of model training wherever the setting exists.</li>
+          <li>Use temporary/incognito mode for one-off sensitive prompts.</li>
+          <li>Secure the account: unique password, two-factor authentication —
+              a compromised login is a likelier exposure route than the vendor.</li>
+          <li>Paste the minimum necessary; delete conversations you no longer need.</li>
+          <li>Don't rate sensitive chats with thumbs-up/down feedback.</li>
+          <li>Never enter PHI, patient identifiers, or images tied to a real case.</li>
+          <li>Never upload a manuscript or grant you are reviewing.</li>
+          <li>Treat even opted-out or "temporary" chats as semi-private.</li>
+          <li>Re-check settings and vendor terms periodically — defaults change.</li>
+          <li><strong>When in doubt, stop:</strong> de-identify, move to a
+              sanctioned deployment, or do the task without AI.</li>
+        </ul>
+        <p>The single highest-leverage habit is the simplest: a model can only
+        expose what it was given, so the most reliable protection is to
+        withhold sensitive material in the first place. The technical settings
+        are backstops behind that discipline, not substitutes for it.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section container" id="tiers" aria-labelledby="tiers-heading">
+    <div class="section-head">
+      <p class="eyebrow">Interactive · manuscript Table 3</p>
+      <h2 id="tiers-heading">Match the tool tier to the task</h2>
+      <p class="measure">Four tiers, not interchangeable — and the differences
+      carry directly into teaching. Tier selection is part of the pedagogical
+      question, not a default left on the most familiar app.</p>
+    </div>
+
+    <div class="widget chip-widget">
+      <div class="chip-row" role="group" aria-label="Educational tasks">
+        <button type="button" class="chip" data-target="t-text" aria-pressed="false">Explain a text concept / quiz me</button>
+        <button type="button" class="chip" data-target="t-clinical" aria-pressed="false">Terminology-dense clinical language</button>
+        <button type="button" class="chip" data-target="t-image" aria-pressed="false">Interpret or teach from an image</button>
+        <button type="button" class="chip" data-target="t-case" aria-pressed="false">Case-style tutoring on images + text</button>
+      </div>
+
+      <div class="widget-panel" data-panel="t-text" hidden>
+        <div class="verdict -ok"><div class="head">General-purpose LLMs (ChatGPT, Claude, Gemini)</div>
+        The most accessible and most-studied tier: text-based concept
+        explanation, board-style Q&amp;A, quizzing, study-plan drafting.
+        <strong>Limitation:</strong> uneven on image-anchored and integrative
+        content; prone to hallucinated facts and fabricated references; outputs
+        vary across products, versions, and runs.</div>
+      </div>
+      <div class="widget-panel" data-panel="t-clinical" hidden>
+        <div class="verdict -ok"><div class="head">Medical-domain LLMs (e.g., Med-PaLM-class builds)</div>
+        Instruction-tuned biomedical models sit above generic ones on clinical
+        language tasks — terminology-dense explanation and knowledge retrieval.
+        <strong>Limitation:</strong> still text-only, so the visual-grounding
+        gap persists; access is less turnkey than consumer chatbots.</div>
+      </div>
+      <div class="widget-panel" data-panel="t-image" hidden>
+        <div class="verdict -ok"><div class="head">Domain foundation models (e.g., Virchow-class, for pathology)</div>
+        Image–text models trained on large domain image collections bring
+        genuine visual grounding: morphology retrieval, slide-level pattern
+        exposure — the work text-only models handle poorly.
+        <strong>Limitation:</strong> not conversational tutors on their own;
+        educational validation is limited; foundation-model-specific concerns
+        (bias, accountability) apply.</div>
+      </div>
+      <div class="widget-panel" data-panel="t-case" hidden>
+        <div class="verdict -ok"><div class="head">Domain copilots (e.g., PathChat-class vision–language assistants)</div>
+        Case-style image-plus-text interaction approximating a subspecialty
+        tutor; in blinded evaluation, a pathology copilot was preferred over a
+        general vision–language model on open-ended responses.
+        <strong>Limitation:</strong> early-stage, narrowly available; outputs
+        still require expert verification; educational outcomes not yet
+        rigorously evaluated.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" id="skills" aria-labelledby="skills-heading">
+    <div class="section-head">
+      <p class="eyebrow">Supplementary Tables S1–S2, applied</p>
+      <h2 id="skills-heading">Protecting skill formation</h2>
+      <p class="measure">
+        Three risks when trainees rely on AI — and the design response is the
+        same for all three: foundational competence before AI augmentation,
+        with the tool used to test reasoning rather than supply it.
+      </p>
+    </div>
+
+    <div class="hazard-grid" style="margin-bottom:2.5rem">
+      <div class="hazard">
+        <h4>Deskilling</h4>
+        <p>Erosion of a competence an experienced clinician already holds.
+        Not hypothetical: unaided adenoma detection declined measurably among
+        endoscopists after routine exposure to AI-assisted colonoscopy
+        (28.4% → 22.4%).</p>
+      </div>
+      <div class="hazard">
+        <h4>Mis-skilling</h4>
+        <p>Uncritical acceptance of AI errors — a trainee absorbs an incorrect
+        immunoprofile or a superseded criterion and carries it forward as
+        something learned.</p>
+      </div>
+      <div class="hazard">
+        <h4>Never-skilling</h4>
+        <p>The one training must guard against most: a foundational competence
+        never forms at all, because AI performed the task during the formative
+        window. The trainee is fluent in prompting but not in the reasoning
+        beneath it — false proficiency that surfaces in AI-free, high-stakes
+        assessment.</p>
+      </div>
+    </div>
+
+    <div class="principle-row">
+      <div class="principle">
+        <h4>Foundation-first</h4>
+        <p class="rule-line">Foundational knowledge before AI augmentation.</p>
+        <p>For the first months, the resident works cases with no AI assistance
+        at all, building the skill through teaching and cases; an AI tutor is
+        switched on only once that foundation is established. (Assistance
+        dilemma; cognitive load theory.)</p>
+      </div>
+      <div class="principle">
+        <h4>Attempt-first prompting</h4>
+        <p class="rule-line">Form your own answer, then ask for critique.</p>
+        <p>Before querying the model about a case, write down your own
+        differential and reasoning, then ask the model to critique it — rather
+        than asking for the answer cold. (Productive failure.)</p>
+      </div>
+      <div class="principle">
+        <h4>Staged autonomy</h4>
+        <p class="rule-line">More AI latitude as competence grows.</p>
+        <p>A subspecialty fellow may pressure-test differentials on active
+        cases; a first-year is limited to self-checks on already-taught
+        material. Guidance is calibrated to expertise and faded as it grows.
+        (Expertise-reversal effect.)</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="adopt-heading">
+    <div class="section-head">
+      <h2 id="adopt-heading">Adopting the framework incrementally</h2>
+    </div>
+    <div class="prose">
+      <ol>
+        <li><strong>Start low-risk:</strong> self-education first.</li>
+        <li><strong>Keep a brief correction log</strong> of model errors your
+            group catches.</li>
+        <li><strong>Write a one-page local AI-use policy</strong> — including
+            academic-integrity expectations for learners. Professional
+            scaffolding exists (e.g., the AAMC principles for responsible AI
+            use), but departments must localize it.</li>
+        <li><strong>Maintain a shared, version-controlled prompt library.</strong>
+            (This site is one; adapt it.)</li>
+        <li><strong>Want evidence before wider adoption?</strong> Run the tool
+            on work whose outcome is already known — a proposal with its
+            summary statement in hand, a published paper with its reviewer
+            reports — and compare what the model surfaced against what human
+            reviewers actually wrote. No new infrastructure, no new approvals.</li>
+        <li><strong>Be transparent with learners:</strong> say when material
+            was AI-drafted, what the faculty verification step was, and what
+            remains uncertain. Concealing AI involvement models exactly the
+            opacity the field is trying to avoid.</li>
+      </ol>
+      <p>
+        Together these practices define a competency rather than a checklist:
+        judging when to trust an output, how to verify it, which tool fits the
+        task, and how to disclose its use. <strong>The durable skill is
+        appraisal, not familiarity with any particular product.</strong>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="learning.html">Learning</a> ·
+      <a href="teaching.html">Teaching</a> ·
+      <a href="scholarship.html">Scholarship</a> ·
+      <a href="operations.html">Workflow &amp; Ops</a> ·
+      <a href="anatomy.html">Prompt Anatomy</a> ·
+      <a href="library.html">Library</a> ·
+      <a href="about.html">About</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/widgets.js" defer></script>
+</body>
+</html>

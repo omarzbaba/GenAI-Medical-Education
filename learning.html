@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pillar 1 — Learning · GenAI in Medical Education</title>
+  <meta name="description" content="AI for self-directed learning: concept explanation, board preparation, summarization, and study planning — with a guided walkthrough of a real, verified prompt run.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .pillar-hero { border-left: 4px solid var(--p1); padding-left: clamp(1rem, 3vw, 2rem); }
+    .wt-p1 { --wt-color: var(--p1); --wt-wash: var(--p1-wash); }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container bar">
+    <a class="wordmark" href="index.html">GenAI <em>in</em> Medical Education</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="library.html">Prompt Library</a>
+      <a href="anatomy.html">Prompt Anatomy</a>
+      <a href="guardrails.html">Guardrails</a>
+      <a href="about.html">About &amp; Citation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero container">
+    <div class="pillar-hero">
+      <p class="eyebrow" style="color:var(--p1)">Pillar 1 of 4</p>
+      <h1>Learning</h1>
+      <p class="lede">
+        The trainee is at the keyboard. This pillar covers the self-directed
+        study that carries a clinician from board preparation through a career
+        of tracking new markers and successive classifications — with AI as a
+        high-availability tutor, <em>not</em> a source of truth.
+      </p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="prose">
+      <h2>What the evidence supports</h2>
+      <p>
+        LLMs handle on-demand concept clarification well: re-deriving diagnostic
+        logic, contrasting two entities, restating a pattern in plain language.
+        Frontier models now outperform humans on many written board-style items.
+        But performance is uneven across modalities — the same tools that score
+        well on written stems falter on image-anchored content, and generated
+        practice questions can lack a defensible correct answer. The practical
+        stance: a first-pass tutor within bounds set by tier, modality, and
+        difficulty.
+      </p>
+      <h3>The four learning tasks</h3>
+      <div class="table-scroll"><table>
+        <tr><th>Task</th><th>What AI does well</th><th>What you verify</th></tr>
+        <tr>
+          <td><strong>Concept explanation &amp; Q-and-A</strong></td>
+          <td>Meets you at your level, re-explains, contrasts adjacent entities</td>
+          <td>Any cutoff, criterion, or classification claim — against a primary source</td>
+        </tr>
+        <tr>
+          <td><strong>Board preparation &amp; adaptive review</strong></td>
+          <td>Rephrases stems, generates distractors, explains options</td>
+          <td>That each generated item has exactly one defensible answer</td>
+        </tr>
+        <tr>
+          <td><strong>Summarizing lectures &amp; meetings</strong></td>
+          <td>Compresses transcripts; answers follow-up questions against them</td>
+          <td>Drift — read the summary against the transcript; trace every number to the source</td>
+        </tr>
+        <tr>
+          <td><strong>Study plans, topic maps, gap analysis</strong></td>
+          <td>Drafts multi-week plans, sequences spaced review, tracks coverage</td>
+          <td>Cross-source disagreements — check against the underlying sources</td>
+        </tr>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="wt1-heading">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--p1)">Interactive walkthrough</p>
+      <h2 id="wt1-heading">A first-year resident meets a transfusion reaction</h2>
+      <p class="measure">
+        This walkthrough reproduces the manuscript's worked example
+        (Supplementary Table S3) — a single, real prompt run with the
+        verification step applied. Model outputs are non-deterministic and
+        version-dependent: reproduce and re-verify this in your own tool.
+      </p>
+    </div>
+
+    <div class="walkthrough wt-p1">
+      <header>
+        <span class="kicker">Scenario</span>
+        <h3>Concept explanation, calibrated to level — then verified</h3>
+      </header>
+      <div class="wt-body">
+
+        <div class="wt-step">
+          <p class="stage-label">Step 1 · The situation</p>
+          <h4>Night float, first month of clinical pathology</h4>
+          <p class="narrative">
+            A first-year CP resident gets a call about a possible transfusion
+            reaction. They know the term "acute hemolytic transfusion reaction"
+            from medical school; they cannot yet reconstruct the workup from
+            first principles. Tomorrow they want the concept solid.
+            A textbook chapter is the right first encounter with a totally
+            unfamiliar topic — but this is a <em>re-explanation</em> need,
+            which is exactly where an LLM earns its place as a tutor.
+          </p>
+          <div class="note">
+            <b>Attempt first.</b> Before prompting, the resident writes down
+            their own version of the workup. The framework's second design
+            principle — attempt-first prompting — turns the model's answer into
+            a critique of their reasoning rather than a substitute for it.
+          </div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 2 · The prompt</p>
+          <h4>Role, context, task, format — in one calibrated ask</h4>
+          <p class="narrative">
+            Note what the prompt pins down: the audience level ("first-year CP
+            resident"), the scope (pathophysiology, initial workup, the two
+            results that most change management), and the format ("big picture,
+            then define each key term"). Structure is not decoration — it is
+            what keeps the output at your level instead of the model's default.
+          </p>
+          <div class="promptbox"><pre>Explain the diagnostic approach to a suspected acute hemolytic
+transfusion reaction for a first-year CP resident: pathophysiology,
+the initial workup, and the two results that most change management.
+Keep the big picture, then define each key term.</pre></div>
+          <p class="narrative">
+            <a href="anatomy.html">See the five components of a well-formed
+            prompt →</a>
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 3 · The output (real recorded run)</p>
+          <h4>Fluent, organized — and not yet trusted</h4>
+          <p class="narrative">
+            From the manuscript's records: Claude Opus 4.8 (Anthropic), run
+            August 5, 2026. Excerpt, exactly as recorded:
+          </p>
+          <div class="wt-output">
+            <div class="who">Model output — excerpt</div>
+            <p><strong>The big picture.</strong> An acute hemolytic transfusion
+            reaction is the rapid destruction of transfused red cells,
+            classically from ABO-incompatible blood — recipient antibodies bind
+            donor cells, activate complement, and lyse them intravascularly.
+            Severe cases are usually a patient-identification error, so the
+            investigation is as much a safety audit as a laboratory workup.</p>
+            <p><em>[Pathophysiology and initial-workup paragraphs omitted for
+            space.]</em></p>
+            <p><strong>The two results that most change management.</strong>
+            (1) Confirmation of an ABO discrepancy via clerical recheck and
+            repeat typing — establishes the diagnosis and flags that a second
+            patient may be at risk. (2) Direct evidence of intravascular
+            hemolysis (hemoglobinemia on plasma inspection, positive DAT) —
+            confirms the reaction is hemolytic and commits to fluids, renal
+            monitoring, and DIC surveillance.</p>
+          </div>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 4 · The verification step</p>
+          <h4>The step that makes the tool safe</h4>
+          <p class="narrative">
+            The prompt's library entry names exactly what to check — because
+            models often blur acute hemolytic with febrile non-hemolytic
+            reactions and misstate which test is confirmatory.
+          </p>
+          <div class="wt-verify">
+            <div class="who">Verification, as applied in the manuscript</div>
+            <p>Output preserved the acute-hemolytic vs. febrile-non-hemolytic
+            distinction that models often blur; workup steps and the
+            ABO-incompatibility mechanism confirmed against a
+            transfusion-medicine reference.</p>
+          </div>
+          <p class="narrative">
+            Only after this check does the explanation enter the resident's
+            notes. The person prompting the model is the person who verifies
+            its output.
+          </p>
+        </div>
+
+        <div class="wt-step">
+          <p class="stage-label">Step 5 · The judgment call</p>
+          <h4>Where clinical judgment enters</h4>
+          <div class="wt-flag">
+            <div class="who">Recorded judgment call</div>
+            <p>The prompt asks for the <em>two</em> results that most change
+            management; the choice is not unique, and the verification step is
+            where clinical judgment is applied.</p>
+          </div>
+          <p class="narrative">
+            This is the quiet lesson of the whole pillar: a well-formed prompt
+            produces a defensible answer, not <em>the</em> answer. An expert
+            might have chosen differently — and knowing that requires exactly
+            the foundational knowledge the tool cannot supply on demand.
+          </p>
+          <p class="narrative">
+            <strong>Keep going:</strong> the natural next prompts in this
+            session are a level re-explanation for a senior fellow
+            (pitfalls and edge cases) and a five-question Socratic drill —
+            both in the library.
+          </p>
+          <p>
+            <a class="btn -primary" href="library.html#/library/pillar-1-learning/index" style="text-decoration:none">All 33 Learning prompts</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="prose">
+      <h2>Guardrails for this pillar</h2>
+      <p>Three habits, from the manuscript, that matter more than allegiance to
+         any product:</p>
+      <ul>
+        <li><strong>Verify factual claims against primary sources.</strong>
+            Performance declines on harder content; capable systems fabricate
+            references and reproduce outdated guidance.</li>
+        <li><strong>Calibrate trust to the task.</strong> Text-based knowledge
+            questions are answered far more reliably than image-anchored ones.</li>
+        <li><strong>Prefer domain-specific multimodal tools for image-anchored
+            questions.</strong> A text-only LLM is a poor arbiter of a
+            photomicrograph. <a href="guardrails.html#tiers">See the four tool
+            tiers →</a></li>
+      </ul>
+      <p>
+        And the hazard specific to learners: <strong>overreliance</strong>.
+        Foundational competence is the precondition for using AI safely — not
+        one more thing AI can supply.
+        <a href="guardrails.html#skills">The three skill-formation principles →</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      Next pillar: <a href="teaching.html">Teaching, Curriculum &amp; Assessment →</a>
+    </p>
+    <p>
+      <a href="index.html">Home</a> ·
+      <a href="learning.html">Learning</a> ·
+      <a href="teaching.html">Teaching</a> ·
+      <a href="scholarship.html">Scholarship</a> ·
+      <a href="operations.html">Workflow &amp; Ops</a> ·
+      <a href="library.html">Library</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/walkthrough.js" defer></script>
+</body>
+</html>
