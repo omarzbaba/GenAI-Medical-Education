@@ -2,7 +2,7 @@
 
 Interactive digital companion to the manuscript:
 
-> **Baba OZ, Lele T, Chamala S.** *Generative AI in Medical Education and
+> **Baba OZ, Lele TP, Chamala S.** *Generative AI in Medical Education and
 > Scholarship: A Practical Framework and Prompt Toolkit from Pathology.*
 > (Journal and DOI to be added upon publication.)
 
