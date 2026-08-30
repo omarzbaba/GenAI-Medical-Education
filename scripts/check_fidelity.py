@@ -43,6 +43,13 @@ NON_VERBATIM_PROMPTS = {
         "supporting evidence, but gives no prompt template for it (unlike "
         "every other scholarship task) — this prompt was authored to fill "
         "that gap and is not a manuscript quote.",
+    "library/pillar-3-scholarship/prompts/response-to-reviewers-organizer.md": 'Library-expansion prompt (2026-08-30): original material added to broaden practical coverage, not tied to any manuscript section.',
+    "library/pillar-3-scholarship/prompts/limitations-section-drafting.md": 'Library-expansion prompt (2026-08-30): original material added to broaden practical coverage, not tied to any manuscript section.',
+    "library/pillar-3-scholarship/prompts/abstract-structuring-from-results.md": 'Library-expansion prompt (2026-08-30): original material added to broaden practical coverage, not tied to any manuscript section.',
+    "library/pillar-3-scholarship/prompts/cover-letter-structure.md": 'Library-expansion prompt (2026-08-30): original material added to broaden practical coverage, not tied to any manuscript section.',
+    "library/pillar-3-scholarship/prompts/credit-contribution-statement.md": 'Library-expansion prompt (2026-08-30): original material added to broaden practical coverage, not tied to any manuscript section.',
+    "library/pillar-3-scholarship/prompts/lay-summary-grant-relevance.md": 'Library-expansion prompt (2026-08-30): original material added to broaden practical coverage, not tied to any manuscript section.',
+    "library/pillar-3-scholarship/prompts/reviewer-comment-tracking-table.md": 'Library-expansion prompt (2026-08-30): original material added to broaden practical coverage, not tied to any manuscript section.',
 }
 
 

@@ -12,6 +12,17 @@
      "title": "Concept work",
      "prompts": [
       {
+       "title": "Mnemonic generator for classification schemes",
+       "intent": "Generates candidate mnemonics for a classification scheme with many categories (WHO subtypes, a differential list, a staining panel), so you can pick the one that actually sticks rather than accept the first one offered.",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "resident",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "mnemonics, classification, memorization",
+       "slug": "classification-mnemonic-generator",
+       "path": "library/pillar-1-learning/prompts/classification-mnemonic-generator.md"
+      },
+      {
        "title": "Compare and contrast",
        "intent": "Produces a focused side-by-side comparison of two entities you confuse, organized around the *discriminating* features that actually separate them \u2014 not a comprehensive list of every difference. The output is a table you\u2026",
        "difficulty": "intermediate",
@@ -54,12 +65,34 @@
        "tags": "informatics, lis, standards",
        "slug": "lis-informatics-review",
        "path": "library/pillar-1-learning/prompts/lis-informatics-review.md"
+      },
+      {
+       "title": "Patient-facing explanation practice",
+       "intent": "Practices translating a pathology finding into language appropriate for the patient who has it \u2014 a distinct skill from explaining the same finding to a colleague, and one pathology training rarely drills directly.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "communication, patient-facing, plain-language",
+       "slug": "patient-facing-explanation",
+       "path": "library/pillar-1-learning/prompts/patient-facing-explanation.md"
       }
      ]
     },
     {
      "title": "Self-quizzing",
      "prompts": [
+      {
+       "title": "AI-output error hunt",
+       "intent": "Deliberately produces a differential or explanation with one or more planted errors and asks you to find them \u2014 training the specific skill of catching AI mistakes, which every other prompt in this library depends on you\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "critical-appraisal, metacognition, error-detection",
+       "slug": "ai-output-error-hunt",
+       "path": "library/pillar-1-learning/prompts/ai-output-error-hunt.md"
+      },
       {
        "title": "Anki flashcard generation",
        "intent": "Converts a topic, paper, set of notes, or lecture into Anki-import-ready flashcards in tab-separated format. The prompt enforces *atomic* cards (one fact per card), *specific* questions (not \"what is X\"), and *verificati\u2026",
@@ -105,6 +138,17 @@
        "path": "library/pillar-1-learning/prompts/question-bank-gap-analysis.md"
       },
       {
+       "title": "Reflective error log / personal M&M entry",
+       "intent": "Turns a brief note about a mistake or near-miss you made into a structured personal-log entry \u2014 what happened, why, and what you'll do differently \u2014 modeled on a morbidity-and-mortality format but for your own private le\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "resident, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "reflection, self-improvement, error-log",
+       "slug": "reflective-error-log",
+       "path": "library/pillar-1-learning/prompts/reflective-error-log.md"
+      },
+      {
        "title": "Self-quiz one at a time",
        "intent": "Drills you with one question at a time, with the model adapting the next question based on what you got wrong. The *interaction structure* matters as much as the content \u2014 the rhythm of one-question-then-pause is what ma\u2026",
        "difficulty": "quick-win",
@@ -114,6 +158,17 @@
        "tags": "self-assessment, drilling, interactive",
        "slug": "self-quiz-one-at-a-time",
        "path": "library/pillar-1-learning/prompts/self-quiz-one-at-a-time.md"
+      },
+      {
+       "title": "Teach-back drill",
+       "intent": "Reverses the usual direction: you explain a concept to the model, and it grades your explanation for gaps, imprecision, and confabulation \u2014 surfacing what you don't actually know as well as you thought.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "self-quizzing, metacognition, teach-back",
+       "slug": "teach-back-drill",
+       "path": "library/pillar-1-learning/prompts/teach-back-drill.md"
       }
      ]
     },
@@ -165,6 +220,17 @@
        "path": "library/pillar-1-learning/prompts/frozen-section-thinking-aloud.md"
       },
       {
+       "title": "Grading and staging systems drill",
+       "intent": "Drills a specific grading or staging system (Gleason, Nottingham, TNM, WHO grade) against a described specimen, asking you to apply the criteria yourself before the model checks your work \u2014 rather than the model just han\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "staging, grading, board-prep",
+       "slug": "grading-staging-drill",
+       "path": "library/pillar-1-learning/prompts/grading-staging-drill.md"
+      },
+      {
        "title": "Negative drill \u2014 what would change the diagnosis",
        "intent": "Trains the habit of *disconfirmation*: take a working diagnosis you're confident in and ask the model to enumerate the findings or test results that would force you to reconsider, ranked by **clinical likelihood** rather\u2026",
        "difficulty": "advanced",
@@ -185,6 +251,17 @@
        "tags": "case-based, drilling, reasoning",
        "slug": "reverse-case-drill",
        "path": "library/pillar-1-learning/prompts/reverse-case-drill.md"
+      },
+      {
+       "title": "STAT / on-call decision-tree drill",
+       "intent": "Simulates a time-pressured on-call scenario (frozen section, critical value call, STAT consult) as a branching decision drill, forcing you to commit to a next step before the model reveals what happens.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "on-call, frozen-section, decision-making",
+       "slug": "stat-oncall-decision-drill",
+       "path": "library/pillar-1-learning/prompts/stat-oncall-decision-drill.md"
       }
      ]
     },
@@ -229,6 +306,17 @@
     {
      "title": "Multimodal & lab",
      "prompts": [
+      {
+       "title": "Antibody panel construction drill",
+       "intent": "Reverses the usual IHC drill: instead of interpreting a panel someone else built, you build the panel yourself from a differential, then the model checks your choices \u2014 including which stains would and wouldn't discrimin\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident",
+       "best_model": "Claude Opus 4.7",
+       "tags": "immunohistochemistry, panel-design, differential",
+       "slug": "antibody-panel-construction",
+       "path": "library/pillar-1-learning/prompts/antibody-panel-construction.md"
+      },
       {
        "title": "Blood smear systematic review walkthrough",
        "intent": "Builds the habit of reading a peripheral blood smear systematically \u2014 RBCs, WBCs, platelets, in that order, with specific observations at each magnification \u2014 rather than pattern-matching to the most likely diagnosis. Th\u2026",
@@ -430,6 +518,17 @@
        "path": "library/pillar-2-teaching/prompts/acgme-epa-objectives.md"
       },
       {
+       "title": "Academic-year curriculum map",
+       "intent": "Drafts a full academic-year curriculum map across subspecialty rotations \u2014 sequencing topics so foundational material precedes advanced material and nothing critical is only ever covered once, in passing.",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "curriculum, program-design, academic-year",
+       "slug": "annual-curriculum-map",
+       "path": "library/pillar-2-teaching/prompts/annual-curriculum-map.md"
+      },
+      {
        "title": "Bloom's taxonomy MCQ generation",
        "intent": "Generates MCQs at specified Bloom's taxonomy levels \u2014 Application, Analysis, Evaluation \u2014 with rationales calibrated to the cognitive task each question tests. Avoids the default failure mode of disguising Recall as Appl\u2026",
        "difficulty": "intermediate",
@@ -439,6 +538,17 @@
        "tags": "mcq, assessment, blooms, cognitive-level",
        "slug": "blooms-mcq",
        "path": "library/pillar-2-teaching/prompts/blooms-mcq.md"
+      },
+      {
+       "title": "EPA-based direct observation form",
+       "intent": "Drafts a direct-observation assessment form tied to a specific entrustable professional activity (EPA), with behaviorally anchored rating levels instead of a vague Likert scale.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "EPA, assessment, direct-observation",
+       "slug": "epa-direct-observation-form",
+       "path": "library/pillar-2-teaching/prompts/epa-direct-observation-form.md"
       }
      ]
     },
@@ -484,6 +594,17 @@
      "title": "Lectures & presentations",
      "prompts": [
       {
+       "title": "Analogy bank builder",
+       "intent": "Generates multiple candidate analogies for one hard concept so you can pick the one that will actually land with your specific audience, rather than settling for the first analogy that comes to mind.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "analogies, lecture-prep, explanation",
+       "slug": "analogy-bank-builder",
+       "path": "library/pillar-2-teaching/prompts/analogy-bank-builder.md"
+      },
+      {
        "title": "Audience poll question generation",
        "intent": "Generates audience poll questions for a live talk \u2014 designed for engagement and misconception-surfacing, not assessment. Each poll has a \"wrong\" answer that most of the audience will pick (by design \u2014 that's where the te\u2026",
        "difficulty": "quick-win",
@@ -493,6 +614,17 @@
        "tags": "polls, audience-engagement, live-teaching",
        "slug": "audience-polls",
        "path": "library/pillar-2-teaching/prompts/audience-polls.md"
+      },
+      {
+       "title": "Audience-response question set for large-group teaching",
+       "intent": "Drafts a set of live-polling questions (Kahoot/Poll Everywhere style) for a large-group session or tumor board, designed to be answered in seconds and to reveal a spread of opinion, not just test recall.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "audience-response, large-group, tumor-board",
+       "slug": "audience-response-question-set",
+       "path": "library/pillar-2-teaching/prompts/audience-response-question-set.md"
       },
       {
        "title": "Microscopy teaching session design",
@@ -597,12 +729,34 @@
        "tags": "feedback, narrative, evidence-based",
        "slug": "resident-feedback-note",
        "path": "library/pillar-2-teaching/prompts/resident-feedback-note.md"
+      },
+      {
+       "title": "Teaching philosophy statement drafting",
+       "intent": "Helps organize your own teaching experiences and beliefs into a structured teaching-philosophy statement draft for a promotion or job portfolio \u2014 the model organizes and tightens; the substance and examples must be yours\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Opus 4.7",
+       "tags": "portfolio, promotion, teaching-philosophy",
+       "slug": "teaching-philosophy-statement",
+       "path": "library/pillar-2-teaching/prompts/teaching-philosophy-statement.md"
       }
      ]
     },
     {
      "title": "Discussion-based formats",
      "prompts": [
+      {
+       "title": "Grand rounds Q&A anticipation drill",
+       "intent": "Anticipates the questions a grand rounds audience is likely to ask after your talk, so you can prepare answers in advance rather than being caught flat-footed.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "grand-rounds, presentation-prep, Q&A",
+       "slug": "grand-rounds-qa-anticipation",
+       "path": "library/pillar-2-teaching/prompts/grand-rounds-qa-anticipation.md"
+      },
       {
        "title": "Journal club discussion questions",
        "intent": "Generates 5 discussion questions for journal club, ordered from concrete (methods, numbers) to abstract (implications, practice-change) and ending with one genuinely contested question that reasonable experts disagree ab\u2026",
@@ -613,6 +767,28 @@
        "tags": "journal-club, discussion, escalating-questions",
        "slug": "journal-club-discussion-q",
        "path": "library/pillar-2-teaching/prompts/journal-club-discussion-q.md"
+      },
+      {
+       "title": "Muddiest-point formative question generator",
+       "intent": "Generates a single, fast end-of-lecture question designed to surface where the audience actually got lost \u2014 the \"muddiest point\" technique \u2014 rather than a generic recap question.",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "formative-assessment, lecture, exit-ticket",
+       "slug": "muddiest-point-generator",
+       "path": "library/pillar-2-teaching/prompts/muddiest-point-generator.md"
+      },
+      {
+       "title": "Post-simulation / M&M debrief script",
+       "intent": "Drafts a structured facilitator script for debriefing a simulation or M&M case, using a non-blaming, systems-oriented question sequence rather than an ad hoc discussion.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "debrief, simulation, morbidity-and-mortality",
+       "slug": "post-simulation-debrief-script",
+       "path": "library/pillar-2-teaching/prompts/post-simulation-debrief-script.md"
       },
       {
        "title": "Resident-as-teacher scaffolding",
@@ -754,6 +930,28 @@
      "title": "Manuscript drafting & editing",
      "prompts": [
       {
+       "title": "Abstract structuring from completed results",
+       "intent": "Structures a completed set of results and conclusions into a word-limited abstract in your target journal's required format \u2014 structural help, not new content generation.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "abstract, manuscript-structure, writing",
+       "slug": "abstract-structuring-from-results",
+       "path": "library/pillar-3-scholarship/prompts/abstract-structuring-from-results.md"
+      },
+      {
+       "title": "Cover letter structure to journal editor",
+       "intent": "Drafts the structural skeleton of a submission cover letter \u2014 why this journal, what's novel, any required disclosures \u2014 from your own notes, leaving the substantive novelty claim to you.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "cover-letter, submission, editor",
+       "slug": "cover-letter-structure",
+       "path": "library/pillar-3-scholarship/prompts/cover-letter-structure.md"
+      },
+      {
        "title": "Discussion outline from bullet notes",
        "intent": "Converts your bullet-point findings into a proposed Discussion outline \u2014 opening interpretation, comparison with prior work, limitations, implications. The model organizes; the claims stay yours.",
        "difficulty": "intermediate",
@@ -774,6 +972,28 @@
        "tags": "writing, editing",
        "slug": "language-editing-guardrailed",
        "path": "library/pillar-3-scholarship/prompts/language-editing-guardrailed.md"
+      },
+      {
+       "title": "Limitations section drafting from bullet notes",
+       "intent": "Turns a bulleted list of study weaknesses you've already identified into connected prose for a Limitations section \u2014 organizing and connecting your own points, not generating new ones.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "manuscript-drafting, limitations, writing",
+       "slug": "limitations-section-drafting",
+       "path": "library/pillar-3-scholarship/prompts/limitations-section-drafting.md"
+      },
+      {
+       "title": "Response-to-reviewers organizer",
+       "intent": "Organizes raw, unstructured reviewer comments into a clean point-by-point table you can work through systematically \u2014 the model organizes the comments; you write every substantive response.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "peer-review, revision, reviewer-response",
+       "slug": "response-to-reviewers-organizer",
+       "path": "library/pillar-3-scholarship/prompts/response-to-reviewers-organizer.md"
       }
      ]
     },
@@ -790,6 +1010,17 @@
        "tags": "peer-review, revision",
        "slug": "pre-submission-critique",
        "path": "library/pillar-3-scholarship/prompts/pre-submission-critique.md"
+      },
+      {
+       "title": "Multi-round reviewer comment tracking table",
+       "intent": "Builds a running tracking table across multiple rounds of revision, showing which comments have been addressed, which are still open, and which reviewer raised each \u2014 useful once a manuscript has gone through more than o\u2026",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "peer-review, revision-tracking, multi-round",
+       "slug": "reviewer-comment-tracking-table",
+       "path": "library/pillar-3-scholarship/prompts/reviewer-comment-tracking-table.md"
       }
      ]
     },
@@ -861,6 +1092,17 @@
        "tags": "grants, specific-aims, sequence",
        "slug": "grant-step-6-draft-aims",
        "path": "library/pillar-3-scholarship/prompts/grant-step-6-draft-aims.md"
+      },
+      {
+       "title": "Lay / public-health-relevance summary for a grant",
+       "intent": "Translates a technical project summary into the plain-language \"public health relevance\" or lay-summary section many funders require \u2014 a distinct writing register from the scientific narrative.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "grants, lay-summary, public-relevance",
+       "slug": "lay-summary-grant-relevance",
+       "path": "library/pillar-3-scholarship/prompts/lay-summary-grant-relevance.md"
       }
      ]
     },
@@ -877,6 +1119,17 @@
        "tags": "disclosure, authorship, ICMJE",
        "slug": "ai-disclosure-drafting",
        "path": "library/pillar-3-scholarship/prompts/ai-disclosure-drafting.md"
+      },
+      {
+       "title": "CRediT contribution statement drafting",
+       "intent": "Maps your team's actual contributions onto the standard CRediT taxonomy categories (conceptualization, methodology, writing, etc.) to draft the contribution statement many journals now require.",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty, fellow",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "authorship, CRediT, disclosure",
+       "slug": "credit-contribution-statement",
+       "path": "library/pillar-3-scholarship/prompts/credit-contribution-statement.md"
       }
      ]
     }
@@ -1280,6 +1533,77 @@
        "tags": "visiting-professor, invitation, hospitality",
        "slug": "visiting-professor-invitation",
        "path": "library/pillar-4-workflow-operations/prompts/visiting-professor-invitation.md"
+      }
+     ]
+    },
+    {
+     "title": "Lab Operations & Quality",
+     "prompts": [
+      {
+       "title": "Accreditation self-study narrative section drafting",
+       "intent": "Drafts a narrative section of an accreditation self-study (ACGME, CAP, or similar) from your program's factual notes and data, organizing them to address the specific standard being cited.",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty, staff",
+       "best_model": "Claude Opus 4.7",
+       "tags": "accreditation, self-study, ACGME, CAP",
+       "slug": "accreditation-self-study-narrative",
+       "path": "library/pillar-4-workflow-operations/prompts/accreditation-self-study-narrative.md"
+      },
+      {
+       "title": "New bench-tech onboarding packet",
+       "intent": "Drafts a first-week onboarding packet for a new laboratory technologist \u2014 distinct from resident/trainee rotation onboarding, focused on bench competency sign-offs and safety orientation.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty, staff",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "onboarding, laboratory-staff, training",
+       "slug": "bench-tech-onboarding-packet",
+       "path": "library/pillar-4-workflow-operations/prompts/bench-tech-onboarding-packet.md"
+      },
+      {
+       "title": "Clinician-facing announcement for a workflow or test change",
+       "intent": "Drafts a clear, action-oriented announcement to ordering clinicians about a new test, a send-out change, or a workflow modification \u2014 organized around what the clinician actually needs to do differently.",
+       "difficulty": "quick-win",
+       "time_to_use": "2-10min",
+       "audience": "faculty, staff",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "communication, announcement, test-changes",
+       "slug": "clinician-facing-announcement",
+       "path": "library/pillar-4-workflow-operations/prompts/clinician-facing-announcement.md"
+      },
+      {
+       "title": "Committee meeting minutes from raw notes",
+       "intent": "Converts raw, messy meeting notes into properly formatted minutes with clear action items and owners \u2014 organizational cleanup, not content generation.",
+       "difficulty": "quick-win",
+       "time_to_use": "<2min",
+       "audience": "faculty, staff",
+       "best_model": "Claude Haiku 4.5",
+       "tags": "meeting-minutes, committee, documentation",
+       "slug": "committee-meeting-minutes",
+       "path": "library/pillar-4-workflow-operations/prompts/committee-meeting-minutes.md"
+      },
+      {
+       "title": "Instrument validation/verification protocol drafting",
+       "intent": "Drafts a skeleton validation or verification protocol for bringing a new instrument or method online \u2014 sections and structure only; the actual acceptance criteria and sample sizes must come from your lab's own validation\u2026",
+       "difficulty": "advanced",
+       "time_to_use": ">10min",
+       "audience": "faculty, staff",
+       "best_model": "Claude Opus 4.7",
+       "tags": "validation, instrumentation, protocol",
+       "slug": "instrument-validation-protocol",
+       "path": "library/pillar-4-workflow-operations/prompts/instrument-validation-protocol.md"
+      },
+      {
+       "title": "QA/QC nonconformance report drafting",
+       "intent": "Converts raw notes about a quality event (a failed QC run, a documentation gap, an equipment deviation) into a structured nonconformance report following the standard root-cause-and-corrective- action format.",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "faculty, staff",
+       "best_model": "Claude Sonnet 4.6",
+       "tags": "quality-assurance, nonconformance, lab-operations",
+       "slug": "qa-qc-nonconformance-report",
+       "path": "library/pillar-4-workflow-operations/prompts/qa-qc-nonconformance-report.md"
       }
      ]
     }

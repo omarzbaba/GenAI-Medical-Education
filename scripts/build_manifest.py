@@ -68,7 +68,39 @@ SECTION_ORDER = {
     ],
     "workflow-operations": [
         "Workshops", "Rotations", "Courses", "Conferences & journal clubs",
+        "Lab Operations & Quality",
     ],
+}
+
+# Library-expansion prompts (not manuscript-derived; added to broaden
+# practical coverage) — assign their sections here since they postdate the
+# original workshop-library migration's _old_sections.json lookup.
+EXPANSION_SECTIONS = {
+    # Learning
+    "grading-staging-drill": "Case-based drilling",
+    "stat-oncall-decision-drill": "Case-based drilling",
+    "classification-mnemonic-generator": "Concept work",
+    "patient-facing-explanation": "Concept work",
+    "ai-output-error-hunt": "Self-quizzing",
+    "teach-back-drill": "Self-quizzing",
+    "reflective-error-log": "Self-quizzing",
+    "antibody-panel-construction": "Multimodal & lab",
+    # Teaching
+    "annual-curriculum-map": "Learning objectives & assessment",
+    "epa-direct-observation-form": "Learning objectives & assessment",
+    "muddiest-point-generator": "Discussion-based formats",
+    "audience-response-question-set": "Lectures & presentations",
+    "analogy-bank-builder": "Lectures & presentations",
+    "post-simulation-debrief-script": "Discussion-based formats",
+    "teaching-philosophy-statement": "Written feedback & narrative",
+    "grand-rounds-qa-anticipation": "Discussion-based formats",
+    # Workflow & Operations — new category
+    "qa-qc-nonconformance-report": "Lab Operations & Quality",
+    "instrument-validation-protocol": "Lab Operations & Quality",
+    "accreditation-self-study-narrative": "Lab Operations & Quality",
+    "clinician-facing-announcement": "Lab Operations & Quality",
+    "committee-meeting-minutes": "Lab Operations & Quality",
+    "bench-tech-onboarding-packet": "Lab Operations & Quality",
 }
 
 # Scholarship prompts are new; assign their sections here.
@@ -88,6 +120,13 @@ SCHOLARSHIP_SECTIONS = {
     "grant-step-5-build-story": "Grant development",
     "grant-step-6-draft-aims": "Grant development",
     "ai-disclosure-drafting": "Authorship & disclosure",
+    "response-to-reviewers-organizer": "Manuscript drafting & editing",
+    "limitations-section-drafting": "Manuscript drafting & editing",
+    "abstract-structuring-from-results": "Manuscript drafting & editing",
+    "cover-letter-structure": "Manuscript drafting & editing",
+    "credit-contribution-statement": "Authorship & disclosure",
+    "lay-summary-grant-relevance": "Grant development",
+    "reviewer-comment-tracking-table": "Pre-submission critique",
 }
 
 
@@ -136,7 +175,7 @@ def main():
             if p["slug"] == "scholarship":
                 section = SCHOLARSHIP_SECTIONS.get(slug)
             else:
-                section = old_sections.get(slug)
+                section = EXPANSION_SECTIONS.get(slug) or old_sections.get(slug)
             if section is None or section not in sections:
                 sys.exit(f"ERROR: no section for prompt '{slug}' (pillar {p['slug']})")
             card = {
