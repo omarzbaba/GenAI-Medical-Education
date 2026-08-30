@@ -736,6 +736,17 @@
        "tags": "literature, search-strategy",
        "slug": "search-term-scoping",
        "path": "library/pillar-3-scholarship/prompts/search-term-scoping.md"
+      },
+      {
+       "title": "Title-and-abstract screening assistant",
+       "intent": "Applies your inclusion and exclusion criteria to a batch of titles and abstracts and returns a provisional include/exclude/unsure call for each, with the reasoning shown. This is the screening step, not the search step \u2014\u2026",
+       "difficulty": "intermediate",
+       "time_to_use": "2-10min",
+       "audience": "resident, faculty",
+       "best_model": "Workhorse tier (e.g., Claude Sonnet)",
+       "tags": "literature, screening, systematic-review",
+       "slug": "title-abstract-screening",
+       "path": "library/pillar-3-scholarship/prompts/title-abstract-screening.md"
       }
      ]
     },

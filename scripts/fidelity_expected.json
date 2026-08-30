@@ -459,5 +459,10 @@
   "id": "fig2.legend.generic",
   "file": "anatomy.html",
   "text": "fall back on generic assumptions"
+ },
+ {
+  "id": "sec5.screening",
+  "file": "library/pillar-3-scholarship/prompts/title-abstract-screening.md",
+  "text": "AI can shoulder part of the screening burden that dominates a review."
  }
 ]

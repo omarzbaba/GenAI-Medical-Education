@@ -34,6 +34,17 @@ WALKTHROUGH_PAGES = [
     "learning.html", "teaching.html", "scholarship.html", "operations.html",
 ]
 
+# Prompts that are deliberately NEW (grounded in a manuscript-discussed task
+# but not a verbatim manuscript quote, unlike every other library prompt).
+# Listed explicitly, with the reason, rather than silently excluded.
+NON_VERBATIM_PROMPTS = {
+    "library/pillar-3-scholarship/prompts/title-abstract-screening.md":
+        "Manuscript Sec. 5 describes title/abstract screening and cites "
+        "supporting evidence, but gives no prompt template for it (unlike "
+        "every other scholarship task) — this prompt was authored to fill "
+        "that gap and is not a manuscript quote.",
+}
+
 
 def norm(s):
     s = html.unescape(s)
@@ -84,6 +95,8 @@ def main():
 
     for where, block in blocks:
         checked += 1
+        if where in NON_VERBATIM_PROMPTS:
+            continue
         if msn is not None and norm(block) not in msn:
             head = " ".join(block.split())[:60]
             failures.append(f"PROMPT NOT IN MANUSCRIPT  {where}: {head}")
@@ -107,7 +120,8 @@ def main():
 
     # ---- report ------------------------------------------------------
     print(f"fidelity check: {checked} items "
-          f"({len(blocks)} prompt blocks, {len(expected)} canonical strings)"
+          f"({len(blocks)} prompt blocks [{len(NON_VERBATIM_PROMPTS)} "
+          f"declared non-verbatim], {len(expected)} canonical strings)"
           + ("" if msn is not None else
              " — manuscript comparison SKIPPED (no --manuscript)"))
     if failures:

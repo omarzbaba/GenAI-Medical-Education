@@ -80,6 +80,7 @@ SCHOLARSHIP_SECTIONS = {
     "language-editing-guardrailed": "Manuscript drafting & editing",
     "discussion-outline-from-notes": "Manuscript drafting & editing",
     "pre-submission-critique": "Pre-submission critique",
+    "title-abstract-screening": "Literature scoping",
     "grant-step-1-build-context": "Grant development",
     "grant-step-2-test-understanding": "Grant development",
     "grant-step-3-expand-significance": "Grant development",

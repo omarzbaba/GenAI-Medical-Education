@@ -25,9 +25,9 @@ through:
   Supplementary Tables S1–S2): the five recurring hazards, an interactive
   data-sensitivity check, a tool-tier matcher, and the three skill-formation
   principles (foundation-first, attempt-first prompting, staged autonomy).
-- **A 102-prompt library** — 88 prompts developed for and deployed at a
+- **A 103-prompt library** — 88 prompts developed for and deployed at a
   hands-on session at the 2026 Association for Pathology Informatics Bootcamp
-  (Pathology Informatics Summit), extended with 14 scholarship prompts drawn
+  (Pathology Informatics Summit), extended with 15 scholarship prompts drawn
   directly from the manuscript. Each entry pairs the prompt with its intent,
   expected output, common failure modes, and a required human-verification
   step.

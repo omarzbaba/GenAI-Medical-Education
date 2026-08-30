@@ -612,6 +612,15 @@
   "path": "library/pillar-3-scholarship/prompts/testable-questions-ladder.md"
  },
  {
+  "title": "Title-and-abstract screening assistant",
+  "pillar": "Scholarship",
+  "pillar_slug": "scholarship",
+  "section": "Literature scoping",
+  "intent": "Applies your inclusion and exclusion criteria to a batch of titles and abstracts and returns a provisional include/exclude/unsure call for each, with the reasoning shown. This is the screening step, not the search step \u2014 it comes after search-term scoping has already produced a candidate list of citations from PubMed/Scopus.",
+  "tags": "literature, screening, systematic-review",
+  "path": "library/pillar-3-scholarship/prompts/title-abstract-screening.md"
+ },
+ {
   "title": "Access card layout",
   "pillar": "Workflow & Ops",
   "pillar_slug": "workflow-operations",
