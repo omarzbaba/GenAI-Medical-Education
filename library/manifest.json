@@ -927,7 +927,7 @@
      ]
     },
     {
-     "title": "Manuscript drafting & editing",
+     "title": "Manuscript language editing",
      "prompts": [
       {
        "title": "Abstract structuring from completed results",
@@ -1083,8 +1083,8 @@
        "path": "library/pillar-3-scholarship/prompts/grant-step-5-build-story.md"
       },
       {
-       "title": "Grant step 6 \u2014 Draft the Aims framework",
-       "intent": "Step 6 of the manuscript's six-step grant-development sequence (Table 5, Figure 3): **produce a specific aims scaffold flagged for human input**. The sequence uses AI as an iterative thinking partner that improves scient\u2026",
+       "title": "Grant step 6 \u2014 Build a requirements checklist",
+       "intent": "Step 6 of the manuscript's six-step grant-development sequence (Table 7, Figure 3): **turn the agreed structure into a checklist of what the applicant must supply for each section \u2014 no application text is generated**. Th\u2026",
        "difficulty": "advanced",
        "time_to_use": "2-10min",
        "audience": "faculty, fellow",

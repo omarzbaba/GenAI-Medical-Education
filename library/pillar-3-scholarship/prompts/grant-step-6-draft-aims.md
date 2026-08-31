@@ -1,5 +1,5 @@
 ---
-title: Grant step 6 — Draft the Aims framework
+title: Grant step 6 — Build a requirements checklist
 pillar: scholarship
 event_type: n/a
 audience: faculty, fellow
@@ -9,54 +9,62 @@ visual: text-only
 tags: grants, specific-aims, sequence
 verified_models: manuscript
 best_model: Frontier reasoning tier (e.g., Claude Opus)
-last_updated: 2026-08-29
-source: Manuscript Table 5 / Figure 3
+last_updated: 2026-08-31
+source: Manuscript Table 7 / Figure 3
 ---
 ## What this prompt does
 
 Step 6 of the manuscript's six-step grant-development sequence
-(Table 5, Figure 3): **produce a specific aims scaffold flagged for human input**. The sequence uses
-AI as an iterative thinking partner that improves scientific communication
-*before* any drafting begins — the model widens and stress-tests; the
-investigator supplies the science.
+(Table 7, Figure 3): **turn the agreed structure into a checklist of what
+the applicant must supply for each section — no application text is
+generated**. The sequence uses AI as an iterative thinking partner that
+improves scientific communication *before* any drafting begins — the
+model widens, organizes, and stress-tests; the investigator writes every
+word of the application.
 
 ## When to use it
 
 In order. Each step assumes the conversation state built by the previous
 one; run the sequence in a single thread. The key principle for the whole
 sequence: use AI to improve scientific thinking, organization, and
-communication — not to replace investigator judgment.
+communication — never to author any part of the application's own text.
+Funders including NIH restrict the use of generative AI in developing
+the substantive content of an application; this step is deliberately
+non-generative for that reason.
 
 ## The prompt
 
 ```
-Draft a Specific Aims framework using the structure above. Mark every
-place where additional preliminary data, citations, or investigator
-interpretation is required. Do not fabricate references or scientific
-findings.
+Using the structure above, list what each section (Significance,
+Innovation, Approach, Specific Aims) must establish, and what
+preliminary data, citations, or investigator input it requires. Do not
+write any of the actual application text — produce a requirements
+checklist only.
 ```
 
 ## Expected output
 
-A Specific Aims skeleton with explicit [NEEDS DATA] / [NEEDS CITATION] /
-[INVESTIGATOR] markers — a scaffold you rewrite with real preliminary
-data and domain judgment.
+A section-by-section checklist of what each part of the Aims must
+establish and what you still need to supply — not draft prose, and not
+a "scaffold" of application text to edit down.
 
 ## Common failure modes
 
-- Fabricates a plausible-looking citation despite the instruction.
-- Fills a marker with invented preliminary data. Delete anything you did
-  not supply.
+- Slips into drafting actual Aims-page prose despite the instruction;
+  if it does, discard the prose and re-run with the checklist framing.
+- Fills a checklist item with invented preliminary data. Delete anything
+  you did not supply.
 
 ## Required human verification
 
-The model reduces blank-page time; it does not supply the science.
-Every scientific claim, citation, and interpretation must be
-independently verified before inclusion. Never upload confidential or
-unpublished proposal material into public AI tools.
+The model reduces blank-page time; it does not supply the science, and
+it must not supply any of the application's own language. Every
+scientific claim, citation, and interpretation must be independently
+verified before inclusion. Never upload confidential or unpublished
+proposal material into public AI tools.
 
 ## Best model and why
 
 Frontier reasoning tier for the whole sequence — grant reasoning is the
-deepest task in this pillar, and a shallow model produces confident
-scaffolds with hollow logic.
+deepest task in this pillar, and a shallow model produces a confident
+checklist with hollow logic.
