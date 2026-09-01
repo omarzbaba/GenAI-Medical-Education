@@ -1,10 +1,8 @@
 # GenAI in Medical Education — Digital Companion
 
-Interactive digital companion to the manuscript:
-
-> **Baba OZ, Lele TP, Chamala S.** *Generative AI in Medical Education and
-> Scholarship: A Practical Framework and Prompt Toolkit from Pathology.*
-> (Journal and DOI to be added upon publication.)
+Interactive digital companion to the manuscript *Generative AI in Medical
+Education and Scholarship: A Practical Framework and Prompt Toolkit from
+Pathology* (journal and DOI to be added upon publication).
 
 Live site: **https://omarzbaba.github.io/GenAI-Medical-Education**
 
