@@ -633,7 +633,7 @@
   "title": "Abstract structuring from completed results",
   "pillar": "Scholarship",
   "pillar_slug": "scholarship",
-  "section": "Manuscript language editing",
+  "section": "Manuscript improvement",
   "intent": "Structures a completed set of results and conclusions into a word-limited abstract in your target journal's required format \u2014 structural help, not new content generation.",
   "tags": "abstract, manuscript-structure, writing",
   "path": "library/pillar-3-scholarship/prompts/abstract-structuring-from-results.md"
@@ -651,7 +651,7 @@
   "title": "Cover letter structure to journal editor",
   "pillar": "Scholarship",
   "pillar_slug": "scholarship",
-  "section": "Manuscript language editing",
+  "section": "Manuscript improvement",
   "intent": "Drafts the structural skeleton of a submission cover letter \u2014 why this journal, what's novel, any required disclosures \u2014 from your own notes, leaving the substantive novelty claim to you.",
   "tags": "cover-letter, submission, editor",
   "path": "library/pillar-3-scholarship/prompts/cover-letter-structure.md"
@@ -669,7 +669,7 @@
   "title": "Discussion outline from bullet notes",
   "pillar": "Scholarship",
   "pillar_slug": "scholarship",
-  "section": "Manuscript language editing",
+  "section": "Manuscript improvement",
   "intent": "Converts your bullet-point findings into a proposed Discussion outline \u2014 opening interpretation, comparison with prior work, limitations, implications. The model organizes; the claims stay yours.",
   "tags": "writing, structure",
   "path": "library/pillar-3-scholarship/prompts/discussion-outline-from-notes.md"
@@ -732,7 +732,7 @@
   "title": "Guardrailed language editing",
   "pillar": "Scholarship",
   "pillar_slug": "scholarship",
-  "section": "Manuscript language editing",
+  "section": "Manuscript improvement",
   "intent": "The clearest and most defensible scholarly use of AI: language work on text you already own. The prompt pins the model to clarity and concision while forbidding it from touching your numbers or claims. This matters most for authors writing in English as an additional language, for whom editing assistance narrows a longstanding disadvantage in review.",
   "tags": "writing, editing",
   "path": "library/pillar-3-scholarship/prompts/language-editing-guardrailed.md"
@@ -750,7 +750,7 @@
   "title": "Limitations section drafting from bullet notes",
   "pillar": "Scholarship",
   "pillar_slug": "scholarship",
-  "section": "Manuscript language editing",
+  "section": "Manuscript improvement",
   "intent": "Turns a bulleted list of study weaknesses you've already identified into connected prose for a Limitations section \u2014 organizing and connecting your own points, not generating new ones.",
   "tags": "manuscript-drafting, limitations, writing",
   "path": "library/pillar-3-scholarship/prompts/limitations-section-drafting.md"
@@ -786,7 +786,7 @@
   "title": "Response-to-reviewers organizer",
   "pillar": "Scholarship",
   "pillar_slug": "scholarship",
-  "section": "Manuscript language editing",
+  "section": "Manuscript improvement",
   "intent": "Organizes raw, unstructured reviewer comments into a clean point-by-point table you can work through systematically \u2014 the model organizes the comments; you write every substantive response.",
   "tags": "peer-review, revision, reviewer-response",
   "path": "library/pillar-3-scholarship/prompts/response-to-reviewers-organizer.md"
