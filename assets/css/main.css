@@ -737,4 +737,70 @@ h3 { font-size: var(--text-h3); }
 }
 
 .comment-row { border-top: 1px solid var(--rule); }
+
+/* ------------------------------------------------------------ forms
+ * Shared field/grid layout for submit.html and admin.html.
+ * ------------------------------------------------------------------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1.5rem;
+  margin: 1rem 0 2rem;
+}
+.form-grid__full { grid-column: 1 / -1; }
+.field { display: flex; flex-direction: column; gap: 0.35rem; }
+.field label { font-size: var(--text-sm); font-weight: 600; color: var(--ink); }
+.field .required { color: var(--accent-ink); }
+.field input, .field select, .field textarea {
+  font-family: var(--sans);
+  font-size: var(--text-sm);
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper-raised);
+  color: var(--ink);
+  width: 100%;
+  box-sizing: border-box;
+}
+.field textarea { font-family: var(--sans); resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.field--error input, .field--error select, .field--error textarea { border-color: var(--warn); }
+.field__error { font-size: var(--text-xs); color: var(--warn); min-height: 1em; margin: 0; }
+.card-section__title { margin: 2rem 0 0.25rem; font-family: var(--sans); }
+.form-status { margin-top: 1rem; font-size: var(--text-sm); min-height: 1.2em; }
+.form-status--error { color: var(--warn); }
+.form-status--success { color: var(--good); }
+.form-privacy { margin-top: 1.5rem; font-size: var(--text-xs); color: var(--ink-faint); max-width: 70ch; }
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ------------------------------------------------------------ admin
+ * ------------------------------------------------------------------- */
+
+.admin-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0 2rem; }
+.admin-stat { border: 1px solid var(--rule); border-radius: 8px; padding: 1rem; background: var(--paper-raised); }
+.admin-stat .n { font-family: var(--serif, var(--sans)); font-size: 1.8rem; font-weight: 600; display: block; }
+.admin-stat .label { font-size: var(--text-xs); color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+.admin-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }
+.admin-tab {
+  font-family: var(--sans); font-size: var(--text-sm); background: none; border: none;
+  padding: 0.6rem 0.9rem; cursor: pointer; color: var(--ink-soft); border-bottom: 2px solid transparent;
+}
+.admin-tab[aria-selected="true"] { color: var(--accent-ink); border-bottom-color: var(--accent); font-weight: 600; }
+.admin-row { border: 1px solid var(--rule); border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; background: var(--paper-raised); }
+.admin-row .meta { font-size: var(--text-xs); color: var(--ink-faint); margin-bottom: 0.4rem; }
+.admin-row .body { font-size: var(--text-sm); white-space: pre-wrap; }
+.admin-row .actions { margin-top: 0.6rem; display: flex; gap: 0.5rem; }
+.admin-row .actions button {
+  font-family: var(--sans); font-size: var(--text-xs); padding: 0.35rem 0.7rem; border-radius: 6px;
+  border: 1px solid var(--rule); background: var(--paper); cursor: pointer;
+}
+.admin-row .actions button:hover { border-color: var(--accent); color: var(--accent-ink); }
+.admin-gate { max-width: 30rem; margin: 3rem auto; text-align: center; }
 .comment-row:first-child { border-top: none; }

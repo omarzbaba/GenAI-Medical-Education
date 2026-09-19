@@ -18,6 +18,10 @@ function safeId(promptPath) {
   return promptPath.replace(/\//g, "__");
 }
 
+function track_(type, promptPath) {
+  try { window.analytics && window.analytics.track(type, { prompt_path: promptPath }); } catch (_) {}
+}
+
 function requireSignIn(mount) {
   const note = document.createElement("p");
   note.className = "note";
@@ -49,8 +53,10 @@ async function mountFavorite(container, promptPath, user) {
     try {
       if (btn.dataset.saved === "1") {
         await deleteDoc(ref);
+        track_("unfavorite", promptPath);
       } else {
         await setDoc(ref, { prompt_path: promptPath, saved_at: serverTimestamp() });
+        track_("favorite", promptPath);
       }
       await refresh();
     } finally {
@@ -92,6 +98,7 @@ async function mountNotes(container, promptPath, user) {
       return;
     }
     await setDoc(ref, { prompt_path: promptPath, text, updated_at: serverTimestamp() });
+    track_("note_saved", promptPath);
     status.textContent = "Saved · " + new Date().toLocaleTimeString();
   });
 }
@@ -141,6 +148,7 @@ async function mountVotes(container, promptPath, user) {
     myDirection = direction;
     highlight();
     await refreshCounts();
+    track_("vote", promptPath);
   }
 
   wrap.querySelector("#vote-up").addEventListener("click", () => castVote("up"));
@@ -242,6 +250,7 @@ async function mountComments(container, promptPath, user, profile) {
       user_agent: navigator.userAgent.slice(0, 500)
     });
     textarea.value = "";
+    track_("comment", promptPath);
     const status = document.createElement("p");
     status.className = "note";
     status.textContent = "Posted — visible once approved by a moderator.";

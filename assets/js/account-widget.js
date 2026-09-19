@@ -80,6 +80,7 @@ function renderProfileSetup(mount, user) {
 
 function renderSignedIn(mount, user, profile) {
   mount.innerHTML = "";
+  window.__companionUser = { uid: user.uid, email: user.email, display_name: profile.display_name || "" };
   const firstName = (profile.display_name || user.email).split(/\s+/)[0];
   const wrap = el(`
     <span style="display:flex;gap:.7rem;align-items:center;font-size:.85rem">
@@ -101,7 +102,7 @@ export function initAccountWidget() {
   completeSignInIfLinkPresent().catch((err) => console.error("Sign-in completion failed:", err));
 
   onAuth(async (user) => {
-    if (!user) { renderSignedOut(mount); return; }
+    if (!user) { window.__companionUser = null; renderSignedOut(mount); return; }
     const profile = await getUserProfile(user.uid);
     if (!profile) { renderProfileSetup(mount, user); return; }
     renderSignedIn(mount, user, profile);
