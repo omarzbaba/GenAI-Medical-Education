@@ -30,6 +30,8 @@ import {
 
 import { firebaseConfig, appCheckSiteKey } from "./firebase-config.js";
 
+let functionsMod = null; // lazy-loaded — most page loads never need this
+
 const PENDING_EMAIL_KEY = "companion_pending_signin_email";
 const ALLOWED_ROLES = ["resident", "fellow", "faculty", "program_director", "other"];
 
@@ -120,6 +122,28 @@ export async function createUserProfile({ uid, email, display_name, institution,
     institution: String(institution || "").trim().slice(0, 200),
     role
   });
+}
+
+/**
+ * Looks up the old site's access_log by email (via the verifyReturningVisitor
+ * Cloud Function) so first-time profile setup can prefill name/institution/
+ * role instead of asking a returning visitor to retype everything.
+ * Returns null on no match or on any failure — this is a nice-to-have, never
+ * a blocker for signing in.
+ */
+export async function lookupReturningVisitor(email) {
+  ensureInit();
+  try {
+    if (!functionsMod) {
+      functionsMod = await import("https://www.gstatic.com/firebasejs/10.12.5/firebase-functions.js");
+    }
+    const fns = functionsMod.getFunctions(app);
+    const call = functionsMod.httpsCallable(fns, "verifyReturningVisitor");
+    const { data } = await call({ email });
+    return data && data.found ? data : null;
+  } catch (_) {
+    return null;
+  }
 }
 
 export async function signOutUser() {

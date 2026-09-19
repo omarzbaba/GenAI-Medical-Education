@@ -6,7 +6,7 @@
  */
 import {
   onAuth, sendSignInLink, completeSignInIfLinkPresent,
-  getUserProfile, createUserProfile, signOutUser
+  getUserProfile, createUserProfile, signOutUser, lookupReturningVisitor
 } from "./auth.js";
 
 const ROLE_LABELS = {
@@ -53,11 +53,11 @@ function renderSignInForm(mount) {
   });
 }
 
-function renderProfileSetup(mount, user) {
+async function renderProfileSetup(mount, user) {
   mount.innerHTML = "";
   const wrap = el(`
     <form id="profile-form" class="account-inline-form" style="display:flex;gap:.4rem;align-items:center;flex-wrap:wrap">
-      <span style="font-size:.85rem">Welcome — one-time setup:</span>
+      <span style="font-size:.85rem" id="profile-welcome">Welcome — one-time setup:</span>
       <input required placeholder="Display name" id="profile-name" style="font-size:.85rem;padding:.3rem .5rem;width:140px">
       <input placeholder="Institution (optional)" id="profile-inst" style="font-size:.85rem;padding:.3rem .5rem;width:160px">
       <select id="profile-role" required style="font-size:.85rem;padding:.3rem .4rem">
@@ -67,6 +67,18 @@ function renderProfileSetup(mount, user) {
       <button type="submit" class="btn-link">Save</button>
     </form>`);
   mount.appendChild(wrap);
+
+  // If this email was registered on the old site, prefill instead of asking
+  // the visitor to retype everything.
+  lookupReturningVisitor(user.email).then((prior) => {
+    if (!prior) return;
+    if (prior.name) document.getElementById("profile-name").value = prior.name;
+    if (prior.institution) document.getElementById("profile-inst").value = prior.institution;
+    if (prior.role && ROLE_LABELS[prior.role]) document.getElementById("profile-role").value = prior.role;
+    const welcome = document.getElementById("profile-welcome");
+    if (welcome) welcome.textContent = "Welcome back — confirm your details:";
+  }).catch(() => {});
+
   wrap.addEventListener("submit", async (e) => {
     e.preventDefault();
     const display_name = document.getElementById("profile-name").value.trim();

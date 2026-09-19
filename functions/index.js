@@ -8,6 +8,10 @@
  *   4. onSubmissionStatusChanged — emails the submitter when status changes
  *   5. onCommentMentions         — writes in-app notification docs for @mentions
  *   6. verifyReturningVisitor    — callable, legacy returning-visitor lookup
+ *   7. onUserProfileCreated      — links old email-identified comments and
+ *                                  prompt_submissions to a new account on
+ *                                  first sign-in (adds linked_uid), so a
+ *                                  returning visitor's history shows as theirs
  *
  * SITE_URL / RESEND_FROM / ADMIN_EMAIL come from the functions .env file —
  * this repo reuses the same Firebase project (ai-pathology-education) as the
@@ -254,6 +258,43 @@ exports.onCommentMentions = onDocumentCreated(
       }
     } catch (err) {
       logger.error("Failed to resolve mentions for comment", event.params.commentId, err);
+    }
+  }
+);
+
+// ---------------------------------------------------------------------------
+// 7. New profile created → link old email-identified history to this uid
+//
+// Old comments/prompt_submissions were written with commenter_email /
+// submitter_email, no uid (the old site had no real accounts). When someone
+// signs in on the new site, if their email matches old records we stamp
+// those docs with linked_uid so their history is attributable to their new
+// account. This is additive only — linked_uid is never required by rules,
+// existing reads/writes of those collections are unaffected.
+// ---------------------------------------------------------------------------
+
+exports.onUserProfileCreated = onDocumentCreated(
+  "users/{uid}",
+  async (event) => {
+    const uid = event.params.uid;
+    const email = String((event.data.data() || {}).email || "").trim().toLowerCase();
+    if (!email) return;
+
+    try {
+      const [commentsSnap, submissionsSnap] = await Promise.all([
+        adminDb.collection("comments").where("commenter_email", "==", email).get(),
+        adminDb.collection("prompt_submissions").where("submitter_email", "==", email).get()
+      ]);
+
+      const batch = adminDb.batch();
+      let n = 0;
+      commentsSnap.forEach((d) => { batch.update(d.ref, { linked_uid: uid }); n++; });
+      submissionsSnap.forEach((d) => { batch.update(d.ref, { linked_uid: uid }); n++; });
+      if (n > 0) await batch.commit();
+
+      logger.info("Linked", n, "old record(s) to new uid", uid, "for email", email);
+    } catch (err) {
+      logger.error("Failed to link old history for uid", uid, err);
     }
   }
 );
