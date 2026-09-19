@@ -1,0 +1,352 @@
+// Firestore security rules — GenAI in Medical Education Companion Library
+// Project: ai-pathology-education (reused from the original companion)
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------------------------------------------------------------------
+    // Helpers
+    // ---------------------------------------------------------------------
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == 'gXIEl0ajRzfXHgUye54WvemBf642';
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function emailRe() { return '^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$'; }
+    function promptPathRe() { return '^[A-Za-z0-9_/\\-]+$'; }
+
+    // ---------------------------------------------------------------------
+    // users/{uid} — one profile doc per signed-in visitor
+    //   Created client-side on first sign-in. Public fields (display_name)
+    //   are readable by anyone (needed to show "commented by X"); private
+    //   fields (email, institution, role) are owner+admin only via a
+    //   split: the doc itself is owner/admin-read, and a parallel
+    //   public_profile doc carries only what's safe to show elsewhere.
+    // ---------------------------------------------------------------------
+
+    function isValidUserPayload() {
+      let d = request.resource.data;
+      let keys = d.keys();
+      let required = ['created_at', 'email', 'display_name', 'institution', 'role'];
+      let allowedRoles = ['resident', 'fellow', 'faculty', 'program_director', 'other'];
+      return
+        keys.hasAll(required) && keys.hasOnly(required)
+        && d.created_at == request.time
+        && d.email is string && d.email == request.auth.token.email
+        && d.display_name is string && d.display_name.size() >= 1 && d.display_name.size() <= 120
+        && d.institution is string && d.institution.size() <= 200
+        && d.role is string && d.role in allowedRoles;
+    }
+
+    match /users/{uid} {
+      allow create: if isOwner(uid) && isValidUserPayload();
+      allow read:   if isOwner(uid) || isAdmin();
+      allow update: if isOwner(uid)
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['display_name', 'institution', 'role'])
+        && request.resource.data.display_name is string
+        && request.resource.data.display_name.size() >= 1
+        && request.resource.data.display_name.size() <= 120;
+      allow delete: if false; // account deletion handled server-side (Cloud Function) so we can cascade-clean subcollections
+
+      // ---- users/{uid}/favorites/{promptPathSafe} ----
+      // One doc per saved prompt. Doc ID is the prompt path with '/' -> '__'
+      // (deterministic, so "already saved" is a get-by-id, not a query).
+      match /favorites/{favId} {
+        function isValidFavorite() {
+          let d = request.resource.data;
+          let keys = d.keys();
+          return keys.hasAll(['prompt_path', 'saved_at']) && keys.hasOnly(['prompt_path', 'saved_at'])
+            && d.prompt_path is string && d.prompt_path.matches(promptPathRe())
+            && d.saved_at == request.time;
+        }
+        allow read:          if isOwner(uid) || isAdmin();
+        allow create, delete: if isOwner(uid) && isValidFavorite();
+        allow update:        if false; // un-favorite = delete, not edit
+      }
+
+      // ---- users/{uid}/notes/{docId} ----
+      // Free-text personal notes tied to a prompt. Private notebook — never
+      // readable by anyone but the owner (and admin, for support/abuse only).
+      match /notes/{noteId} {
+        function isValidNote() {
+          let d = request.resource.data;
+          let keys = d.keys();
+          return keys.hasAll(['prompt_path', 'text', 'updated_at']) && keys.hasOnly(['prompt_path', 'text', 'updated_at'])
+            && d.prompt_path is string && d.prompt_path.matches(promptPathRe())
+            && d.text is string && d.text.size() <= 10000
+            && d.updated_at == request.time;
+        }
+        allow read:   if isOwner(uid) || isAdmin();
+        allow create, update: if isOwner(uid) && isValidNote();
+        allow delete: if isOwner(uid);
+      }
+
+      // ---- users/{uid}/notifications/{docId} ----
+      // @mention notifications. Written ONLY server-side by a Cloud
+      // Function (Admin SDK bypasses rules entirely) when someone mentions
+      // this user in a comment — clients cannot create these directly.
+      match /notifications/{notifId} {
+        allow read:   if isOwner(uid);
+        allow update: if isOwner(uid)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+        allow create, delete: if false; // server-only
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // access_log — legacy lightweight visitor capture (kept for continuity
+    // with historical data; new signed-in visitors also get a users/ doc)
+    // ---------------------------------------------------------------------
+
+    function isValidAccessLogPayload() {
+      let data = request.resource.data;
+      let keys = data.keys();
+      let required = ['timestamp', 'name', 'institution', 'email', 'role', 'referrer', 'user_agent'];
+      let allowedRoles = ['resident', 'fellow', 'faculty', 'program_director', 'other'];
+      return keys.hasAll(required) && keys.hasOnly(required)
+        && data.timestamp == request.time
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 120
+        && data.institution is string && data.institution.size() <= 200
+        && data.email is string && data.email.size() >= 5 && data.email.size() <= 254
+        && data.email.matches(emailRe())
+        && data.role is string && data.role in allowedRoles
+        && data.referrer is string && data.referrer.size() <= 500
+        && data.user_agent is string && data.user_agent.size() <= 500;
+    }
+
+    match /access_log/{docId} {
+      allow create:         if isValidAccessLogPayload();
+      allow read, list:     if isAdmin();
+      allow update, delete: if false;
+    }
+
+    // ---------------------------------------------------------------------
+    // prompt_submissions — updated to the new 4-pillar taxonomy
+    // ---------------------------------------------------------------------
+
+    function isValidSubmissionPayload() {
+      let d = request.resource.data;
+      let keys = d.keys();
+      let required = [
+        'timestamp', 'status',
+        'submitter_name', 'submitter_email', 'submitter_affiliation',
+        'prompt_title', 'prompt_pillar', 'prompt_audience',
+        'prompt_difficulty', 'prompt_time',
+        'prompt_intent', 'prompt_when', 'prompt_text',
+        'prompt_expected_output', 'prompt_failure_modes', 'prompt_verification',
+        'prompt_best_model', 'referrer', 'user_agent'
+      ];
+      let allowedPillars = ['learning', 'teaching', 'scholarship', 'workflow-operations'];
+      let allowedAudiences = ['resident', 'fellow', 'faculty', 'program-director', 'learner', 'mixed', ''];
+      let allowedDifficulties = ['quick-win', 'intermediate', 'advanced', ''];
+      let allowedTimes = ['<2min', '2-10min', '>10min', ''];
+      return keys.hasAll(required) && keys.hasOnly(required)
+        && d.timestamp == request.time && d.status == 'pending'
+        && d.submitter_name is string && d.submitter_name.size() >= 1 && d.submitter_name.size() <= 120
+        && d.submitter_email is string && d.submitter_email.matches(emailRe())
+        && d.submitter_affiliation is string && d.submitter_affiliation.size() <= 200
+        && d.prompt_title is string && d.prompt_title.size() >= 1 && d.prompt_title.size() <= 200
+        && d.prompt_pillar is string && d.prompt_pillar in allowedPillars
+        && d.prompt_audience is string && d.prompt_audience in allowedAudiences
+        && d.prompt_difficulty is string && d.prompt_difficulty in allowedDifficulties
+        && d.prompt_time is string && d.prompt_time in allowedTimes
+        && d.prompt_intent is string && d.prompt_intent.size() >= 20 && d.prompt_intent.size() <= 800
+        && d.prompt_when is string && d.prompt_when.size() <= 800
+        && d.prompt_text is string && d.prompt_text.size() >= 50 && d.prompt_text.size() <= 8000
+        && d.prompt_expected_output is string && d.prompt_expected_output.size() <= 800
+        && d.prompt_failure_modes is string && d.prompt_failure_modes.size() <= 1500
+        && d.prompt_verification is string && d.prompt_verification.size() <= 1500
+        && d.prompt_best_model is string && d.prompt_best_model.size() <= 100
+        && d.referrer is string && d.referrer.size() <= 500
+        && d.user_agent is string && d.user_agent.size() <= 500;
+    }
+
+    function isAdminStatusUpdate() {
+      let before = resource.data; let after = request.resource.data;
+      let allowedStatuses = ['pending', 'approved', 'rejected', 'needs_revision'];
+      let immutable = [
+        'timestamp', 'submitter_name', 'submitter_email', 'submitter_affiliation',
+        'prompt_title', 'prompt_pillar', 'prompt_audience', 'prompt_difficulty', 'prompt_time',
+        'prompt_intent', 'prompt_when', 'prompt_text', 'prompt_expected_output',
+        'prompt_failure_modes', 'prompt_verification', 'prompt_best_model', 'referrer', 'user_agent'
+      ];
+      return !(before.diff(after).affectedKeys().hasAny(immutable))
+        && after.status is string && after.status in allowedStatuses;
+    }
+
+    match /prompt_submissions/{docId} {
+      allow create:      if isValidSubmissionPayload();
+      allow read, list:  if isAdmin();
+      allow update:      if isAdmin() && isAdminStatusUpdate();
+      allow delete:      if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------
+    // comments — now supports both legacy email-identified comments (read
+    // only, no new writes expected) AND new uid-identified comments from
+    // signed-in users. Adds optional mentions[] for @-mention notifications
+    // (the notification docs themselves are written server-side).
+    // ---------------------------------------------------------------------
+
+    function isValidCommentPayload() {
+      let d = request.resource.data;
+      let keys = d.keys();
+      let required = [
+        'timestamp', 'status', 'prompt_path', 'uid',
+        'commenter_name', 'comment_text', 'mentions',
+        'is_admin', 'referrer', 'user_agent'
+      ];
+      return keys.hasAll(required) && keys.hasOnly(required)
+        && d.timestamp == request.time
+        && d.uid == request.auth.uid
+        && (
+          (d.status == 'pending' && d.is_admin == false)
+          || (isAdmin() && d.status == 'visible' && d.is_admin == true)
+        )
+        && d.prompt_path is string && d.prompt_path.size() <= 300 && d.prompt_path.matches(promptPathRe())
+        && d.commenter_name is string && d.commenter_name.size() >= 1 && d.commenter_name.size() <= 100
+        && d.comment_text is string && d.comment_text.size() >= 10 && d.comment_text.size() <= 2000
+        && d.mentions is list && d.mentions.size() <= 10
+        && d.is_admin is bool
+        && d.referrer is string && d.referrer.size() <= 500
+        && d.user_agent is string && d.user_agent.size() <= 500;
+    }
+
+    function isAdminCommentUpdate() {
+      let before = resource.data; let after = request.resource.data;
+      let allowedStatuses = ['pending', 'visible', 'hidden'];
+      let immutable = ['timestamp', 'prompt_path', 'uid', 'commenter_name', 'comment_text', 'mentions', 'is_admin', 'referrer', 'user_agent'];
+      return !(before.diff(after).affectedKeys().hasAny(immutable))
+        && after.status is string && after.status in allowedStatuses;
+    }
+
+    match /comments/{commentId} {
+      allow create:     if isSignedIn() && isValidCommentPayload();
+      allow read, list: if isAdmin() || resource.data.status == 'visible';
+      allow update:     if isAdmin() && isAdminCommentUpdate();
+      allow delete:     if isAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+
+      // ---- comments/{commentId}/likes/{uid} ----
+      // Doc ID == liker's uid, so "already liked" is a get-by-id and a
+      // double-like is structurally impossible (create on existing ID fails).
+      match /likes/{likerUid} {
+        allow read:   if true; // anyone can see the like count
+        allow create: if isOwner(likerUid)
+          && request.resource.data.keys().hasOnly(['liked_at'])
+          && request.resource.data.liked_at == request.time;
+        allow delete: if isOwner(likerUid); // unlike
+        allow update: if false;
+      }
+    }
+
+    // ---------------------------------------------------------------------
+    // votes — up/down, one per (uid, prompt), keyed by deterministic doc ID
+    // built client-side as `${uid}__${promptPathSafe}`. Migrated from the
+    // old email-keyed model now that real auth exists.
+    // ---------------------------------------------------------------------
+
+    function isValidVotePayload() {
+      let d = request.resource.data;
+      let keys = d.keys();
+      return keys.hasAll(['prompt_path', 'uid', 'direction', 'timestamp'])
+        && keys.hasOnly(['prompt_path', 'uid', 'direction', 'timestamp'])
+        && d.timestamp == request.time
+        && d.uid == request.auth.uid
+        && d.prompt_path is string && d.prompt_path.size() <= 300 && d.prompt_path.matches(promptPathRe())
+        && d.direction is string && d.direction in ['up', 'down'];
+    }
+
+    match /votes/{docId} {
+      allow create: if isSignedIn() && isValidVotePayload();
+      allow read, list: if true; // anyone can read aggregate counts
+      allow update: if isSignedIn() && resource.data.uid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['direction', 'timestamp'])
+        && request.resource.data.direction in ['up', 'down']
+        && request.resource.data.timestamp == request.time; // change your vote direction
+      allow delete: if isAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+    }
+
+    // ---------------------------------------------------------------------
+    // feedback — unchanged from the original (anonymous allowed)
+    // ---------------------------------------------------------------------
+
+    function isValidFeedbackPayload() {
+      let d = request.resource.data;
+      let keys = d.keys();
+      let required = ['timestamp', 'status', 'submitter_name', 'submitter_email', 'message', 'page_url', 'referrer', 'user_agent'];
+      return keys.hasAll(required) && keys.hasOnly(required)
+        && d.timestamp == request.time && d.status == 'new'
+        && d.submitter_name is string && d.submitter_name.size() <= 120
+        && d.submitter_email is string && d.submitter_email.size() <= 254
+        && (d.submitter_email.size() == 0 || d.submitter_email.matches(emailRe()))
+        && d.message is string && d.message.size() >= 10 && d.message.size() <= 3000
+        && d.page_url is string && d.page_url.size() <= 500
+        && d.referrer is string && d.referrer.size() <= 500
+        && d.user_agent is string && d.user_agent.size() <= 500;
+    }
+
+    function isAdminFeedbackUpdate() {
+      let before = resource.data; let after = request.resource.data;
+      let allowedStatuses = ['new', 'triaged', 'resolved'];
+      let immutable = ['timestamp', 'submitter_name', 'submitter_email', 'message', 'page_url', 'referrer', 'user_agent'];
+      return !(before.diff(after).affectedKeys().hasAny(immutable))
+        && after.status is string && after.status in allowedStatuses;
+    }
+
+    match /feedback/{docId} {
+      allow create:     if isValidFeedbackPayload();
+      allow read, list: if isAdmin();
+      allow update:     if isAdmin() && isAdminFeedbackUpdate();
+      allow delete:     if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------
+    // page_events — first-party analytics. `uid` added (optional — empty
+    // string for anonymous/signed-out visitors) so per-user research
+    // aggregation is possible once that's cleared for use. Writing this
+    // collection does NOT itself constitute "research data collection" —
+    // it's ordinary product analytics until repurposed with the
+    // appropriate institutional sign-off.
+    // ---------------------------------------------------------------------
+
+    function isValidEventPayload() {
+      let d = request.resource.data;
+      let keys = d.keys();
+      let required = ['timestamp', 'type', 'session_id', 'uid', 'path', 'email', 'referrer', 'query', 'prompt_path'];
+      let allowedTypes = ['view', 'copy', 'search', 'favorite', 'unfavorite', 'note_saved', 'vote', 'comment'];
+      return keys.hasAll(required) && keys.hasOnly(required)
+        && d.timestamp == request.time
+        && d.type is string && d.type in allowedTypes
+        && d.session_id is string && d.session_id.size() <= 64
+        && d.uid is string && d.uid.size() <= 128
+        && d.path is string && d.path.size() <= 500
+        && d.email is string && d.email.size() <= 254
+        && (d.email.size() == 0 || d.email.matches(emailRe()))
+        && d.referrer is string && d.referrer.size() <= 500
+        && d.query is string && d.query.size() <= 200
+        && d.prompt_path is string && d.prompt_path.size() <= 300;
+    }
+
+    match /page_events/{docId} {
+      allow create:          if isValidEventPayload();
+      allow read, list:      if isAdmin();
+      allow update, delete:  if isAdmin();
+    }
+
+    // ---- deny-by-default ----
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -38,6 +38,11 @@
     return m ? m[1] : null;
   }
 
+  function isPromptDetailPath(path) {
+    return /^library\/pillar-[^\/]+\/prompts\/[^\/]+\.md$/.test(path)
+        || /^library\/pillar-[^\/]+\/prompts\/[^\/]+\/[^\/]+\.md$/.test(path);
+  }
+
   function ensureManifest() {
     if (manifest) return Promise.resolve(manifest);
     return fetch("library/manifest.json", { cache: "no-store" })
@@ -173,9 +178,17 @@
     }
     var raw = window.marked.parse(parsed.body, { mangle: false });
     var clean = window.DOMPurify.sanitize(raw, { USE_PROFILES: { html: true } });
+    var engagementHtml = isPromptDetailPath(path) ? '<div id="engagement-slot"></div>' : "";
     contentEl.innerHTML =
       (parsed.data.title ? "<h1>" + esc(parsed.data.title) + "</h1>" : "") +
-      metaHtml(parsed.data) + clean;
+      metaHtml(parsed.data) + clean + engagementHtml;
+
+    if (isPromptDetailPath(path)) {
+      var promptPath = path.replace(/\.md$/, "");
+      import("./engagement.js").then(function (mod) {
+        mod.renderEngagement(document.getElementById("engagement-slot"), promptPath);
+      }).catch(function (err) { console.error("engagement.js failed to load:", err); });
+    }
 
     contentEl.querySelectorAll("a[href]").forEach(function (a) {
       if (/^https?:\/\//i.test(a.getAttribute("href") || "")) {
