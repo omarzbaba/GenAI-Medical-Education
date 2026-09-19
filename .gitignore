@@ -3,3 +3,5 @@ Thumbs.db
 *.swp
 .history/
 node_modules/
+functions/.env
+functions/.env.*
